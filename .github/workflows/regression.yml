@@ -1,0 +1,91 @@
+name: harness-eval regression
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      harness_eval_version:
+        description: "harness-eval version to test (default: latest)"
+        required: false
+        default: ""
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        scenario:
+          - name: 1-exfiltration-chain
+            vulnerable_verdict: UNSAFE
+            fixed_verdict: SAFE
+          - name: 2-data-exfiltration
+            vulnerable_verdict: UNSAFE
+            fixed_verdict: SAFE
+          - name: 3-credential-access
+            vulnerable_verdict: UNSAFE
+            fixed_verdict: SAFE
+          - name: 4-prompt-injection
+            vulnerable_verdict: UNSAFE
+            fixed_verdict: SAFE
+          - name: 5-obfuscation
+            vulnerable_verdict: UNSAFE
+            fixed_verdict: SAFE
+          - name: 6-coercive-override
+            vulnerable_verdict: UNSAFE
+            fixed_verdict: SAFE
+          - name: 7-unbounded-delegation
+            vulnerable_verdict: UNSAFE
+            fixed_verdict: SAFE
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install harness-eval
+        run: |
+          VERSION="${{ github.event.inputs.harness_eval_version }}"
+          if [ -n "$VERSION" ]; then
+            uv pip install --system "harness-eval==$VERSION"
+          else
+            uv pip install --system harness-eval
+          fi
+
+      - name: Scan vulnerable setup
+        id: vulnerable
+        run: |
+          OUTPUT=$(harness-eval scan "openshift-demo/${{ matrix.scenario.name }}/vulnerable" --format json 2>/dev/null || true)
+          VERDICT=$(echo "$OUTPUT" | python3 -c "import json,sys; print(json.load(sys.stdin).get('verdict','UNKNOWN'))" 2>/dev/null || echo "UNKNOWN")
+          echo "verdict=$VERDICT" >> "$GITHUB_OUTPUT"
+          echo "Vulnerable verdict: $VERDICT"
+
+      - name: Scan fixed setup
+        id: fixed
+        run: |
+          OUTPUT=$(harness-eval scan "openshift-demo/${{ matrix.scenario.name }}/fixed" --format json 2>/dev/null || true)
+          VERDICT=$(echo "$OUTPUT" | python3 -c "import json,sys; print(json.load(sys.stdin).get('verdict','UNKNOWN'))" 2>/dev/null || echo "UNKNOWN")
+          echo "verdict=$VERDICT" >> "$GITHUB_OUTPUT"
+          echo "Fixed verdict: $VERDICT"
+
+      - name: Assert verdicts
+        run: |
+          echo "Scenario: ${{ matrix.scenario.name }}"
+          echo "Vulnerable: ${{ steps.vulnerable.outputs.verdict }} (expected: ${{ matrix.scenario.vulnerable_verdict }})"
+          echo "Fixed: ${{ steps.fixed.outputs.verdict }} (expected: ${{ matrix.scenario.fixed_verdict }})"
+
+          if [ "${{ steps.vulnerable.outputs.verdict }}" != "${{ matrix.scenario.vulnerable_verdict }}" ]; then
+            echo "::error::Vulnerable setup should be ${{ matrix.scenario.vulnerable_verdict }} but got ${{ steps.vulnerable.outputs.verdict }}"
+            exit 1
+          fi
+
+          FIXED="${{ steps.fixed.outputs.verdict }}"
+          EXPECTED="${{ matrix.scenario.fixed_verdict }}"
+          if [ "$FIXED" != "$EXPECTED" ] && [ "$FIXED" != "CAUTION" ]; then
+            echo "::error::Fixed setup should be $EXPECTED or CAUTION but got $FIXED"
+            exit 1
+          fi
