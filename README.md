@@ -31,6 +31,6 @@ gh workflow run regression.yml -f harness_eval_version=7.6.0
 
 ```bash
 pip install harness-eval
-harness-eval scan openshift-demo/1-exfiltration-chain/vulnerable   # should be UNSAFE
-harness-eval scan openshift-demo/1-exfiltration-chain/fixed         # should be SAFE
+harness-eval skill-verify openshift-demo/1-exfiltration-chain/vulnerable   # should be UNSAFE
+harness-eval skill-verify openshift-demo/1-exfiltration-chain/fixed         # should be SAFE
 ```

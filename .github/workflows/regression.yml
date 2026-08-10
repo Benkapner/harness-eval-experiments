@@ -59,7 +59,7 @@ jobs:
       - name: Scan vulnerable setup
         id: vulnerable
         run: |
-          OUTPUT=$(harness-eval scan "openshift-demo/${{ matrix.scenario.name }}/vulnerable" --format json 2>/dev/null || true)
+          OUTPUT=$(harness-eval skill-verify "openshift-demo/${{ matrix.scenario.name }}/vulnerable" --format json 2>/dev/null || true)
           VERDICT=$(echo "$OUTPUT" | python3 -c "import json,sys; print(json.load(sys.stdin).get('verdict','UNKNOWN'))" 2>/dev/null || echo "UNKNOWN")
           echo "verdict=$VERDICT" >> "$GITHUB_OUTPUT"
           echo "Vulnerable verdict: $VERDICT"
@@ -67,7 +67,7 @@ jobs:
       - name: Scan fixed setup
         id: fixed
         run: |
-          OUTPUT=$(harness-eval scan "openshift-demo/${{ matrix.scenario.name }}/fixed" --format json 2>/dev/null || true)
+          OUTPUT=$(harness-eval skill-verify "openshift-demo/${{ matrix.scenario.name }}/fixed" --format json 2>/dev/null || true)
           VERDICT=$(echo "$OUTPUT" | python3 -c "import json,sys; print(json.load(sys.stdin).get('verdict','UNKNOWN'))" 2>/dev/null || echo "UNKNOWN")
           echo "verdict=$VERDICT" >> "$GITHUB_OUTPUT"
           echo "Fixed verdict: $VERDICT"
