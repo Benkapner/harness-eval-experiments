@@ -1,0 +1,945 @@
+[
+ {
+  "rule_id": "agent/constraint-body-match",
+  "category": "agents",
+  "module": "agents/constraint_body_match.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/data-exfiltration",
+  "category": "agents",
+  "module": "agents/data_exfiltration.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/description-required",
+  "category": "agents",
+  "module": "agents/description_required.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/disallowed-tools-parseable",
+  "category": "agents",
+  "module": "agents/disallowed_tools_parseable.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/excessive-permissions",
+  "category": "agents",
+  "module": "agents/excessive_permissions.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/memory-write-unscoped",
+  "category": "agents",
+  "module": "agents/memory_write_unscoped.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/model-specified",
+  "category": "agents",
+  "module": "agents/model_specified.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/no-credential-access",
+  "category": "agents",
+  "module": "agents/no_credential_access.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/no-prompt-injection",
+  "category": "agents",
+  "module": "agents/no_prompt_injection.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/obfuscation",
+  "category": "agents",
+  "module": "agents/obfuscation_detection.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/referenced-skills-exist",
+  "category": "agents",
+  "module": "agents/referenced_skills_exist.py",
+  "scope_auto": "PAIRWISE",
+  "scope": "PAIRWISE",
+  "signals": [
+   "all_skills"
+  ]
+ },
+ {
+  "rule_id": "agent/reverse-shell",
+  "category": "agents",
+  "module": "agents/reverse_shell_detection.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "agent/unbounded-delegation",
+  "category": "agents",
+  "module": "agents/unbounded_delegation.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "claude-md/exists",
+  "category": "claude_md",
+  "module": "claude_md/exists.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "claude-md/generic-advice",
+  "category": "claude_md",
+  "module": "claude_md/generic_advice.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "content/missing-boundary-policy",
+  "category": "claude_md",
+  "module": "claude_md/missing_boundary_policy.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "claude-md/skill-duplication",
+  "category": "claude_md",
+  "module": "claude_md/skill_duplication.py",
+  "scope_auto": "PAIRWISE",
+  "scope": "PAIRWISE",
+  "signals": [
+   "all_skills",
+   "similarity",
+   "tfidf"
+  ]
+ },
+ {
+  "rule_id": "command/allowed-tools-coverage",
+  "category": "commands",
+  "module": "commands/allowed_tools_coverage.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "command/data-exfiltration",
+  "category": "commands",
+  "module": "commands/data_exfiltration.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "command/description-required",
+  "category": "commands",
+  "module": "commands/description_required.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "command/duplicate-detection",
+  "category": "commands",
+  "module": "commands/duplicate_detection.py",
+  "scope_auto": "SETUP",
+  "scope": "PAIRWISE",
+  "signals": [
+   "scan_state",
+   "similarity",
+   "tfidf"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "scan_state is cross-command similarity, not full graph"
+ },
+ {
+  "rule_id": "command/no-credential-access",
+  "category": "commands",
+  "module": "commands/no_credential_access.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "command/no-prompt-injection",
+  "category": "commands",
+  "module": "commands/no_prompt_injection.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "command/obfuscation",
+  "category": "commands",
+  "module": "commands/obfuscation_detection.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "command/references-nonexistent-skill",
+  "category": "commands",
+  "module": "commands/references_nonexistent_skill.py",
+  "scope_auto": "PAIRWISE",
+  "scope": "PAIRWISE",
+  "signals": [
+   "all_skills"
+  ]
+ },
+ {
+  "rule_id": "command/reverse-shell",
+  "category": "commands",
+  "module": "commands/reverse_shell_detection.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "command/script-exists",
+  "category": "commands",
+  "module": "commands/script_exists.py",
+  "scope_auto": "FILE_FS",
+  "scope": "FILE_FS",
+  "signals": [
+   ".exists()"
+  ]
+ },
+ {
+  "rule_id": "command/shadows-builtin",
+  "category": "commands",
+  "module": "commands/shadows_builtin.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "command/skill-overlap",
+  "category": "commands",
+  "module": "commands/skill_overlap.py",
+  "scope_auto": "PAIRWISE",
+  "scope": "PAIRWISE",
+  "signals": [
+   "all_skills",
+   "similarity",
+   "tfidf"
+  ]
+ },
+ {
+  "rule_id": "content/allowed-tools-auto-approve",
+  "category": "content",
+  "module": "content/allowed_tools_auto_approve.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "content/broken-references",
+  "category": "content",
+  "module": "content/broken_references.py",
+  "scope_auto": "SETUP",
+  "scope": "FILE_FS",
+  "signals": [
+   ".exists()",
+   "resolve()",
+   "scan_state"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "uses scan_state only for project_root, resolves paths locally"
+ },
+ {
+  "rule_id": "content/circular-references",
+  "category": "content",
+  "module": "content/circular_references.py",
+  "scope_auto": "SETUP",
+  "scope": "SETUP",
+  "signals": [
+   "all_commands",
+   "all_skills",
+   "scan_state"
+  ]
+ },
+ {
+  "rule_id": "content/description-length",
+  "category": "content",
+  "module": "content/description_length.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "content/duplicate-detection",
+  "category": "content",
+  "module": "content/duplicate_detection.py",
+  "scope_auto": "SETUP",
+  "scope": "PAIRWISE",
+  "signals": [
+   "scan_state",
+   "similarity",
+   "tfidf"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "scan_state is cross-skill similarity, not full graph"
+ },
+ {
+  "rule_id": "content/hardcoded-machine-path",
+  "category": "content",
+  "module": "content/hardcoded_machine_path.py",
+  "scope_auto": "SETUP",
+  "scope": "FILE",
+  "signals": [
+   "all_commands",
+   "all_skills",
+   "scan_state"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "iterates components for coverage but check is per-file"
+ },
+ {
+  "rule_id": "content/mcp-skill-alignment",
+  "category": "content",
+  "module": "content/mcp_skill_alignment.py",
+  "scope_auto": "SETUP",
+  "scope": "SETUP",
+  "signals": [
+   ".exists()",
+   "all_skills",
+   "resolve()",
+   "scan_state"
+  ]
+ },
+ {
+  "rule_id": "content/orphan-skills",
+  "category": "content",
+  "module": "content/orphan_skills.py",
+  "scope_auto": "SETUP",
+  "scope": "SETUP",
+  "signals": [
+   ".is_dir()",
+   ".is_file()",
+   "all_commands",
+   "all_skills",
+   "glob(",
+   "read_text",
+   "scan_state"
+  ]
+ },
+ {
+  "rule_id": "content/permission-escalation",
+  "category": "content",
+  "module": "content/permission_escalation.py",
+  "scope_auto": "SETUP",
+  "scope": "SETUP",
+  "signals": [
+   "all_skills",
+   "scan_state"
+  ]
+ },
+ {
+  "rule_id": "content/token-budget",
+  "category": "content",
+  "module": "content/token_budget.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "content/total-context-budget",
+  "category": "content",
+  "module": "content/total_context_budget.py",
+  "scope_auto": "SETUP",
+  "scope": "SETUP",
+  "signals": [
+   "all_skills",
+   "scan_state"
+  ]
+ },
+ {
+  "rule_id": "content/total-description-budget",
+  "category": "content",
+  "module": "content/total_description_budget.py",
+  "scope_auto": "SETUP",
+  "scope": "SETUP",
+  "signals": [
+   "all_skills",
+   "scan_state"
+  ]
+ },
+ {
+  "rule_id": "cross/config-instruction-conflict",
+  "category": "cross",
+  "module": "cross/config_instruction_conflict.py",
+  "scope_auto": "SETUP",
+  "scope": "SETUP",
+  "signals": [
+   ".is_dir()",
+   ".is_file()",
+   "all_commands",
+   "all_skills",
+   "read_text",
+   "resolve()",
+   "scan_state",
+   "settings"
+  ]
+ },
+ {
+  "rule_id": "cross/multi-assistant-drift",
+  "category": "cross",
+  "module": "cross/multi_assistant_drift.py",
+  "scope_auto": "SETUP",
+  "scope": "SETUP",
+  "signals": [
+   ".is_dir()",
+   ".is_file()",
+   "read_text",
+   "resolve()",
+   "scan_state",
+   "similarity",
+   "tfidf"
+  ]
+ },
+ {
+  "rule_id": "cross/overpermissive-grants",
+  "category": "cross",
+  "module": "cross/overpermissive_grants.py",
+  "scope_auto": "SETUP",
+  "scope": "SETUP",
+  "signals": [
+   ".is_dir()",
+   ".is_file()",
+   "all_skills",
+   "read_text",
+   "resolve()",
+   "scan_state",
+   "settings"
+  ]
+ },
+ {
+  "rule_id": "frontmatter/description-quality",
+  "category": "frontmatter",
+  "module": "frontmatter/description_quality.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "frontmatter/description-required",
+  "category": "frontmatter",
+  "module": "frontmatter/description_required.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "frontmatter/format-valid",
+  "category": "frontmatter",
+  "module": "frontmatter/format_valid.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "hooks/api-key-helper",
+  "category": "hooks",
+  "module": "hooks/api_key_helper.py",
+  "scope_auto": "SETUP",
+  "scope": "FILE",
+  "signals": [
+   "settings"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "reads one hook definition, scan_state is incidental"
+ },
+ {
+  "rule_id": "hooks/base-url-override",
+  "category": "hooks",
+  "module": "hooks/base_url_override.py",
+  "scope_auto": "SETUP",
+  "scope": "FILE",
+  "signals": [
+   "settings"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "reads one hook definition, scan_state is incidental"
+ },
+ {
+  "rule_id": "hooks/dangerous-command",
+  "category": "hooks",
+  "module": "hooks/dangerous_command.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/dangerous-permission-grant",
+  "category": "hooks",
+  "module": "hooks/dangerous_permission_grant.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "hooks/env-credential-override",
+  "category": "hooks",
+  "module": "hooks/env_credential_override.py",
+  "scope_auto": "SETUP",
+  "scope": "FILE",
+  "signals": [
+   "settings"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "reads one hook definition, scan_state is incidental"
+ },
+ {
+  "rule_id": "hooks/env-leakage",
+  "category": "hooks",
+  "module": "hooks/env_leakage.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "hooks/matcher-matches-no-tool",
+  "category": "hooks",
+  "module": "hooks/matcher_matches_no_tool.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "hooks/network-access",
+  "category": "hooks",
+  "module": "hooks/network_access.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "hooks/no-audit-trail",
+  "category": "hooks",
+  "module": "hooks/no_audit_trail.py",
+  "scope_auto": "SETUP",
+  "scope": "FILE",
+  "signals": [
+   "settings"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "reads one hook definition, scan_state is incidental"
+ },
+ {
+  "rule_id": "hooks/no-commit-guard",
+  "category": "hooks",
+  "module": "hooks/no_commit_guard.py",
+  "scope_auto": "SETUP",
+  "scope": "FILE",
+  "signals": [
+   "settings"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "reads one hook definition, scan_state is incidental"
+ },
+ {
+  "rule_id": "hooks/pre-trust-permissions",
+  "category": "hooks",
+  "module": "hooks/pre_trust_permissions.py",
+  "scope_auto": "SETUP",
+  "scope": "FILE",
+  "signals": [
+   "settings"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "reads one hook definition, scan_state is incidental"
+ },
+ {
+  "rule_id": "hooks/script-boundary",
+  "category": "hooks",
+  "module": "hooks/script_boundary.py",
+  "scope_auto": "FILE",
+  "scope": "FILE_FS",
+  "signals": [],
+  "manually_corrected": true,
+  "correction_reason": "resolves script paths relative to project dir"
+ },
+ {
+  "rule_id": "hooks/silent-failure-masking",
+  "category": "hooks",
+  "module": "hooks/silent_failure_masking.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "hooks/valid-structure",
+  "category": "hooks",
+  "module": "hooks/valid_structure.py",
+  "scope_auto": "FILE_FS",
+  "scope": "FILE_FS",
+  "signals": [
+   ".exists()"
+  ]
+ },
+ {
+  "rule_id": "mcp/auto-approve-risk",
+  "category": "mcp",
+  "module": "mcp/auto_approve_risk.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "mcp/duplicate-server",
+  "category": "mcp",
+  "module": "mcp/duplicate_server.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "mcp/no-plaintext-secrets",
+  "category": "mcp",
+  "module": "mcp/no_plaintext_secrets.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "mcp/no-wildcard-tools",
+  "category": "mcp",
+  "module": "mcp/no_wildcard_tools.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "mcp/suspicious-endpoint",
+  "category": "mcp",
+  "module": "mcp/suspicious_endpoint.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "mcp/unpinned-package",
+  "category": "mcp",
+  "module": "mcp/unpinned_package.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "mcp/valid-config",
+  "category": "mcp",
+  "module": "mcp/valid_config.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "quality/example-gap",
+  "category": "quality",
+  "module": "quality/example_gap.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "quality/imprecise-instruction",
+  "category": "quality",
+  "module": "quality/imprecise_instruction.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "quality/negative-only",
+  "category": "quality",
+  "module": "quality/negative_only.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "quality/redundant-guidance",
+  "category": "quality",
+  "module": "quality/redundant_guidance.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": [],
+  "manually_corrected": true,
+  "correction_reason": "checks config presence but judgment is per-file"
+ },
+ {
+  "rule_id": "quality/scope-grab-description",
+  "category": "quality",
+  "module": "quality/scope_grab_description.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "quality/scope-overreach",
+  "category": "quality",
+  "module": "quality/scope_overreach.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "quality/stale-references",
+  "category": "quality",
+  "module": "quality/stale_references.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "quality/trigger-manipulation",
+  "category": "quality",
+  "module": "quality/trigger_manipulation.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "quality/unfinished-content",
+  "category": "quality",
+  "module": "quality/unfinished_content.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/ast-behavioral",
+  "category": "security",
+  "module": "security/ast_behavioral.py",
+  "scope_auto": "FILE_FS",
+  "scope": "FILE_FS",
+  "signals": [
+   ".is_dir()",
+   "glob(",
+   "read_text",
+   "rglob"
+  ]
+ },
+ {
+  "rule_id": "security/bash-taint-flow",
+  "category": "security",
+  "module": "security/bash_taint_tracking.py",
+  "scope_auto": "FILE_FS",
+  "scope": "FILE_FS",
+  "signals": [
+   ".is_dir()",
+   "glob(",
+   "read_text",
+   "rglob"
+  ]
+ },
+ {
+  "rule_id": "security/coercive-override",
+  "category": "security",
+  "module": "security/coercive_override.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/cross-component-flow",
+  "category": "security",
+  "module": "security/cross_component_flow.py",
+  "scope_auto": "SETUP",
+  "scope": "SETUP",
+  "signals": [
+   "all_skills",
+   "component_graph",
+   "edges_from",
+   "reachable_from",
+   "scan_state"
+  ]
+ },
+ {
+  "rule_id": "security/cve-lookup",
+  "category": "security",
+  "module": "security/cve_lookup.py",
+  "scope_auto": "FILE_FS",
+  "scope": "FILE_FS",
+  "signals": [
+   ".is_dir()",
+   ".is_file()",
+   "read_text"
+  ]
+ },
+ {
+  "rule_id": "security/data-exfiltration",
+  "category": "security",
+  "module": "security/data_exfiltration.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/mcp-least-privilege",
+  "category": "security",
+  "module": "security/mcp_least_privilege.py",
+  "scope_auto": "FILE_FS",
+  "scope": "FILE_FS",
+  "signals": [
+   ".is_dir()",
+   "glob(",
+   "read_text",
+   "rglob"
+  ]
+ },
+ {
+  "rule_id": "security/mcp-tool-poisoning",
+  "category": "security",
+  "module": "security/mcp_tool_poisoning.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/memory-write-unscoped",
+  "category": "security",
+  "module": "security/memory_write_unscoped.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/no-credential-access",
+  "category": "security",
+  "module": "security/no_credential_access.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/no-prompt-injection",
+  "category": "security",
+  "module": "security/no_prompt_injection.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/obfuscation",
+  "category": "security",
+  "module": "security/obfuscation_detection.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/prompt-exfiltration",
+  "category": "security",
+  "module": "security/prompt_exfiltration.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/reverse-shell",
+  "category": "security",
+  "module": "security/reverse_shell_detection.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/stealth-persistence",
+  "category": "security",
+  "module": "security/stealth_persistence.py",
+  "scope_auto": "SETUP",
+  "scope": "FILE",
+  "signals": [
+   "settings"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "reads one component, scan_state is incidental"
+ },
+ {
+  "rule_id": "security/taint-flow",
+  "category": "security",
+  "module": "security/taint_tracking.py",
+  "scope_auto": "FILE_FS",
+  "scope": "FILE_FS",
+  "signals": [
+   ".is_dir()",
+   "glob(",
+   "read_text",
+   "rglob"
+  ]
+ },
+ {
+  "rule_id": "security/unbounded-delegation",
+  "category": "security",
+  "module": "security/unbounded_delegation.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "security/yara-signatures",
+  "category": "security",
+  "module": "security/yara_scan.py",
+  "scope_auto": "FILE_FS",
+  "scope": "FILE_FS",
+  "signals": [
+   ".is_dir()",
+   ".is_file()",
+   "glob(",
+   "rglob"
+  ]
+ },
+ {
+  "rule_id": "structural/skill-md-exists",
+  "category": "structural",
+  "module": "structural/skill_md_exists.py",
+  "scope_auto": "FILE",
+  "scope": "FILE",
+  "signals": []
+ },
+ {
+  "rule_id": "submission/file-completeness",
+  "category": "submission",
+  "module": "submission/file_completeness.py",
+  "scope_auto": "SETUP",
+  "scope": "FILE",
+  "signals": [
+   ".exists()",
+   ".is_dir()",
+   "glob(",
+   "read_text",
+   "rglob",
+   "scan_state"
+  ],
+  "manually_corrected": true,
+  "correction_reason": "checks submission directory completeness, not graph"
+ }
+]

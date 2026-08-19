@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this data or software, please cite the paper below."
+title: "Auditing the Harness: Composition-Level Defects in AI Code-Agent Configurations at Scale"
+type: dataset
+authors:
+  - family-names: Kapner
+    given-names: Benjamin
+license: Apache-2.0
+repository-code: "https://github.com/redhat-community-ai-tools/harness-eval-experiments"
