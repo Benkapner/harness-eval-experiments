@@ -1,5 +1,8 @@
 # Verification of Paper Claims
 
+The paper source (`paper/main.tex`) is not included in this repository.
+This verification was performed against a local copy.
+
 Cross-check of every numeric claim in `paper/main.tex` against
 `scripts/08_final_analysis.py` (reads `results_fixed.jsonl`, the 180
 setup+collection calibrated scan) and `scripts/verify_claims.py` (reads

@@ -16,6 +16,9 @@ scripts/
   03_scan.py           clone, scan, delete; emits one record per repository
   04_analyze.py        classify repositories, compute prevalence and the ablation
   05_audit.py          re-scan the census of rare setup-scope findings
+  06_fp_audit.py       per-finding evidence capture from pinned SHAs
+  07_precision.py      precision with Wilson confidence intervals
+  08_final_analysis.py the numbers in the paper (reads results_fixed.jsonl)
   verify_claims.py     regenerate every number cited in the paper
 data/
   frame_candidates.jsonl  5,718 candidate repositories (the sampling frame)
@@ -77,7 +80,7 @@ Reads every rule class and records what it pulls out of `RuleContext` and the
 filesystem, then assigns one of FILE, FILE_FS, PAIRWISE, SETUP. Writes
 `data/rule_scope.json`.
 
-The automated pass is a starting point, not the answer. Twelve rules are
+The automated pass is a starting point, not the answer. Fifteen rules are
 corrected by hand in the `OV` table inside the script, each with a reason, and
 the output records both `scope_auto` and the corrected `scope` so the correction
 is auditable. If you upgrade `harness-eval`, rerun this and review the diff
@@ -109,7 +112,7 @@ python scripts/04_analyze.py
 Classifies each repository into SETUP, COLLECTION, INSTRUCTION_ONLY, or EMPTY
 from its component inventory, then computes prevalence per class, the scope
 ablation, per-rule frequencies, tool distribution, and cost. Writes
-`data/analysis.json`.
+`data/analysis_final.json`.
 
 The repository classifier is the one place where a judgment call is embedded in
 code, so it is worth reading before trusting the results. The rule is: a
