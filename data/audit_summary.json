@@ -1,0 +1,169 @@
+{
+ "mcp/unpinned-package": {
+  "audited": 100,
+  "confirmed": 100,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "npx": 80,
+   "uvx": 20
+  }
+ },
+ "content/orphan-skills": {
+  "audited": 127,
+  "confirmed": 5,
+  "refuted": 122,
+  "unverifiable": 0,
+  "breakdown": {
+   "referenced": 122
+  }
+ },
+ "content/broken-references": {
+  "audited": 149,
+  "confirmed": 149,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "runtime_output": 31,
+   "dead": 34,
+   "misrouted": 84
+  }
+ },
+ "content/mcp-skill-alignment": {
+  "audited": 16,
+  "confirmed": 7,
+  "refuted": 9,
+  "unverifiable": 0,
+  "breakdown": {
+   "generic_mcp_mention": 9
+  }
+ },
+ "content/hardcoded-machine-path": {
+  "audited": 100,
+  "confirmed": 100,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "supporting_file": 9,
+   "other_component": 69,
+   "named_component": 22
+  }
+ },
+ "frontmatter/format-valid": {
+  "audited": 100,
+  "confirmed": 100,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "name_mismatch": 81,
+   "no_frontmatter": 15,
+   "missing_name": 4
+  }
+ },
+ "content/circular-references": {
+  "audited": 103,
+  "confirmed": 94,
+  "refuted": 9,
+  "unverifiable": 0,
+  "breakdown": {
+   "invocation_cycle": 94,
+   "no_cycle": 3,
+   "documented_command_cycle": 2,
+   "mention_cycle": 4
+  }
+ },
+ "hooks/permission-prompt-disabled": {
+  "audited": 15,
+  "confirmed": 15,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "all_mcp": 5,
+   "acceptEdits": 5,
+   "dontAsk": 1,
+   "skip_dangerous": 2,
+   "bypassPermissions": 2
+  }
+ },
+ "cross/multi-assistant-drift": {
+  "audited": 68,
+  "confirmed": 68,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "diverged": 68
+  }
+ },
+ "agent/description-required": {
+  "audited": 73,
+  "confirmed": 73,
+  "refuted": 0,
+  "unverifiable": 12,
+  "breakdown": {}
+ },
+ "security/credential-file-present": {
+  "audited": 1,
+  "confirmed": 1,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   ".env.*": 1
+  }
+ },
+ "mcp/cross-assistant-divergence": {
+  "audited": 10,
+  "confirmed": 5,
+  "refuted": 5,
+  "unverifiable": 4,
+  "breakdown": {
+   "server_absent": 5
+  }
+ },
+ "mcp/endpoint-integrity": {
+  "audited": 12,
+  "confirmed": 12,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "insecure_url": 8,
+   "missing_path": 4
+  }
+ },
+ "hooks/command-script-exists": {
+  "audited": 16,
+  "confirmed": 16,
+  "refuted": 0,
+  "unverifiable": 2,
+  "breakdown": {
+   "not_in_settings": 2
+  }
+ },
+ "cross/overpermissive-grants": {
+  "audited": 102,
+  "confirmed": 102,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "arbitrary_exec": 66,
+   "bash_star": 5,
+   "bare_tool": 31
+  }
+ },
+ "hooks/local-settings-committed": {
+  "audited": 8,
+  "confirmed": 8,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {}
+ },
+ "claude-md/include-exists": {
+  "audited": 31,
+  "confirmed": 29,
+  "refuted": 2,
+  "unverifiable": 11,
+  "breakdown": {
+   "import_not_found": 11,
+   "exists": 2
+  }
+ }
+}

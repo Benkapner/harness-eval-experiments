@@ -1,6 +1,0 @@
-__pycache__/
-*.pyc
-.venv/
-data/fp_evidence.jsonl
-paper/
-CLAUDE.md

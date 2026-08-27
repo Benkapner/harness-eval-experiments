@@ -1,0 +1,44 @@
+{
+ "grants": {
+  "sampled": 31,
+  "reachable": 16,
+  "examples": [
+   {
+    "commit": "d82df2fe5182c172070eeaa4259af6f21cfda64f",
+    "grant": "Bash(bun:*)",
+    "component": ".claude/commands/add-portal.md"
+   },
+   {
+    "commit": "5aa195ff4b773c3aacf9c3d869dd773aabb36d8a",
+    "grant": "Bash(node:*)",
+    "component": "CLAUDE.md"
+   },
+   {
+    "commit": "570c89f4c4bfa03bc5cea0a43a7fcf9fef0261ab",
+    "grant": "Bash(python:*)",
+    "component": "CLAUDE.md"
+   }
+  ]
+ },
+ "unpinned": {
+  "sampled": 40,
+  "reachable": 31,
+  "examples": [
+   {
+    "commit": "faf5443e952ba9007f37b46fda0dbf1f96d6ae68",
+    "server": "llm-router",
+    "component": "skills/routing/SKILL.md"
+   },
+   {
+    "commit": "bafb92797c00d8b47f3037511c49918a925485ee",
+    "server": "shadcn",
+    "component": "unoplat-code-confluence-frontend/CLAUDE.md"
+   },
+   {
+    "commit": "e04ba88819c365c9acf9d6661ea802143e728bd6",
+    "server": "agentmemory",
+    "component": "AGENTS.md"
+   }
+  ]
+ }
+}
