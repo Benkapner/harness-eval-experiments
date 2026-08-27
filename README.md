@@ -1,36 +1,72 @@
 # harness-eval-experiments
 
-Regression test fixtures for [harness-eval](https://github.com/redhat-community-ai-tools/harness-eval). Each scenario has a `vulnerable/` and `fixed/` setup to verify detection works.
+Measurement study and regression fixtures for
+[harness-eval](https://github.com/redhat-community-ai-tools/harness-eval), a
+linter for AI coding-agent configurations (`.claude/`, `CLAUDE.md`, skills,
+hooks, MCP servers, and their cross-tool equivalents).
 
-## Scenarios
+This repository holds two things:
 
-| # | Scenario | What the vulnerable setup does |
-|---|----------|-------------------------------|
-| 1 | Exfiltration chain | Two skills form a credential-to-network pipeline |
-| 2 | Data exfiltration | Skill sends local files to an external server |
-| 3 | Credential access | Skill reads SSH keys and AWS credentials |
-| 4 | Prompt injection | Skill overrides system instructions |
-| 5 | Obfuscation | Base64-encoded payload hides real behavior |
-| 6 | Coercive override | Skill forces the agent to bypass safety checks |
-| 7 | Unbounded delegation | Skill spawns unlimited subagents |
+- **`scripts/` + `data/` + `figures/`** — a reproducible study that scans a
+  frame of public repositories with `harness-eval`, independently re-derives
+  every candidate finding at its pinned commit, and reports prevalence and
+  audited precision.
+- **`openshift-demo/`** — seven hand-built vulnerable/fixed scenarios used by
+  the weekly regression workflow (`.github/workflows/regression.yml`) to assert
+  that `harness-eval` still detects (and does not over-flag) known patterns.
 
-## Automated regression
+## The study
 
-The `regression.yml` workflow runs weekly (Monday 6am UTC) and on manual trigger. It installs the latest `harness-eval` from PyPI, scans each scenario, and asserts:
+The pipeline runs end to end with `make all` and keeps **no third-party
+repository content**: every working copy is shallow-cloned, scanned, and
+deleted; the manifests carry only URLs and commit identifiers.
 
-- Vulnerable setups get **UNSAFE**
-- Fixed setups get **SAFE** or **CAUTION**
-
-To test a specific version:
-
-```
-gh workflow run regression.yml -f harness_eval_version=7.6.0
-```
-
-## Local testing
+| Stage | Script | What it does |
+|---|---|---|
+| frame | `scripts/build_frame.py` | Builds the repository frame from GitHub topic search, README search, and public awesome-lists. Records the discovery channel per repository. |
+| scan | `scripts/scan.py` | Shallow-clones each repository, records the commit, runs `harness-eval harness-lint --format json`, records inventory and findings, deletes the clone. Resumable. |
+| classify | `scripts/classify_rules.py` | Classifies every rule by analysis scope (FILE, FILE_FS, PAIRWISE, SETUP) from its implementation, with a recorded override table. |
+| audit | `scripts/audit.py` | Re-clones flagged repositories at their pinned commit and re-derives every candidate finding with an independent check. |
+| analyze | `scripts/analyze.py` | Assigns strata, computes prevalence with Wilson intervals and the scope ablation, and writes `data/summary.json` and `figures/results.{png,pdf}`. |
+| reach | `scripts/reachability.py` | Reachable-impact sample for grants and unpinned MCP servers. |
 
 ```bash
-pip install harness-eval
-harness-eval skill-verify openshift-demo/1-exfiltration-chain/vulnerable   # should be UNSAFE
-harness-eval skill-verify openshift-demo/1-exfiltration-chain/fixed         # should be SAFE
+pip install harness-eval==8.1.3   # or: pip install -e ../harness-eval
+make all                          # frame -> scan -> classify -> audit -> analyze
 ```
+
+`scan.py` and `audit.py` skip work already recorded, so an interrupted run
+resumes. All scripts are seeded (default seed 255).
+
+## Results (committed run)
+
+- **2,428** repositories scanned (2,380 clean lints; 39 timeouts, 8 clone
+  failures, 1 lint failure).
+- Setups split into four strata: **EMPTY 714**, **INSTRUCTION_ONLY 611**,
+  **SETUP 853**, **COLLECTION 202**.
+- **227** flagged repositories (**1,060** findings) re-audited at their pinned
+  commit. Most rules confirmed at or near 100% precision, e.g.
+  `mcp/unpinned-package` 100/100, `content/broken-references` 149/149,
+  `content/hardcoded-machine-path` 100/100, `cross/overpermissive-grants`
+  102/102. `content/orphan-skills` was the notable low-precision rule
+  (5/127 confirmed) and drove calibration work in the tool.
+
+Committed artifacts:
+
+| Path | Contents |
+|---|---|
+| `data/frame.jsonl` | The repository frame (URLs + discovery channel). |
+| `data/manifest.jsonl` | One line per scanned repository: URL, pinned commit, stratum, channels, finding counts by scope. No repository content. |
+| `data/results.jsonl` | Raw per-repository lint output for the scan. |
+| `data/audit_findings.jsonl`, `data/audit_summary.json` | Independent re-derivation of each candidate finding. |
+| `data/summary.json` | Strata, prevalence, scope ablation, per-rule counts. |
+| `data/rule_scope.json` | Per-rule analysis-scope classification with overrides. |
+| `data/reachability.json` | Reachable-impact sample. |
+| `figures/results.{png,pdf}` | Prevalence figure. |
+
+## Constraints
+
+- No third-party repository content is retained or redistributed.
+- Every scan is pinned to a commit; every audit re-clones that commit.
+- A change to the tool invalidates `data/rule_scope.json`; rerun
+  `make classify` and review the diff before trusting anything downstream.
