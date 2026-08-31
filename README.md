@@ -26,29 +26,32 @@ deleted; the manifests carry only URLs and commit identifiers.
 | frame | `scripts/build_frame.py` | Builds the repository frame from GitHub topic search, README search, and public awesome-lists. Records the discovery channel per repository. |
 | scan | `scripts/scan.py` | Shallow-clones each repository, records the commit, runs `harness-eval harness-lint --format json`, records inventory and findings, deletes the clone. Resumable. |
 | classify | `scripts/classify_rules.py` | Classifies every rule by analysis scope (FILE, FILE_FS, PAIRWISE, SETUP) from its implementation, with a recorded override table. |
-| audit | `scripts/audit.py` | Re-clones flagged repositories at their pinned commit and re-derives every candidate finding with an independent check. |
+| audit | `scripts/audit.py` | Re-clones flagged repositories at their pinned commit and re-derives every candidate finding with an independent check. Headline rules are audited exhaustively. |
 | analyze | `scripts/analyze.py` | Assigns strata, computes prevalence with Wilson intervals and the scope ablation, and writes `data/summary.json` and `figures/results.{png,pdf}`. |
 | reach | `scripts/reachability.py` | Reachable-impact sample for grants and unpinned MCP servers. |
+| recall | `scripts/recall_sample.py` | Seeded sample of setups for a manual recall protocol (`docs/RECALL_PROTOCOL.md`). |
+| irr | `scripts/irr_sample.py` | Second-reader sample for the broken-reference consequence coding. |
 
 ```bash
-pip install harness-eval==8.1.3   # or: pip install -e ../harness-eval
+pip install harness-eval==7.11.0  # version recorded in data/results.jsonl
 make all                          # frame -> scan -> classify -> audit -> analyze
 ```
 
 `scan.py` and `audit.py` skip work already recorded, so an interrupted run
-resumes. All scripts are seeded (default seed 255).
+resumes. All scripts are seeded (default seed 255). To reproduce the committed
+numbers, use the files under `data/` rather than re-scanning.
 
 ## Results (committed run)
 
-- **2,428** repositories scanned (2,380 clean lints; 39 timeouts, 8 clone
-  failures, 1 lint failure).
-- Setups split into four strata: **EMPTY 714**, **INSTRUCTION_ONLY 611**,
-  **SETUP 853**, **COLLECTION 202**.
-- **227** flagged repositories (**1,060** findings) re-audited at their pinned
-  commit. Most rules confirmed at or near 100% precision, e.g.
-  `mcp/unpinned-package` 100/100, `content/broken-references` 149/149,
-  `content/hardcoded-machine-path` 100/100, `cross/overpermissive-grants`
-  102/102. `content/orphan-skills` was the notable low-precision rule
+- **2,428** repositories scanned with harness-eval **7.11.0** (2,380 clean
+  lints; 39 timeouts, 8 clone failures, 1 lint failure).
+- Strata: **EMPTY 714**, **INSTRUCTION_ONLY 611**, **SETUP 853** (of which
+  **669** assembled), **COLLECTION 202**.
+- **244** flagged repositories (**1,067** findings) re-audited at their pinned
+  commit. Headline rules were audited exhaustively. Most reported rules
+  confirmed at 100% precision, e.g. `mcp/unpinned-package` 130/130,
+  `cross/overpermissive-grants` 114/114, `content/hardcoded-machine-path`
+  98/98. `content/orphan-skills` was the notable low-precision rule
   (5/127 confirmed) and drove calibration work in the tool.
 
 Committed artifacts:
@@ -62,7 +65,9 @@ Committed artifacts:
 | `data/summary.json` | Strata, prevalence, scope ablation, per-rule counts. |
 | `data/rule_scope.json` | Per-rule analysis-scope classification with overrides. |
 | `data/reachability.json` | Reachable-impact sample. |
+| `data/irr_sample.csv`, `data/recall_sample.csv` | Protocol samples; second-reader / recall columns are blank until filled. |
 | `figures/results.{png,pdf}` | Prevalence figure. |
+| `demo/` | Planted harness where every listed defect is a true positive by construction. |
 
 ## Constraints
 

@@ -1,38 +1,42 @@
 {
  "grants": {
-  "sampled": 31,
-  "reachable": 16,
+  "eligible": 30,
+  "sampled": 30,
+  "clone_failed": 0,
+  "reachable": 20,
   "examples": [
    {
-    "commit": "d82df2fe5182c172070eeaa4259af6f21cfda64f",
-    "grant": "Bash(bun:*)",
-    "component": ".claude/commands/add-portal.md"
-   },
-   {
-    "commit": "5aa195ff4b773c3aacf9c3d869dd773aabb36d8a",
-    "grant": "Bash(node:*)",
-    "component": "CLAUDE.md"
-   },
-   {
-    "commit": "570c89f4c4bfa03bc5cea0a43a7fcf9fef0261ab",
+    "commit": "4af45eec244169b04be5d54f0c7f3fc1d5bf26f1",
     "grant": "Bash(python:*)",
+    "component": ".claude/agents/evaluation-specialist.md"
+   },
+   {
+    "commit": "c17fdc0250063bc7b8152ae5f1b7adac0e659a87",
+    "grant": "Bash(node:*)",
+    "component": "AGENTS.md"
+   },
+   {
+    "commit": "062638780b1cb4673f3569e1b9d9aba35aabad36",
+    "grant": "Bash(node:*)",
     "component": "CLAUDE.md"
    }
   ]
  },
  "unpinned": {
-  "sampled": 40,
-  "reachable": 31,
+  "eligible": 66,
+  "sampled": 60,
+  "clone_failed": 0,
+  "reachable": 49,
   "examples": [
    {
-    "commit": "faf5443e952ba9007f37b46fda0dbf1f96d6ae68",
-    "server": "llm-router",
-    "component": "skills/routing/SKILL.md"
+    "commit": "931e201783cd63993209193165e19bab8729f325",
+    "server": "chrome-devtools",
+    "component": "CLAUDE.md"
    },
    {
-    "commit": "bafb92797c00d8b47f3037511c49918a925485ee",
-    "server": "shadcn",
-    "component": "unoplat-code-confluence-frontend/CLAUDE.md"
+    "commit": "cfa296e20a1c35f27e6ee27678dcbd905d81954b",
+    "server": "azure",
+    "component": "tests/AGENTS.md"
    },
    {
     "commit": "e04ba88819c365c9acf9d6661ea802143e728bd6",

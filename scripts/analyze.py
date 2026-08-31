@@ -48,10 +48,14 @@ IGNORED_TYPES = {"uncategorized"}
 CANDIDATE_RULES = {
     "frontmatter/unparseable": ("Frontmatter blocks loading", "Q"),
     "frontmatter/name-mismatch": ("Frontmatter name mismatch (tolerated)", "D"),
-    "content/hardcoded-machine-path": ("Hardcoded machine path", "Q"),
+    "content/hardcoded-machine-path": ("Hardcoded machine path (portability)", "P"),
     "mcp/unpinned-package": ("Unpinned MCP package", "S"),
     "content/circular-references": ("Circular reference chain", "C"),
-    "cross/overpermissive-grants": ("Over-permissive grant", "S"),
+    "cross/overpermissive-grants": ("Arbitrary-execution grant", "S"),
+    "cross/grant-network-tool": ("Network-tool grant (advisory)", "P"),
+    "cross/grant-indirect-exec": ("Indirect-execution grant (advisory)", "P"),
+    "cross/grant-bare-tool": ("Bare tool grant (advisory)", "P"),
+    "hooks/auto-accept-edits": ("Auto-accept edits committed (advisory)", "P"),
     "cross/multi-assistant-drift": ("Cross-assistant divergence", "C"),
     "content/mcp-skill-alignment": ("MCP consumer mismatch", "C"),
     "agent/description-required": ("Missing agent description", "Q"),
@@ -70,6 +74,8 @@ CANDIDATE_RULES = {
 
 # Illustrative, anonymized example per rule for the examples table (LaTeX).
 EXAMPLES = {
+    "frontmatter/unparseable": r"no \texttt{---} block, YAML that does not parse, or no \texttt{name}; the skill never loads",
+    "frontmatter/name-mismatch": r"\texttt{name: my-skill} inside \texttt{skills/myskill/}; loads, violates the spec",
     "frontmatter/format-valid": r"\texttt{name: my-skill} inside \texttt{skills/myskill/}, or no \texttt{---} block at all",
     "content/hardcoded-machine-path": r"\texttt{/Users/evan/projects/\ldots} or \texttt{C:\textbackslash Users\textbackslash\ldots} in a skill file",
     "mcp/unpinned-package": r"\texttt{npx -y @modelcontextprotocol/server-filesystem}, no version",
@@ -132,6 +138,28 @@ def main() -> None:
             if f["rule"] == "frontmatter/format-valid":
                 f["rule"] = ("frontmatter/name-mismatch" if "does not match" in f["message"]
                              else "frontmatter/unparseable")
+    # Split the grant rule by mechanism so that only the security class carries the headline.
+    _SEC = {"sh", "bash", "zsh", "dash", "fish", "env", "eval", "exec", "xargs", "sudo", "doas", "python", "python3",
+            "perl", "ruby", "node", "bun", "deno", "php", "lua", "awk", "gawk", "mawk", "nawk", "sed", "find",
+            "npx", "bunx", "uvx", "pipx"}
+    for r in recs:
+        for f in r.get("findings", []):
+            if f["rule"] == "cross/overpermissive-grants":
+                msg = f["message"]
+                m = re.search(r"wildcard grant on '([^']+)'", msg)
+                cmd = m.group(1).lower() if m else None
+                if "unrestricted" in msg or re.search(r"entry 'Bash'", msg):
+                    f["rule"] = "cross/overpermissive-grants"; f["grant_class"] = "unrestricted"
+                elif cmd in _SEC:
+                    f["rule"] = "cross/overpermissive-grants"; f["grant_class"] = "arbitrary-exec"
+                elif cmd in ("curl", "wget"):
+                    f["rule"] = "cross/grant-network-tool"
+                elif cmd:
+                    f["rule"] = "cross/grant-indirect-exec"
+                else:
+                    f["rule"] = "cross/grant-bare-tool"
+            if f["rule"] == "hooks/permission-prompt-disabled" and "acceptEdits" in f["message"]:
+                f["rule"] = "hooks/auto-accept-edits"
     if "frontmatter/format-valid" in audit:
         a = audit.pop("frontmatter/format-valid")
         b = a.get("breakdown", {})
@@ -157,7 +185,9 @@ def main() -> None:
             reported[rid] = (name, fam); gating[rid] = (name, fam)
         elif n >= 13 and k == n:
             reported[rid] = (name, fam); provisional[rid] = (name, fam)
-    headline = {rid: v for rid, v in gating.items() if v[1] != "D"}
+    # Headline union: gating rules whose consequence is a defect (security S, correctness Q, cross-component C).
+    # Tolerated spec deviations (D) and portability smells (P) are confirmed findings, not defects.
+    headline = {rid: v for rid, v in gating.items() if v[1] not in ("D", "P")}
 
     strata = defaultdict(list)
     for r in ok:
@@ -228,15 +258,35 @@ def main() -> None:
         return any(c.startswith(prefix) for c in r.get("channels", []))
     summary["channel_check"] = {
         "topic_only": rate([r for r in setups if chan(r, "topic:") and not chan(r, "readme:") and not chan(r, "curated:")],
-                           lambda r: any(has(r, rid) for rid in reported)),
+                           lambda r: any(has(r, rid) for rid in headline)),
         "readme_only": rate([r for r in setups if chan(r, "readme:") and not chan(r, "topic:") and not chan(r, "curated:")],
-                            lambda r: any(has(r, rid) for rid in reported)),
-        "curated": rate([r for r in ok if chan(r, "curated:")], lambda r: any(has(r, rid) for rid in reported)),
+                            lambda r: any(has(r, rid) for rid in headline)),
+        "curated": rate([r for r in setups if chan(r, "curated:")], lambda r: any(has(r, rid) for rid in headline)),
+        "curated_all": rate([r for r in ok if chan(r, "curated:")], lambda r: any(has(r, rid) for rid in headline)),
         "curated_n_by_stratum": dict(Counter(r["stratum"] for r in ok if chan(r, "curated:"))),
-        "agents": rate([r for r in ok if chan(r, "agents:")], lambda r: any(has(r, rid) for rid in reported)),
+        "agents": rate([r for r in ok if chan(r, "agents:")], lambda r: any(has(r, rid) for rid in headline)),
         "agents_raw": rate([r for r in ok if chan(r, "agents:")], lambda r: bool(r.get("findings"))),
         "agents_with_components": sum(1 for r in ok if chan(r, "agents:") and r["stratum"] != "EMPTY"),
     }
+    # Assembled sub-stratum: setups with two or more distinct component types (excluding uncategorized).
+    assembled = [r for r in setups if len({k for k, v in r["inventory"]["component_types"].items() if v and k not in IGNORED_TYPES}) >= 2]
+    summary["assembled"] = {"n": len(assembled),
+                            "any_confirmed": rate(assembled, lambda r: any(has(r, rid) for rid in headline)),
+                            "confirmed_security": rate(assembled, lambda r: any(has(r, rid) for rid, (n, f) in headline.items() if f == "S")),
+                            "confirmed_beyond_file": rate(assembled, lambda r: any(has(r, rid) for rid in headline if rid in beyond))}
+    gm = Counter()
+    for r in setups:
+        for cls in {f.get("grant_class") for f in r["findings"] if f["rule"] == "cross/overpermissive-grants" and f.get("grant_class")}:
+            gm[cls] += 1
+    mech = Counter()
+    for r in setups:
+        for c in {m.group(1).lower() for f in r["findings"] if f["rule"] == "cross/overpermissive-grants"
+                  for m in [re.search(r"wildcard grant on '([^']+)'", f["message"])] if m}:
+            fam = ("interpreter" if c in ("python", "python3", "perl", "ruby", "node", "bun", "deno", "php", "lua") else
+                   "shell" if c in ("sh", "bash", "zsh", "dash", "fish", "env", "eval", "exec", "sudo", "doas", "xargs") else
+                   "package-runner" if c in ("npx", "bunx", "uvx", "pipx") else "shell-escape-tool")
+            mech[fam] += 1
+    summary["grant_mechanisms"] = {"unrestricted": gm.get("unrestricted", 0), **dict(mech)}
     tools_all = Counter(t for r in ok for t in r.get("inventory", {}).get("detected_tools", []))
     summary["tool_ranking"] = tools_all.most_common(8)
     flow = [r for r in ok if any(f["rule"] == "security/cross-component-flow" and "exfiltration" in f["message"].lower()
@@ -329,6 +379,23 @@ def _write_tex(s: dict, scope: dict) -> None:
     ranking = ", ".join(f"{name} ({n})" for name, n in s["tool_ranking"][:6])
     out.append(f"\\newcommand{{\\ToolRanking}}{{{ranking}}}\n")
     out.append(_num("nFlowRepos", s["flow_repos"]))
+    for k, v in s["grant_mechanisms"].items():
+        out.append(_num("Grant" + "".join(w.capitalize() for w in k.split("-")), v))
+    out.append(_m("FlowRepoWord", "repository" if s["flow_repos"] == 1 else "repositories"))
+    asm = s["assembled"]
+    out.append(_num("nAssembled", asm["n"]))
+    for key, short in (("any_confirmed", "AsmConfirmed"), ("confirmed_security", "AsmConfSec"), ("confirmed_beyond_file", "AsmBeyond")):
+        k, n, (p, lo, hi) = asm[key]
+        out.append(_m(short, p)); out.append(_m(short + "Lo", lo)); out.append(_m(short + "Hi", hi))
+    integ = {"mcp/json-duplicate-keys": "duplicate keys in an MCP configuration", "hooks/json-duplicate-keys": "duplicate keys in a settings file",
+             "claude-md/include-exists": "a broken \\texttt{@path} import", "hooks/command-script-exists": "a hook whose script is not committed",
+             "mcp/endpoint-integrity": "an MCP server over plain HTTP, with credentials in its URL, or with a missing local command",
+             "security/credential-file-present": "a secret file committed inside a skill", "structural/symlink-escape": "a symlink escaping the repository"}
+    dset = s["per_stratum"].get("SETUP", {})
+    items = sorted(((dset["per_rule"][rid][2][0], dset["per_rule"][rid][0], desc) for rid, desc in integ.items() if rid in dset.get("per_rule", {}) and dset["per_rule"][rid][0] > 0), reverse=True)
+    lst = "; ".join(f"{desc} in \\pc{{{p:.1f}}} ({k})" for p, k, desc in items)
+    out.append(f"\\newcommand{{\\IntegrityList}}{{{lst}}}\n")
+    out.append(_num("nIntegrityZero", sum(1 for rid in integ if rid in dset.get("per_rule", {}) and dset["per_rule"][rid][0] == 0)))
     cc = s["channel_check"]
     out.append(_num("ChanAgentsWithComponents", cc["agents_with_components"]))
     for key in ("topic_only", "readme_only", "curated", "agents", "agents_raw"):
@@ -487,6 +554,9 @@ def _write_fig(s: dict) -> None:
     for ax in (ax1, ax2):
         ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
     fig.tight_layout(); fig.savefig(FIG / "results.png", dpi=200); fig.savefig(FIG / "results.pdf")
+    (FIG / "results_values.json").write_text(json.dumps({"left": {st: round(s["per_stratum"][st]["any_confirmed"][2][0], 1)
+                                                                  for st in ("SETUP", "COLLECTION", "INSTRUCTION_ONLY") if st in s["per_stratum"]},
+                                                         "right": {n: round(p, 1) for n, (p, lo, hi) in rows}}, indent=1))
 
 
 if __name__ == "__main__":

@@ -121,6 +121,11 @@
 {"repo": "EndeavorYen/chrome-cdp-ex", "commit": "c332afca49296a55a16fc82008c98fc6506177f9", "rule": "claude-md/include-exists", "component": "AGENTS.md", "verdict": "confirmed", "sub": ""}
 {"repo": "EndeavorYen/chrome-cdp-ex", "commit": "c332afca49296a55a16fc82008c98fc6506177f9", "rule": "claude-md/include-exists", "component": "AGENTS.md", "verdict": "confirmed", "sub": ""}
 {"repo": "FidelOdok/MetaForge", "commit": "1108f3e26cd0f84c8d7f267819bc1812e8d86a14", "rule": "mcp/endpoint-integrity", "component": ".mcp.json", "verdict": "confirmed", "sub": "insecure_url"}
+{"repo": "FlourishHealth/terreno", "commit": "f794b4d4255a51514256e236feb8ea154108d8f7", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "bare_tool"}
+{"repo": "FlourishHealth/terreno", "commit": "f794b4d4255a51514256e236feb8ea154108d8f7", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "bare_tool"}
+{"repo": "FlourishHealth/terreno", "commit": "f794b4d4255a51514256e236feb8ea154108d8f7", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
+{"repo": "FlourishHealth/terreno", "commit": "f794b4d4255a51514256e236feb8ea154108d8f7", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
+{"repo": "FlourishHealth/terreno", "commit": "f794b4d4255a51514256e236feb8ea154108d8f7", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "Galaxy-Dawn/claude-scholar", "commit": "2847aa1735205ef31e71068d45b902f3b228b98a", "rule": "content/hardcoded-machine-path", "component": "agent-identifier", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "Galaxy-Dawn/claude-scholar", "commit": "2847aa1735205ef31e71068d45b902f3b228b98a", "rule": "content/circular-references", "component": "agent-identifier", "verdict": "confirmed", "sub": "invocation_cycle"}
 {"repo": "GeoloeG-IsT/agents-reverse-engineer", "commit": "a81c0b37512eb8b82bf2fff2cd0a480b5e895c9c", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
@@ -166,6 +171,10 @@
 {"repo": "JCodesMore/ai-website-cloner-template", "commit": "92872bc40ced2c5edb4d5dc9fd3970d40c77f4ca", "rule": "content/broken-references", "component": "clone-website", "verdict": "confirmed", "sub": "misrouted"}
 {"repo": "Jaeyong-Cho/skills", "commit": "2b6f5800dfb0757b9f02ddfdd7405c0e2ca5ca37", "rule": "claude-md/include-exists", "component": "CLAUDE.md", "verdict": "confirmed", "sub": ""}
 {"repo": "Jaeyong-Cho/skills", "commit": "2b6f5800dfb0757b9f02ddfdd7405c0e2ca5ca37", "rule": "claude-md/include-exists", "component": "AGENTS.md", "verdict": "confirmed", "sub": ""}
+{"repo": "Kanevry/session-orchestrator", "commit": "062638780b1cb4673f3569e1b9d9aba35aabad36", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
+{"repo": "Kanevry/session-orchestrator", "commit": "062638780b1cb4673f3569e1b9d9aba35aabad36", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
+{"repo": "Kanevry/session-orchestrator", "commit": "062638780b1cb4673f3569e1b9d9aba35aabad36", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
+{"repo": "Kanevry/session-orchestrator", "commit": "062638780b1cb4673f3569e1b9d9aba35aabad36", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "Kpoiut/ruleblast", "commit": "d826c90a911749651ecb299fe67a896cf4b7eb74", "rule": "mcp/cross-assistant-divergence", "component": ".mcp.json", "verdict": "confirmed", "sub": ""}
 {"repo": "Kpoiut/ruleblast", "commit": "d826c90a911749651ecb299fe67a896cf4b7eb74", "rule": "mcp/cross-assistant-divergence", "component": ".mcp.json", "verdict": "confirmed", "sub": ""}
 {"repo": "LeeYudok/agents-scaffold", "commit": "8e0b8259a51e36f2fe40f6336d178d62b15649b3", "rule": "agent/description-required", "component": "README", "verdict": "confirmed", "sub": ""}
@@ -243,6 +252,8 @@
 {"repo": "SethGammon/Citadel", "commit": "d203fb68ea8056cbfad6bc969d703d787ae773f9", "rule": "content/circular-references", "component": "architect", "verdict": "confirmed", "sub": "invocation_cycle"}
 {"repo": "SethGammon/Citadel", "commit": "d203fb68ea8056cbfad6bc969d703d787ae773f9", "rule": "content/circular-references", "component": "architect", "verdict": "confirmed", "sub": "invocation_cycle"}
 {"repo": "SethGammon/Citadel", "commit": "d203fb68ea8056cbfad6bc969d703d787ae773f9", "rule": "cross/multi-assistant-drift", "component": "architect", "verdict": "confirmed", "sub": "diverged"}
+{"repo": "Smart-AI-Memory/attune-ai", "commit": "ff33e2db65520c3845a86f20add91c9a2f66a15c", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "uvx"}
+{"repo": "Smart-AI-Memory/attune-ai", "commit": "ff33e2db65520c3845a86f20add91c9a2f66a15c", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "uvx"}
 {"repo": "Space-Dinosaurs/DinoStack", "commit": "ce3f1d7e3d3f38e93e5732b71a4e139483d56fe1", "rule": "content/circular-references", "component": "dinostack", "verdict": "confirmed", "sub": "invocation_cycle"}
 {"repo": "Space-Dinosaurs/DinoStack", "commit": "ce3f1d7e3d3f38e93e5732b71a4e139483d56fe1", "rule": "claude-md/include-exists", "component": "CLAUDE.md", "verdict": "confirmed", "sub": ""}
 {"repo": "TakaGoto/rag-learning-academy", "commit": "4af45eec244169b04be5d54f0c7f3fc1d5bf26f1", "rule": "content/circular-references", "component": "architecture", "verdict": "confirmed", "sub": "invocation_cycle"}
@@ -301,10 +312,13 @@
 {"repo": "a5c-ai/babysitter", "commit": "ec694ebbfca31a09d23eb403c01e30a0983caca2", "rule": "cross/multi-assistant-drift", "component": "assimilate-popular-workflows", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "a5c-ai/babysitter", "commit": "ec694ebbfca31a09d23eb403c01e30a0983caca2", "rule": "cross/multi-assistant-drift", "component": "assimilate-popular-workflows", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "aaddrick/attention-control", "commit": "3c8a2a8a38f163aa85ad325812b5ce3ba330ad27", "rule": "cross/multi-assistant-drift", "component": "attention-control", "verdict": "confirmed", "sub": "diverged"}
+{"repo": "abhigyanpatwari/GitNexus", "commit": "2c0fb7753ccf7c2eca580b7d90bdd2226ca7d3c5", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "abhigyanpatwari/GitNexus", "commit": "2c0fb7753ccf7c2eca580b7d90bdd2226ca7d3c5", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "abhigyanpatwari/GitNexus", "commit": "2c0fb7753ccf7c2eca580b7d90bdd2226ca7d3c5", "rule": "cross/multi-assistant-drift", "component": "gitnexus-pdg-query", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "addyosmani/web-quality-skills", "commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00", "rule": "cross/multi-assistant-drift", "component": "accessibility", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "aden-hive/hive", "commit": "54fd8db4ed5f0ba08197b4ff47150b47ffe2f758", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "agenticnotetaking/arscontexta", "commit": "2acfd5cc4473c4d06c46be63df748e77e00e2746", "rule": "content/circular-references", "component": "add-domain", "verdict": "confirmed", "sub": "invocation_cycle"}
+{"repo": "aiurda/cursor10x", "commit": "81695dab49258da2b1a4063feb310a9f13589ee8", "rule": "mcp/unpinned-package", "component": "mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "akashwadhwani35/anti-slop-design", "commit": "5b4efff514a7e4e1c6d29f52281aa4820a84d906", "rule": "frontmatter/format-valid", "component": "repo", "verdict": "confirmed", "sub": "name_mismatch"}
 {"repo": "akaszubski/autonomous-dev", "commit": "21013d1417daf26921e6fa8cb14c3241d796881d", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "uvx"}
 {"repo": "alirezarezvani/claude-code-skill-factory", "commit": "ba18b31703542d9d7eda5f9ba94f0df65a59dddf", "rule": "agent/description-required", "component": "README", "verdict": "confirmed", "sub": ""}
@@ -326,8 +340,8 @@
 {"repo": "anthropics/skills", "commit": "3b3fad96af16a10759d930941b4520ba0c40edae", "rule": "content/broken-references", "component": "docx", "verdict": "confirmed", "sub": "runtime_output"}
 {"repo": "anthropics/skills", "commit": "3b3fad96af16a10759d930941b4520ba0c40edae", "rule": "content/broken-references", "component": "pptx", "verdict": "confirmed", "sub": "runtime_output"}
 {"repo": "anthropics/skills", "commit": "3b3fad96af16a10759d930941b4520ba0c40edae", "rule": "content/broken-references", "component": "skill-creator", "verdict": "confirmed", "sub": "runtime_output"}
-{"repo": "anton-winter-arch/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/hardcoded-machine-path", "component": "agent-cc-configs-sync", "verdict": "confirmed", "sub": "other_component"}
-{"repo": "anton-winter-arch/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/hardcoded-machine-path", "component": "agent-cc-configs-sync", "verdict": "confirmed", "sub": "other_component"}
+{"repo": "anton-winter-arch/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/hardcoded-machine-path", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "anton-winter-arch/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/hardcoded-machine-path", "verdict": "unverifiable", "sub": "clone_failed"}
 {"repo": "attestral-labs/attestral", "commit": "65e6fa23eb348883a9c83e6b325b3991dc20bfa3", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "attestral-labs/attestral", "commit": "65e6fa23eb348883a9c83e6b325b3991dc20bfa3", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "attestral-labs/attestral", "commit": "65e6fa23eb348883a9c83e6b325b3991dc20bfa3", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "uvx"}
@@ -354,6 +368,7 @@
 {"repo": "awizemann/scarf", "commit": "81abdeba2d69766b1f9148f2be831a418f54f764", "rule": "mcp/endpoint-integrity", "component": "mcp.json", "verdict": "confirmed", "sub": "missing_path"}
 {"repo": "awizemann/scarf", "commit": "81abdeba2d69766b1f9148f2be831a418f54f764", "rule": "mcp/endpoint-integrity", "component": "settings.json", "verdict": "confirmed", "sub": "missing_path"}
 {"repo": "aydabd/github-bootstrap", "commit": "15489573ac614d3a7e2bda9347394cfab8c7a692", "rule": "claude-md/include-exists", "component": "CLAUDE.md", "verdict": "confirmed", "sub": ""}
+{"repo": "backstabslash/goccc", "commit": "c42d893537fcf6666c6a2215bab35962c4d545cb", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "balacodeio/balakit", "commit": "f8d137e2956685f84cc142c2abf96f9423351db0", "rule": "content/hardcoded-machine-path", "component": "authoring-skills-and-rules", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "balacodeio/balakit", "commit": "f8d137e2956685f84cc142c2abf96f9423351db0", "rule": "content/hardcoded-machine-path", "component": "authoring-skills-and-rules", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "balacodeio/balakit", "commit": "f8d137e2956685f84cc142c2abf96f9423351db0", "rule": "content/hardcoded-machine-path", "component": "authoring-skills-and-rules", "verdict": "confirmed", "sub": "other_component"}
@@ -397,6 +412,7 @@
 {"repo": "caliber-ai-org/ai-setup", "commit": "7950921a722061dfb0c671cc20ecd8632ebec827", "rule": "cross/multi-assistant-drift", "component": "adding-a-command", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "caliber-ai-org/ai-setup", "commit": "7950921a722061dfb0c671cc20ecd8632ebec827", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "ccf/agentcairn", "commit": "f9b334ffeb23578092d5b14caeb110bcc38feda0", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "uvx"}
+{"repo": "ccplugins/awesome-claude-code-plugins", "commit": "5bd4f168edf7c18a8303cbfde20708ff62aabc4d", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "centminmod/my-claude-code-setup", "commit": "823d721d964c751e54c690f848f776fef9813b2c", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "centminmod/my-claude-code-setup", "commit": "823d721d964c751e54c690f848f776fef9813b2c", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "centminmod/my-claude-code-setup", "commit": "823d721d964c751e54c690f848f776fef9813b2c", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
@@ -410,6 +426,7 @@
 {"repo": "claire-gong-18/awesome-cursorrules", "commit": "39d1608d75b171fb2f71d1a89129694f08cfe6e9", "rule": "claude-md/include-exists", "component": ".cursorrules", "verdict": "unverifiable", "sub": "import_not_found"}
 {"repo": "coalesce-labs/catalyst", "commit": "43070265dd1afb2ed936ec854d52bdef54e1d898", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "coalesce-labs/catalyst", "commit": "43070265dd1afb2ed936ec854d52bdef54e1d898", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "collabs-inc/collab-public", "commit": "476b8efc942ee5f430a9b8bf832b8560a8cf76c2", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "crypdick/pynchy", "commit": "eb99b0eaaba1b393e6676cb53b9290f1a4f268e1", "rule": "hooks/command-script-exists", "component": "hooks", "verdict": "confirmed", "sub": ""}
 {"repo": "curie-eng/curie", "commit": "322dc9a2b28f58c0666ef3dac8d64d8b7284892a", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "daichunghy/agentsmd", "commit": "66cd06c90ec27ef656b934cc753b6eacd3289e2b", "rule": "claude-md/include-exists", "component": "CLAUDE.md", "verdict": "confirmed", "sub": ""}
@@ -439,6 +456,7 @@
 {"repo": "dmtrKovalenko/fff", "commit": "c642d0743da5b830e22b3aefa2977c366604950e", "rule": "mcp/endpoint-integrity", "component": ".mcp.json", "verdict": "confirmed", "sub": "missing_path"}
 {"repo": "doccker/cc-use-exp", "commit": "64470cb5c2b0c86163147d832706f340cf9b1eef", "rule": "mcp/unpinned-package", "component": "settings.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "doccker/cc-use-exp", "commit": "64470cb5c2b0c86163147d832706f340cf9b1eef", "rule": "mcp/unpinned-package", "component": "settings.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "domengabrovsek/claude", "commit": "05d065bf7f366f62be6e3cd8b0223e1fb1331fa2", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "dork-labs/dorkos", "commit": "4e38eea39cedeed44269a334f7dd60e42f92c21f", "rule": "content/hardcoded-machine-path", "component": "adding-config-fields", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "dork-labs/dorkos", "commit": "4e38eea39cedeed44269a334f7dd60e42f92c21f", "rule": "content/hardcoded-machine-path", "component": "adding-config-fields", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "dork-labs/dorkos", "commit": "4e38eea39cedeed44269a334f7dd60e42f92c21f", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "bare_tool"}
@@ -446,6 +464,9 @@
 {"repo": "dork-labs/dorkos", "commit": "4e38eea39cedeed44269a334f7dd60e42f92c21f", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "dork-labs/dorkos", "commit": "4e38eea39cedeed44269a334f7dd60e42f92c21f", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "dork-labs/dorkos", "commit": "4e38eea39cedeed44269a334f7dd60e42f92c21f", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
+{"repo": "dquancruz/AI-Setup", "commit": "491365c30b907dea1a52f4ebf057844d8e36f9da", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "dquancruz/AI-Setup", "commit": "491365c30b907dea1a52f4ebf057844d8e36f9da", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "dquancruz/AI-Setup", "commit": "491365c30b907dea1a52f4ebf057844d8e36f9da", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "dyoshikawa/rulesync", "commit": "801feed5c13e6d20c95db27f2077381aa7ddeaaf", "rule": "mcp/cross-assistant-divergence", "component": "settings.json", "verdict": "refuted", "sub": "server_absent"}
 {"repo": "dyoshikawa/rulesync", "commit": "801feed5c13e6d20c95db27f2077381aa7ddeaaf", "rule": "mcp/cross-assistant-divergence", "component": "settings.json", "verdict": "refuted", "sub": "server_absent"}
 {"repo": "ecodelearn/template-claude-code-open", "commit": "2303dcd8476b0836d29a3f38ab49a5f1990b5fcc", "rule": "cross/multi-assistant-drift", "component": "bugfix", "verdict": "confirmed", "sub": "diverged"}
@@ -477,6 +498,7 @@
 {"repo": "first-fluke/oh-my-agent", "commit": "2174477d46c753e4a04d8167633c119724e82c01", "rule": "cross/multi-assistant-drift", "component": "oma-academic-writing", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "first-fluke/oh-my-agent", "commit": "2174477d46c753e4a04d8167633c119724e82c01", "rule": "cross/multi-assistant-drift", "component": "oma-academic-writing", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "geekma/dev-standards-bootstrap", "commit": "b2795c389cafa709b69e892451e33f4da19cf7a4", "rule": "claude-md/include-exists", "component": "CLAUDE.md", "verdict": "confirmed", "sub": ""}
+{"repo": "giancarloerra/SocratiCode", "commit": "f836e993ef1613fe40bd9008ad3fb22408f219c0", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "girijashankarj/cursor-handbook", "commit": "81cb59ed00264cb236ef3bd511ac5124becc9945", "rule": "cross/multi-assistant-drift", "component": "api-mock-server", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "glittercowboy/taches-cc-resources", "commit": "1757615b99ab789a72ff2d02e9f6112af2a15c04", "rule": "content/hardcoded-machine-path", "component": "create-agent-skills", "verdict": "confirmed", "sub": "supporting_file"}
 {"repo": "glittercowboy/taches-cc-resources", "commit": "1757615b99ab789a72ff2d02e9f6112af2a15c04", "rule": "content/circular-references", "component": "create-agent-skills", "verdict": "confirmed", "sub": "invocation_cycle"}
@@ -566,13 +588,23 @@
 {"repo": "ivelly42/agent-ops-command-center", "commit": "3e419b560ffb56b9dd8fe89ff8e09f868b1ee35d", "rule": "cross/multi-assistant-drift", "component": "agent-ops-checkout", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "jazzyalex/agent-sessions", "commit": "89aafa369958dd375fffd071b4eb8556ee9d8b18", "rule": "content/hardcoded-machine-path", "component": "add-agent-support", "verdict": "confirmed", "sub": "named_component"}
 {"repo": "jcottam/agent-resources", "commit": "2152ad14c00c9ce34a59e35d1b38ddeba504d2d2", "rule": "content/hardcoded-machine-path", "component": "content-wireframe", "verdict": "confirmed", "sub": "other_component"}
+{"repo": "jqntn/agentdoctor", "commit": "1fdefdb5a39758de2c5148b22d4018fb92a7c95a", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "jungjaehoon-lifegamez/MAMA", "commit": "8f8eeb32a1b69c23bfdf4774a87aae231bef1f7f", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "kelios/metravel2", "commit": "b7ce3756a707c496eb8ebdfcce0404ca5160ec8b", "rule": "content/hardcoded-machine-path", "component": "android-native-audit", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "kelios/metravel2", "commit": "b7ce3756a707c496eb8ebdfcce0404ca5160ec8b", "rule": "hooks/command-script-exists", "component": "hooks", "verdict": "confirmed", "sub": ""}
 {"repo": "kelios/metravel2", "commit": "b7ce3756a707c496eb8ebdfcce0404ca5160ec8b", "rule": "hooks/command-script-exists", "component": "hooks", "verdict": "confirmed", "sub": ""}
 {"repo": "kfsr148-art/koushu-handan", "commit": "90c39e6adc8a8d8903ff6fcc1dc4bc658ff8c668", "rule": "hooks/permission-prompt-disabled", "component": "hooks", "verdict": "confirmed", "sub": "acceptEdits"}
+{"repo": "kfsr148-art/koushu-handan", "commit": "90c39e6adc8a8d8903ff6fcc1dc4bc658ff8c668", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "bare_tool"}
+{"repo": "kfsr148-art/koushu-handan", "commit": "90c39e6adc8a8d8903ff6fcc1dc4bc658ff8c668", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "bare_tool"}
+{"repo": "kfsr148-art/koushu-handan", "commit": "90c39e6adc8a8d8903ff6fcc1dc4bc658ff8c668", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "kkyungdong/CV", "commit": "05d5fbfdae3a0c85ef6c535c3d219427e123602b", "rule": "frontmatter/format-valid", "component": "al-folio-bootstrap", "verdict": "confirmed", "sub": "no_frontmatter"}
 {"repo": "kkyungdong/CV", "commit": "05d5fbfdae3a0c85ef6c535c3d219427e123602b", "rule": "frontmatter/format-valid", "component": "al-folio-v1-migration", "verdict": "confirmed", "sub": "no_frontmatter"}
 {"repo": "krt-profit/basetool", "commit": "1814afe543394689e6378f3faceb86b1c1cfe494", "rule": "hooks/local-settings-committed", "component": "hooks", "verdict": "confirmed", "sub": ""}
+{"repo": "langbot-app/LangBot", "commit": "08307790e55a0d82db073025fd39ca3ee0a8f04c", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "langbot-app/LangBot", "commit": "08307790e55a0d82db073025fd39ca3ee0a8f04c", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "langbot-app/LangBot", "commit": "08307790e55a0d82db073025fd39ca3ee0a8f04c", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "langbot-app/LangBot", "commit": "08307790e55a0d82db073025fd39ca3ee0a8f04c", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "uvx"}
+{"repo": "langbot-app/LangBot", "commit": "08307790e55a0d82db073025fd39ca3ee0a8f04c", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "lbb00/ai-rules-sync", "commit": "ddc7704653ac24dd003e6c3bf9e9f944b0580274", "rule": "claude-md/include-exists", "component": "CLAUDE.md", "verdict": "confirmed", "sub": ""}
 {"repo": "lenamonj/jeffy-loop", "commit": "dc82a15896b9f062cdea6fc8578d71040bef695f", "rule": "content/circular-references", "component": "cancel-jeffy", "verdict": "refuted", "sub": "mention_cycle"}
 {"repo": "lost-rob0t/skills", "commit": "912f8be87a617b4a50006ba09bd3e842a6e11105", "rule": "content/circular-references", "component": "activitywatch-analyze", "verdict": "confirmed", "sub": "invocation_cycle"}
@@ -592,6 +624,7 @@
 {"repo": "martin98-afk/drifox-plugins", "commit": "e3b082e9314ec155c8e5420a6a8154a3a1eea322", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "martin98-afk/drifox-plugins", "commit": "e3b082e9314ec155c8e5420a6a8154a3a1eea322", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "mburger89/SMK", "commit": "2c1c809d6e8ed082d03738a701d0bcf06b716f9b", "rule": "content/mcp-skill-alignment", "component": "target-build", "verdict": "confirmed", "sub": ""}
+{"repo": "mcpware/cross-code-organizer", "commit": "400f45e327e48eab84cbce8a0605090afc6e15c6", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "microsoft/apm", "commit": "7c7e08327437b251572a8146377a0894182db667", "rule": "agent/description-required", "component": "algorithmic-patterns.agent", "verdict": "confirmed", "sub": ""}
 {"repo": "microsoft/power-platform-skills", "commit": "0b9b0389607c6c45c1dfee2714f4c12f152111f3", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "microsoft/power-platform-skills", "commit": "0b9b0389607c6c45c1dfee2714f4c12f152111f3", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
@@ -600,6 +633,7 @@
 {"repo": "microsoft/skills", "commit": "cfa296e20a1c35f27e6ee27678dcbd905d81954b", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "microsoft/skills", "commit": "cfa296e20a1c35f27e6ee27678dcbd905d81954b", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "microsoft/skills", "commit": "cfa296e20a1c35f27e6ee27678dcbd905d81954b", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "microsoft/skills-for-fabric", "commit": "b8d541c77ae6b8bd65da0bf9a7746750e11c32f9", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "microsoft/skills-for-fabric", "commit": "b8d541c77ae6b8bd65da0bf9a7746750e11c32f9", "rule": "content/hardcoded-machine-path", "component": "activator-cli", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "microsoft/skills-for-fabric", "commit": "b8d541c77ae6b8bd65da0bf9a7746750e11c32f9", "rule": "content/hardcoded-machine-path", "component": "activator-cli", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "microsoft/skills-for-fabric", "commit": "b8d541c77ae6b8bd65da0bf9a7746750e11c32f9", "rule": "content/hardcoded-machine-path", "component": "activator-cli", "verdict": "confirmed", "sub": "other_component"}
@@ -619,10 +653,13 @@
 {"repo": "mugiwaraboushi/moshimo-sign", "commit": "0b56b08c7dbbbdf7008b52a2b682d918360b7d86", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "mugiwaraboushi/moshimo-sign", "commit": "0b56b08c7dbbbdf7008b52a2b682d918360b7d86", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "arbitrary_exec"}
 {"repo": "nawodyaishan/universal-mcp-sync", "commit": "8b033a32ca2eff40c7ede15a46d88b9aef800211", "rule": "content/hardcoded-machine-path", "component": "add-provider", "verdict": "confirmed", "sub": "other_component"}
+{"repo": "nextlevelbuilder/ui-ux-pro-max-skill", "commit": "e4f45473691e4b389519ee4bc359a3d6df666c26", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "nextlevelbuilder/ui-ux-pro-max-skill", "commit": "e4f45473691e4b389519ee4bc359a3d6df666c26", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "nextlevelbuilder/ui-ux-pro-max-skill", "commit": "e4f45473691e4b389519ee4bc359a3d6df666c26", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "nickwarters/data-pipeline-tooling", "commit": "49f36c3c4c6cc1d041102e67f09b7031a300f279", "rule": "cross/multi-assistant-drift", "component": "regen-md-mirrors", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "nickwarters/data-pipeline-tooling", "commit": "49f36c3c4c6cc1d041102e67f09b7031a300f279", "rule": "cross/multi-assistant-drift", "component": "regen-md-mirrors", "verdict": "confirmed", "sub": "diverged"}
-{"repo": "nickysemenza/cubby", "commit": "8ca2408ef6a43f29e6b9ea3451123307a2275887", "rule": "content/broken-references", "component": "product-enrichment", "verdict": "confirmed", "sub": "runtime_output"}
-{"repo": "nickysemenza/cubby", "commit": "8ca2408ef6a43f29e6b9ea3451123307a2275887", "rule": "content/broken-references", "component": "repo-audit", "verdict": "confirmed", "sub": "dead"}
+{"repo": "nickysemenza/cubby", "commit": "8ca2408ef6a43f29e6b9ea3451123307a2275887", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "nickysemenza/cubby", "commit": "8ca2408ef6a43f29e6b9ea3451123307a2275887", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
 {"repo": "niksavis/basicly", "commit": "12e5a309154f026860604a15a2888e5e3185105a", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "bare_tool"}
 {"repo": "niksavis/basicly", "commit": "12e5a309154f026860604a15a2888e5e3185105a", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "bare_tool"}
 {"repo": "niksavis/basicly", "commit": "12e5a309154f026860604a15a2888e5e3185105a", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "bare_tool"}
@@ -677,27 +714,28 @@
 {"repo": "nirecom/agents", "commit": "19ef0444a55702421c173a95e016bf589a8f7a4c", "rule": "content/circular-references", "component": "complete-task", "verdict": "refuted", "sub": "documented_command_cycle"}
 {"repo": "nota-america/forgecat-agent-profiles", "commit": "55849066fbb6b6ed2eec6b0429f3ecfee6f58f45", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "nowphyy/cursor-ralph-wiggum", "commit": "4b156fe7b8d928807033c561e92659465e9c64e3", "rule": "hooks/command-script-exists", "component": "hooks", "verdict": "unverifiable", "sub": "not_in_settings"}
+{"repo": "officefish/Membrana", "commit": "6bda36ad4d9c78a79ffcac69c4fd2d1a4222e824", "rule": "mcp/unpinned-package", "component": "mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "ooooooooooooooooooop/agent-tools", "commit": "22f6457ec6f3342619505647175840a5f4ae2d73", "rule": "content/hardcoded-machine-path", "component": "agent-switchboard-ops", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "ooooooooooooooooooop/agent-tools", "commit": "22f6457ec6f3342619505647175840a5f4ae2d73", "rule": "content/hardcoded-machine-path", "component": "agent-switchboard-ops", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "ooooooooooooooooooop/agent-tools", "commit": "22f6457ec6f3342619505647175840a5f4ae2d73", "rule": "content/hardcoded-machine-path", "component": "agent-switchboard-ops", "verdict": "confirmed", "sub": "other_component"}
 {"repo": "ooples/token-optimizer-mcp", "commit": "d6fcc2432dd291acba184d35ec72a2b16d1ad220", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "ooples/token-optimizer-mcp", "commit": "d6fcc2432dd291acba184d35ec72a2b16d1ad220", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "mcp/cross-assistant-divergence", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "mcp/cross-assistant-divergence", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "mcp/cross-assistant-divergence", "verdict": "unverifiable", "sub": "clone_failed"}
-{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "mcp/cross-assistant-divergence", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "build", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "code", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "debug-analyst", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "debug", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "docs", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "explore", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "infra", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "ml", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "t32", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "test", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "ui-design", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "agent/description-required", "component": "vcs", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "mcp/cross-assistant-divergence", "component": ".mcp.json", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "mcp/cross-assistant-divergence", "component": ".mcp.json", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "mcp/cross-assistant-divergence", "component": ".mcp.json", "verdict": "confirmed", "sub": ""}
+{"repo": "ormastes/simple", "commit": "03432f5ea555ff73d772a40285ca77e2abb59ec2", "rule": "mcp/cross-assistant-divergence", "component": ".mcp.json", "verdict": "confirmed", "sub": ""}
 {"repo": "oubakiou/mdxg-redline", "commit": "2f3c74016b0b9e18e554cfc0f8e3b4223aaba76a", "rule": "claude-md/include-exists", "component": "CLAUDE.md", "verdict": "confirmed", "sub": ""}
 {"repo": "paperboytm/spool", "commit": "4c94d68d9ba00b01053250393fd0eb2e1342f50d", "rule": "cross/multi-assistant-drift", "component": "spool", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "paulpham157/paul-s-cursor-rules", "commit": "ec5487f1eafd382f975dec3c627eba33d2e1654f", "rule": "claude-md/include-exists", "component": ".cursorrules", "verdict": "unverifiable", "sub": "import_not_found"}
@@ -713,6 +751,7 @@
 {"repo": "rahul-kulkarni105/skills", "commit": "33da71fab646ced4970bf617b82976d9ac598d09", "rule": "hooks/local-settings-committed", "component": "hooks", "verdict": "confirmed", "sub": ""}
 {"repo": "rishapgandhi/python-skills", "commit": "920360e791bd326d1c2495f1ff11da3272418780", "rule": "cross/multi-assistant-drift", "component": "django", "verdict": "confirmed", "sub": "diverged"}
 {"repo": "rivet-dev/sandbox-agent", "commit": "bbc195cc3fb5a1dd9cb05d8437442768c511e17e", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "rohitg00/agentmemory", "commit": "e04ba88819c365c9acf9d6661ea802143e728bd6", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "rohitg00/awesome-claude-code-toolkit", "commit": "ebdf1d596d2cde5c5cceb32177e8d1cf4829e7d9", "rule": "content/orphan-skills", "component": "accessibility-wcag", "verdict": "refuted", "sub": "referenced"}
 {"repo": "rohitg00/awesome-claude-code-toolkit", "commit": "ebdf1d596d2cde5c5cceb32177e8d1cf4829e7d9", "rule": "content/orphan-skills", "component": "accessibility-wcag", "verdict": "refuted", "sub": "referenced"}
 {"repo": "rohitg00/awesome-claude-code-toolkit", "commit": "ebdf1d596d2cde5c5cceb32177e8d1cf4829e7d9", "rule": "content/orphan-skills", "component": "accessibility-wcag", "verdict": "refuted", "sub": "referenced"}
@@ -775,7 +814,7 @@
 {"repo": "sattyamjjain/agent-audit-kit", "commit": "5c9ad5f5ddbdaa5c5cf5edbd20b16c0217849d67", "rule": "mcp/endpoint-integrity", "component": ".mcp.json", "verdict": "confirmed", "sub": "insecure_url"}
 {"repo": "sattyamjjain/agent-audit-kit", "commit": "5c9ad5f5ddbdaa5c5cf5edbd20b16c0217849d67", "rule": "mcp/endpoint-integrity", "component": ".mcp.json", "verdict": "confirmed", "sub": "insecure_url"}
 {"repo": "scaccogatto/okf-skills", "commit": "aa678799eb1018080bad42494fcaa83e77ff8fb5", "rule": "content/broken-references", "component": "okf", "verdict": "confirmed", "sub": "misrouted"}
-{"repo": "sceneview/sceneview", "commit": "77c14984bebd6c0240af29428efca522c096903b", "rule": "hooks/permission-prompt-disabled", "component": "hooks", "verdict": "confirmed", "sub": "bypassPermissions"}
+{"repo": "sceneview/sceneview", "commit": "77c14984bebd6c0240af29428efca522c096903b", "rule": "hooks/permission-prompt-disabled", "verdict": "unverifiable", "sub": "clone_failed"}
 {"repo": "sehoon787/my-codex", "commit": "ff51e4e1ad60546ce937b725ed4cfea45bea532f", "rule": "content/mcp-skill-alignment", "component": "boss-advanced", "verdict": "confirmed", "sub": ""}
 {"repo": "sehoon787/my-codex", "commit": "ff51e4e1ad60546ce937b725ed4cfea45bea532f", "rule": "content/mcp-skill-alignment", "component": "boss-advanced", "verdict": "confirmed", "sub": ""}
 {"repo": "sehoon787/my-codex", "commit": "ff51e4e1ad60546ce937b725ed4cfea45bea532f", "rule": "content/mcp-skill-alignment", "component": "boss-advanced", "verdict": "confirmed", "sub": ""}
@@ -902,25 +941,28 @@
 {"repo": "synthable/copilot-instructions-cli", "commit": "ae8a27c8d7024501a7fbc0cce18e2ec647f832f7", "rule": "mcp/unpinned-package", "component": "settings.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "takayoshitoyoda05/claude-ml-template", "commit": "5b0ed13b530d5596de0ba763a1c9a745a1022256", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "bare_tool"}
 {"repo": "takayoshitoyoda05/claude-ml-template", "commit": "5b0ed13b530d5596de0ba763a1c9a745a1022256", "rule": "cross/overpermissive-grants", "component": "hooks", "verdict": "confirmed", "sub": "bare_tool"}
+{"repo": "theagenticguy/erpaval", "commit": "9160b83bd801f340dd4764677fb9bfd9c451eb0b", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "theagenticguy/erpaval", "commit": "9160b83bd801f340dd4764677fb9bfd9c451eb0b", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
+{"repo": "theagenticguy/erpaval", "commit": "9160b83bd801f340dd4764677fb9bfd9c451eb0b", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}
 {"repo": "theagenticguy/erpaval", "commit": "9160b83bd801f340dd4764677fb9bfd9c451eb0b", "rule": "content/mcp-skill-alignment", "component": "agent-ux-patterns", "verdict": "refuted", "sub": "generic_mcp_mention"}
 {"repo": "theagenticguy/erpaval", "commit": "9160b83bd801f340dd4764677fb9bfd9c451eb0b", "rule": "content/mcp-skill-alignment", "component": "agent-ux-patterns", "verdict": "refuted", "sub": "generic_mcp_mention"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "ai-engineering-update", "verdict": "confirmed", "sub": "misrouted"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "ai-engineering-update", "verdict": "confirmed", "sub": "runtime_output"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "code-kg", "verdict": "confirmed", "sub": "misrouted"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "frontend-aesthetics", "verdict": "confirmed", "sub": "misrouted"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "frontend-aesthetics", "verdict": "confirmed", "sub": "misrouted"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "meta-loop", "verdict": "confirmed", "sub": "runtime_output"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "meta-loop", "verdict": "confirmed", "sub": "runtime_output"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "notes", "verdict": "confirmed", "sub": "misrouted"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "notes", "verdict": "confirmed", "sub": "dead"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "notes", "verdict": "confirmed", "sub": "runtime_output"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "notes", "verdict": "confirmed", "sub": "runtime_output"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "notes", "verdict": "confirmed", "sub": "runtime_output"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "obsidian", "verdict": "confirmed", "sub": "dead"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "reflect", "verdict": "confirmed", "sub": "misrouted"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "reflect", "verdict": "confirmed", "sub": "dead"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "skill-authoring", "verdict": "confirmed", "sub": "dead"}
-{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "component": "skill-authoring", "verdict": "confirmed", "sub": "misrouted"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
+{"repo": "thefilesareinthecomputer/dotagents", "commit": "43f09fabd093c6060b5e9f0769be1d6db6aaa773", "rule": "content/broken-references", "verdict": "unverifiable", "sub": "clone_failed"}
 {"repo": "tigerless-labs/autoharness", "commit": "98af172ff926a43aff1a775caad17224c231ca59", "rule": "mcp/cross-assistant-divergence", "component": ".mcp.json", "verdict": "confirmed", "sub": ""}
 {"repo": "tirth8205/code-review-graph", "commit": "3887605121324b63b78c7068eec6d4a6d38c48f6", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "uvx"}
 {"repo": "tombelieber/claude-view", "commit": "ff3cdd161babf21d31f6f3232fe7a072c14ddd53", "rule": "mcp/unpinned-package", "component": ".mcp.json", "verdict": "confirmed", "sub": "npx"}

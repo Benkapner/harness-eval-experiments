@@ -9,7 +9,7 @@ import json
 frame={json.loads(l)['full_name'] for l in open('data/frame.jsonl')}
 done={json.loads(l)['full_name'] for l in open('data/results.jsonl')}
 print(len(frame-done))")
-  echo \"loop $i: remaining $todo\" >> data/scan.log
-  [ \"$todo\" -eq 0 ] && break
+  echo "loop $i: remaining $todo" >> data/scan.log
+  [ "$todo" -eq 0 ] && break
   i=$((i+1)); sleep 5
 done

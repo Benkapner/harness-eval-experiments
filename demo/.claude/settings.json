@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": ["Bash(git:*)", "Bash(awk:*)", "Bash(python:*)", "Bash(npm test)", "Bash(git commit:*)"],
+    "deny": ["Bash(git:*)"],
+    "defaultMode": "bypassPermissions"
+  },
+  "enableAllProjectMcpServers": true
+}

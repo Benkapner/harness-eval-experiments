@@ -17,7 +17,9 @@ The reference-resolution rule is sub-classified by consequence: dead
 (no such basename anywhere in the tree), misrouted (basename exists at another
 path), or runtime-output (the surrounding text tells the agent to create it).
 
-usage: audit.py [--per-rule N] [--seed S]
+usage: audit.py [--per-rule N] [--seed S] [--exhaustive rule1,rule2,...]
+  --exhaustive audits every finding of the named rules (no sampling), so that
+  prevalence for those rules counts only re-derived findings.
 Writes data/audit_summary.json and data/audit_findings.jsonl (no repository content).
 """
 from __future__ import annotations
@@ -542,6 +544,9 @@ def main() -> None:
         per_rule = int(sys.argv[sys.argv.index("--per-rule") + 1])
     if "--seed" in sys.argv:
         seed = int(sys.argv[sys.argv.index("--seed") + 1])
+    exhaustive = set()
+    if "--exhaustive" in sys.argv:
+        exhaustive = set(sys.argv[sys.argv.index("--exhaustive") + 1].split(","))
     recs = [json.loads(l) for l in RESULTS.read_text().splitlines() if l.strip()]
     ok = [r for r in recs if r.get("status") == "ok" and r.get("commit")]
     rng = random.Random(seed)
@@ -561,7 +566,7 @@ def main() -> None:
         chosen = []
         count = 0
         for n in names:
-            if count >= per_rule:
+            if rule not in exhaustive and count >= per_rule:
                 break
             chosen.append((next(r for r, _ in pairs if r["full_name"] == n), repos[n]))
             count += len(repos[n])

@@ -1,0 +1,2 @@
+{"mcpServers": {"filesystem": {"command": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]},
+                "orphan-server": {"command": "npx", "args": ["-y", "some-unused-server@1.2.0"]}}}

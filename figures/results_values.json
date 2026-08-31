@@ -1,0 +1,13 @@
+{
+ "left": {
+  "SETUP": 15.1,
+  "COLLECTION": 3.0,
+  "INSTRUCTION_ONLY": 0.0
+ },
+ "right": {
+  "Missing agent description": 1.4,
+  "Cross-assistant divergence": 3.8,
+  "Arbitrary-execution grant": 4.2,
+  "Unpinned MCP package": 7.7
+ }
+}

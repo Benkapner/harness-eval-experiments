@@ -1,12 +1,12 @@
 {
  "mcp/unpinned-package": {
-  "audited": 100,
-  "confirmed": 100,
+  "audited": 130,
+  "confirmed": 130,
   "refuted": 0,
   "unverifiable": 0,
   "breakdown": {
-   "npx": 80,
-   "uvx": 20
+   "npx": 107,
+   "uvx": 23
   }
  },
  "content/orphan-skills": {
@@ -19,14 +19,14 @@
   }
  },
  "content/broken-references": {
-  "audited": 149,
-  "confirmed": 149,
+  "audited": 130,
+  "confirmed": 130,
   "refuted": 0,
-  "unverifiable": 0,
+  "unverifiable": 19,
   "breakdown": {
-   "runtime_output": 31,
-   "dead": 34,
-   "misrouted": 84
+   "runtime_output": 24,
+   "dead": 29,
+   "misrouted": 77
   }
  },
  "content/mcp-skill-alignment": {
@@ -39,13 +39,13 @@
   }
  },
  "content/hardcoded-machine-path": {
-  "audited": 100,
-  "confirmed": 100,
+  "audited": 98,
+  "confirmed": 98,
   "refuted": 0,
-  "unverifiable": 0,
+  "unverifiable": 2,
   "breakdown": {
    "supporting_file": 9,
-   "other_component": 69,
+   "other_component": 67,
    "named_component": 22
   }
  },
@@ -73,16 +73,16 @@
   }
  },
  "hooks/permission-prompt-disabled": {
-  "audited": 15,
-  "confirmed": 15,
+  "audited": 14,
+  "confirmed": 14,
   "refuted": 0,
-  "unverifiable": 0,
+  "unverifiable": 1,
   "breakdown": {
    "all_mcp": 5,
    "acceptEdits": 5,
    "dontAsk": 1,
    "skip_dangerous": 2,
-   "bypassPermissions": 2
+   "bypassPermissions": 1
   }
  },
  "cross/multi-assistant-drift": {
@@ -95,10 +95,10 @@
   }
  },
  "agent/description-required": {
-  "audited": 73,
-  "confirmed": 73,
+  "audited": 85,
+  "confirmed": 85,
   "refuted": 0,
-  "unverifiable": 12,
+  "unverifiable": 0,
   "breakdown": {}
  },
  "security/credential-file-present": {
@@ -111,10 +111,10 @@
   }
  },
  "mcp/cross-assistant-divergence": {
-  "audited": 10,
-  "confirmed": 5,
+  "audited": 14,
+  "confirmed": 9,
   "refuted": 5,
-  "unverifiable": 4,
+  "unverifiable": 0,
   "breakdown": {
    "server_absent": 5
   }
@@ -139,14 +139,14 @@
   }
  },
  "cross/overpermissive-grants": {
-  "audited": 102,
-  "confirmed": 102,
+  "audited": 114,
+  "confirmed": 114,
   "refuted": 0,
   "unverifiable": 0,
   "breakdown": {
-   "arbitrary_exec": 66,
-   "bash_star": 5,
-   "bare_tool": 31
+   "bare_tool": 35,
+   "arbitrary_exec": 74,
+   "bash_star": 5
   }
  },
  "hooks/local-settings-committed": {

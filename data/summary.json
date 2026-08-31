@@ -25,8 +25,8 @@
    "tier": "gating"
   },
   "content/hardcoded-machine-path": {
-   "name": "Hardcoded machine path",
-   "family": "Q",
+   "name": "Hardcoded machine path (portability)",
+   "family": "P",
    "tier": "gating"
   },
   "mcp/unpinned-package": {
@@ -35,7 +35,7 @@
    "tier": "gating"
   },
   "cross/overpermissive-grants": {
-   "name": "Over-permissive grant",
+   "name": "Arbitrary-execution grant",
    "family": "S",
    "tier": "gating"
   },
@@ -74,7 +74,6 @@
   "hooks/command-script-exists"
  ],
  "headline_rules": [
-  "content/hardcoded-machine-path",
   "mcp/unpinned-package",
   "cross/overpermissive-grants",
   "cross/multi-assistant-drift",
@@ -238,6 +237,42 @@
      ]
     ],
     "cross/overpermissive-grants": [
+     0,
+     714,
+     [
+      0.0,
+      0.0,
+      0.5351598458490007
+     ]
+    ],
+    "cross/grant-network-tool": [
+     0,
+     714,
+     [
+      0.0,
+      0.0,
+      0.5351598458490007
+     ]
+    ],
+    "cross/grant-indirect-exec": [
+     0,
+     714,
+     [
+      0.0,
+      0.0,
+      0.5351598458490007
+     ]
+    ],
+    "cross/grant-bare-tool": [
+     0,
+     714,
+     [
+      0.0,
+      0.0,
+      0.5351598458490007
+     ]
+    ],
+    "hooks/auto-accept-edits": [
      0,
      714,
      [
@@ -555,6 +590,42 @@
       0.6248113335206986
      ]
     ],
+    "cross/grant-network-tool": [
+     0,
+     611,
+     [
+      0.0,
+      0.0,
+      0.6248113335206986
+     ]
+    ],
+    "cross/grant-indirect-exec": [
+     0,
+     611,
+     [
+      0.0,
+      0.0,
+      0.6248113335206986
+     ]
+    ],
+    "cross/grant-bare-tool": [
+     0,
+     611,
+     [
+      0.0,
+      0.0,
+      0.6248113335206986
+     ]
+    ],
+    "hooks/auto-accept-edits": [
+     0,
+     611,
+     [
+      0.0,
+      0.0,
+      0.6248113335206986
+     ]
+    ],
     "cross/multi-assistant-drift": [
      0,
      611,
@@ -743,21 +814,21 @@
     ]
    ],
    "any_confirmed": [
-    162,
+    129,
     853,
     [
-     18.99179366940211,
-     16.500785995857214,
-     21.76084835989769
+     15.123094958968347,
+     12.875424336786462,
+     17.68350277412879
     ]
    ],
    "any_reported": [
-    259,
+    256,
     853,
     [
-     30.363423212192263,
-     27.37127381441567,
-     33.53165153374672
+     30.011723329425553,
+     27.031264368092167,
+     33.17141486690296
     ]
    ],
    "confirmed_beyond_file": [
@@ -770,6 +841,15 @@
     ]
    ],
    "confirmed_security": [
+    101,
+    853,
+    [
+     11.840562719812427,
+     9.84154591321337,
+     14.181750808140961
+    ]
+   ],
+   "confirmed_security_incl_provisional": [
     105,
     853,
     [
@@ -778,22 +858,13 @@
      14.684856048058379
     ]
    ],
-   "confirmed_security_incl_provisional": [
-    110,
-    853,
-    [
-     12.895662368112543,
-     10.811732648737527,
-     15.312302412118528
-    ]
-   ],
    "tolerated_only": [
-    68,
+    75,
     853,
     [
-     7.971864009378664,
-     6.336913275272199,
-     9.983676201242481
+     8.792497069167643,
+     7.0720995735568195,
+     10.882397500348088
     ]
    ],
    "reference_rule": [
@@ -861,12 +932,48 @@
      ]
     ],
     "cross/overpermissive-grants": [
-     40,
+     36,
      853,
      [
-      4.6893317702227435,
-      3.46240479706016,
-      6.322554289893604
+      4.220398593200469,
+      3.063862824202985,
+      5.787434778527788
+     ]
+    ],
+    "cross/grant-network-tool": [
+     8,
+     853,
+     [
+      0.9378663540445485,
+      0.4759766066080811,
+      1.8396906065617744
+     ]
+    ],
+    "cross/grant-indirect-exec": [
+     3,
+     853,
+     [
+      0.3516998827667058,
+      0.1196780712541175,
+      1.0289122866370028
+     ]
+    ],
+    "cross/grant-bare-tool": [
+     15,
+     853,
+     [
+      1.7584994138335288,
+      1.0685151795149683,
+      2.8810596310451166
+     ]
+    ],
+    "hooks/auto-accept-edits": [
+     5,
+     853,
+     [
+      0.5861664712778429,
+      0.250623777945979,
+      1.3647973220566354
      ]
     ],
     "cross/multi-assistant-drift": [
@@ -906,12 +1013,12 @@
      ]
     ],
     "hooks/permission-prompt-disabled": [
-     14,
+     9,
      853,
      [
-      1.6412661195779603,
-      0.9801372029341895,
-      2.7360222365701494
+      1.0550996483001172,
+      0.556062786024311,
+      1.9930197982012912
      ]
     ],
     "hooks/local-settings-committed": [
@@ -1059,12 +1166,12 @@
     ]
    ],
    "any_confirmed": [
-    33,
+    6,
     202,
     [
-     16.33663366336634,
-     11.875416622445368,
-     22.054362392097854
+     2.9702970297029703,
+     1.3682588324236515,
+     6.327755967305848
     ]
    ],
    "any_reported": [
@@ -1104,12 +1211,12 @@
     ]
    ],
    "tolerated_only": [
-    14,
+    19,
     202,
     [
-     6.9306930693069315,
-     4.172987467455809,
-     11.295994507033312
+     9.405940594059405,
+     6.104352320303877,
+     14.22273413841001
     ]
    ],
    "reference_rule": [
@@ -1177,6 +1284,42 @@
      ]
     ],
     "cross/overpermissive-grants": [
+     0,
+     202,
+     [
+      0.0,
+      0.0,
+      1.8662894186597847
+     ]
+    ],
+    "cross/grant-network-tool": [
+     0,
+     202,
+     [
+      0.0,
+      0.0,
+      1.8662894186597847
+     ]
+    ],
+    "cross/grant-indirect-exec": [
+     0,
+     202,
+     [
+      0.0,
+      0.0,
+      1.8662894186597847
+     ]
+    ],
+    "cross/grant-bare-tool": [
+     0,
+     202,
+     [
+      0.0,
+      0.0,
+      1.8662894186597847
+     ]
+    ],
+    "hooks/auto-accept-edits": [
      0,
      202,
      [
@@ -1348,30 +1491,39 @@
  },
  "channel_check": {
   "topic_only": [
-   159,
+   72,
    521,
    [
-    30.518234165067177,
-    26.718607084801654,
-    34.60305644187001
+    13.81957773512476,
+    11.12002366444029,
+    17.048780027949956
    ]
   ],
   "readme_only": [
-   68,
+   36,
    219,
    [
-    31.05022831050228,
-    25.292982961427395,
-    37.46082961216747
+    16.43835616438356,
+    12.116448502706916,
+    21.9174123204069
    ]
   ],
   "curated": [
-   17,
+   9,
+   71,
+   [
+    12.676056338028168,
+    6.814450579452649,
+    22.369318874968428
+   ]
+  ],
+  "curated_all": [
+   9,
    138,
    [
-    12.318840579710146,
-    7.835254631906519,
-    18.843519437195916
+    6.521739130434782,
+    3.4686920773421095,
+    11.929893387006855
    ]
   ],
   "curated_n_by_stratum": {
@@ -1399,6 +1551,43 @@
    ]
   ],
   "agents_with_components": 11
+ },
+ "assembled": {
+  "n": 669,
+  "any_confirmed": [
+   125,
+   669,
+   [
+    18.684603886397607,
+    15.912688157086752,
+    21.81411113713049
+   ]
+  ],
+  "confirmed_security": [
+   97,
+   669,
+   [
+    14.499252615844544,
+    12.03377046447353,
+    17.370118950211882
+   ]
+  ],
+  "confirmed_beyond_file": [
+   32,
+   669,
+   [
+    4.783258594917788,
+    3.408320660075582,
+    6.67452796283953
+   ]
+  ]
+ },
+ "grant_mechanisms": {
+  "unrestricted": 7,
+  "interpreter": 27,
+  "shell-escape-tool": 20,
+  "package-runner": 12,
+  "shell": 2
  },
  "tool_ranking": [
   [
@@ -1441,13 +1630,13 @@
  ],
  "audit": {
   "mcp/unpinned-package": {
-   "audited": 100,
-   "confirmed": 100,
+   "audited": 130,
+   "confirmed": 130,
    "refuted": 0,
    "unverifiable": 0,
    "breakdown": {
-    "npx": 80,
-    "uvx": 20
+    "npx": 107,
+    "uvx": 23
    }
   },
   "content/orphan-skills": {
@@ -1460,14 +1649,14 @@
    }
   },
   "content/broken-references": {
-   "audited": 149,
-   "confirmed": 149,
+   "audited": 130,
+   "confirmed": 130,
    "refuted": 0,
-   "unverifiable": 0,
+   "unverifiable": 19,
    "breakdown": {
-    "runtime_output": 31,
-    "dead": 34,
-    "misrouted": 84
+    "runtime_output": 24,
+    "dead": 29,
+    "misrouted": 77
    }
   },
   "content/mcp-skill-alignment": {
@@ -1480,13 +1669,13 @@
    }
   },
   "content/hardcoded-machine-path": {
-   "audited": 100,
-   "confirmed": 100,
+   "audited": 98,
+   "confirmed": 98,
    "refuted": 0,
-   "unverifiable": 0,
+   "unverifiable": 2,
    "breakdown": {
     "supporting_file": 9,
-    "other_component": 69,
+    "other_component": 67,
     "named_component": 22
    }
   },
@@ -1503,16 +1692,16 @@
    }
   },
   "hooks/permission-prompt-disabled": {
-   "audited": 15,
-   "confirmed": 15,
+   "audited": 14,
+   "confirmed": 14,
    "refuted": 0,
-   "unverifiable": 0,
+   "unverifiable": 1,
    "breakdown": {
     "all_mcp": 5,
     "acceptEdits": 5,
     "dontAsk": 1,
     "skip_dangerous": 2,
-    "bypassPermissions": 2
+    "bypassPermissions": 1
    }
   },
   "cross/multi-assistant-drift": {
@@ -1525,10 +1714,10 @@
    }
   },
   "agent/description-required": {
-   "audited": 73,
-   "confirmed": 73,
+   "audited": 85,
+   "confirmed": 85,
    "refuted": 0,
-   "unverifiable": 12,
+   "unverifiable": 0,
    "breakdown": {}
   },
   "security/credential-file-present": {
@@ -1541,10 +1730,10 @@
    }
   },
   "mcp/cross-assistant-divergence": {
-   "audited": 10,
-   "confirmed": 5,
+   "audited": 14,
+   "confirmed": 9,
    "refuted": 5,
-   "unverifiable": 4,
+   "unverifiable": 0,
    "breakdown": {
     "server_absent": 5
    }
@@ -1569,14 +1758,14 @@
    }
   },
   "cross/overpermissive-grants": {
-   "audited": 102,
-   "confirmed": 102,
+   "audited": 114,
+   "confirmed": 114,
    "refuted": 0,
    "unverifiable": 0,
    "breakdown": {
-    "arbitrary_exec": 66,
-    "bash_star": 5,
-    "bare_tool": 31
+    "bare_tool": 35,
+    "arbitrary_exec": 74,
+    "bash_star": 5
    }
   },
   "hooks/local-settings-committed": {
@@ -1616,5 +1805,5 @@
    }
   }
  },
- "audit_repos": 227
+ "audit_repos": 244
 }
