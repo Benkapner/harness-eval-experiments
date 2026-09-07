@@ -4,6 +4,6 @@ __pycache__/
 data/*.log
 data/frame_pages.jsonl
 
-# LaTeX output: analyze.py/reachability.py emit .tex into paper/ as a side effect;
-# the paper itself is not part of this repository.
+# TeX sources and LaTeX output are not part of this repository
 paper/
+paper_experiments/paper/
