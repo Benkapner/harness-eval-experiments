@@ -2,7 +2,7 @@
 
 One Markdown file per rule; each row is one (repository, rule) pair from `defects_table.csv`.
 Rows the audit disagreed with the scanner on (and the adjudicator ruled on) are listed first.
-Enter human verdicts in `defects_table.xlsx` (column `your_verdict`: `defect` / `not_defect`),
+Enter human verdicts in `defects_table.xlsx` (column `human_reviewer_verdict`: `defect` / `not_defect`),
 then run `python3 scripts/verdict_table.py score`.
 
 | Rule | Pairs | Agreed | Disagreements | Counted as defect |

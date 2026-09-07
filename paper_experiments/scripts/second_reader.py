@@ -2,7 +2,7 @@
 """Score the manual review of the defect table.
 
 data/defects_table_reviewed.csv is data/defects_table.csv with the
-`your_verdict` column filled in for every (repository, rule) pair by a
+`human_reviewer_verdict` column filled in for every (repository, rule) pair by a
 reviewer who checked each pair at its pinned commit ("yes defect: ..." or
 "no defect: ..." with a one-line reason). This script joins it to the
 current data/defects_table.csv on (repo, rule) and reports raw agreement
@@ -36,7 +36,7 @@ def kappa(pairs: list[tuple[str, str]]) -> tuple[float, float]:
 def main() -> None:
     reader = {}
     for r in csv.DictReader((DATA / "defects_table_reviewed.csv").open(newline="", encoding="utf-8-sig")):
-        text = (r.get("your_verdict") or "").strip()
+        text = (r.get("human_reviewer_verdict") or "").strip()
         if not text:
             continue
         low = text.lower()

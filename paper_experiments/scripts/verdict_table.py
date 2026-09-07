@@ -27,7 +27,7 @@ OUT = DATA / "defects_table.csv"
 BLIND = DATA / "defects_table_blind.csv"
 MD_DIR = DATA / "defects_table"  # one Markdown table per rule, browsable on GitHub
 COLS = ["repo", "url", "stratum", "rule", "what_the_rule_claims", "harness_file", "harness_file_url",
-        "harness_eval_result", "audit_result", "llm_review", "counted_as_defect", "your_verdict", "your_note"]
+        "harness_eval_result", "audit_result", "llm_review", "counted_as_defect", "human_reviewer_verdict", "human_reviewer_note"]
 
 
 def build() -> list[dict]:
@@ -87,7 +87,7 @@ def build() -> list[dict]:
             "audit_result": ("agreed" if st == "agreed" else "disagreement") + " (" + "; ".join(subs) + ")",
             "llm_review": llm,
             "counted_as_defect": counted,
-            "your_verdict": "", "your_note": "",
+            "human_reviewer_verdict": "", "human_reviewer_note": "",
         })
     return out
 
@@ -116,7 +116,7 @@ def write(rows: list[dict]) -> None:
             ws.append([r[c] for c in COLS])
         widths = {"repo": 34, "url": 40, "stratum": 11, "rule": 32, "what_the_rule_claims": 50, "harness_file": 40,
                   "harness_file_url": 50, "harness_eval_result": 60, "audit_result": 32, "llm_review": 60,
-                  "counted_as_defect": 10, "your_verdict": 14, "your_note": 30}
+                  "counted_as_defect": 10, "human_reviewer_verdict": 14, "human_reviewer_note": 30}
         for i, c in enumerate(COLS, 1):
             ws.column_dimensions[ws.cell(row=1, column=i).column_letter].width = widths[c]
         for row in ws.iter_rows(min_row=2):
@@ -150,7 +150,7 @@ def write_markdown(rows: list[dict]) -> None:
     index = ["# Defect table (browsable view)", "",
              "One Markdown file per rule; each row is one (repository, rule) pair from `defects_table.csv`.",
              "Rows the audit disagreed with the scanner on (and the adjudicator ruled on) are listed first.",
-             "Enter human verdicts in `defects_table.xlsx` (column `your_verdict`: `defect` / `not_defect`),",
+             "Enter human verdicts in `defects_table.xlsx` (column `human_reviewer_verdict`: `defect` / `not_defect`),",
              "then run `python3 scripts/verdict_table.py score`.", "",
              "| Rule | Pairs | Agreed | Disagreements | Counted as defect |", "|---|---:|---:|---:|---:|"]
     for rule in sorted(by_rule):
@@ -183,7 +183,7 @@ def score() -> None:
     rows = list(csv.DictReader(OUT.open(newline="")))
     pairs = []
     for r in rows:
-        v = (r.get("your_verdict") or "").strip().lower().replace(" ", "_")
+        v = (r.get("human_reviewer_verdict") or "").strip().lower().replace(" ", "_")
         if v not in ("defect", "not_defect"):
             continue
         pairs.append(("defect" if r["counted_as_defect"] == "yes" else "not_defect", v))
