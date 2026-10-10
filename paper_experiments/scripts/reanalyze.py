@@ -425,6 +425,7 @@ def main() -> None:
             fc["string" if fs == {"string"} else "list" if fs == {"list"} else "mixed" if {"string", "list"} <= fs else "unverified"] += 1
         inst["S3"]["gain_forms"] = dict(fc)
         inst["S3"]["gain_checked"] = len(res)
+        inst["S3"]["gain_files"] = sum(len(r["forms"]) for r in res)
     S["instrument"] = inst
     # grant class breakdown, 7.15 vs 8.0.2, over repositories
     def class_counts(scan: dict, cid: str) -> dict:
@@ -603,6 +604,7 @@ def write_tex(S: dict) -> None:
     for k in ("string", "list", "mixed", "unverified"):
         n.append(_m(f"InstSThreeGain{k.capitalize()}", S["instrument"]["S3"].get("gain_forms", {}).get(k, 0)))
     n.append(_m("InstSThreeGainChecked", S["instrument"]["S3"].get("gain_checked", 0)))
+    n.append(_m("InstSThreeGainFiles", f"{S['instrument']['S3'].get('gain_files', 0):,}"))
     for cid, v in S["persistence"].items():
         for k in ("flagged_at_pin", "still_at_head", "resolved_at_head", "repo_gone", "new_at_head", "resolved_pct_of_rescanned"):
             n.append(_m(f"Pers{cid}" + _camel(k), v[k]))
