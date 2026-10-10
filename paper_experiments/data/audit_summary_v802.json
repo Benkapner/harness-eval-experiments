@@ -1,0 +1,82 @@
+{
+ "frontmatter/format-valid": {
+  "audited": 6994,
+  "confirmed": 6976,
+  "refuted": 18,
+  "unverifiable": 182,
+  "breakdown": {
+   "no_frontmatter": 325,
+   "missing_name": 732,
+   "name_format": 908,
+   "name_dir_mismatch": 1682,
+   "compatibility_type": 83,
+   "metadata_type": 1982,
+   "allowed_tools_type": 1262,
+   "field_present": 6,
+   "name_matches": 8,
+   "name_type": 2,
+   "skill_not_found": 182,
+   "frontmatter_valid": 2,
+   "name_format_ok": 2
+  }
+ },
+ "cross/overpermissive-grants": {
+  "audited": 232,
+  "confirmed": 232,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "arbitrary_exec": 132,
+   "bare_tool": 80,
+   "bash_star": 10,
+   "stripped_wrapper": 10
+  }
+ },
+ "frontmatter/description-required": {
+  "audited": 69,
+  "confirmed": 69,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "missing": 69
+  }
+ },
+ "agent/description-required": {
+  "audited": 158,
+  "confirmed": 157,
+  "refuted": 1,
+  "unverifiable": 0,
+  "breakdown": {
+   "no_frontmatter": 97,
+   "missing": 60,
+   "non_agent_file": 1
+  }
+ },
+ "mcp/unpinned-package": {
+  "audited": 1038,
+  "confirmed": 1038,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "npx": 359,
+   "own_package": 551,
+   "uvx": 65,
+   "template_path": 26,
+   "docker": 18,
+   "fixture_path": 18,
+   "bunx": 1
+  }
+ },
+ "content/allowed-tools-auto-approve": {
+  "audited": 4602,
+  "confirmed": 4602,
+  "refuted": 0,
+  "unverifiable": 0,
+  "breakdown": {
+   "bash_unrestricted": 2004,
+   "write_tool": 1711,
+   "bash_scoped": 744,
+   "bash_exec_cmd": 143
+  }
+ }
+}

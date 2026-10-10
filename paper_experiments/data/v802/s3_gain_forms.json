@@ -1,0 +1,2206 @@
+[
+ {
+  "full_name": "Wolfgangrush/indian-family-drafting-litigation",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "SalesforceAIResearch/agentforce-adlc",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Wolfgangrush/indian-contracts-drafting-litigation",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "JayantDevkar/claude-code-karma",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "paiml/paiml-mcp-agent-toolkit",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "marian-kamenistak/claude-email-assistant",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "jshchnz/claude-code-scheduler",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "us/crw",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Jaeyong-Cho/skills",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "madarco/agentbox",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "datahub-project/datahub-skills",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "sangrokjung/claude-forge",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "MadsLorentzen/ai-job-search",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "paperboytm/spool",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Jwrede/llmprobe",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Wolfgangrush/indian-company-drafting",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "DaxGoon/tula",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "ErebusEnigma/context-memory",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "nvsecurity/nightvision-skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "syahiidkamil/Software-Engineer-AI-Agent-Atlas",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "TaffarelJr/.github",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Manavarya09/design-extract",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "getlark/skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "d2c-ai/d2c",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "revanupoju/Wealth-Stack",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "AP3X-Dev/memberry",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "mo-inkhan/rubber-duck",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "kimimgo/viznoir",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "gosom/google-maps-scraper",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "meta-pytorch/OpenEnv",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "browser-use/browser-use",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "rust-works/omni-dev",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Houseofmvps/ultraship",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "duckdb/duckdb-skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "siddharthkandan/universal-remote-control",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "centminmod/my-claude-code-setup",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "agenticnotetaking/arscontexta",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "robukh/figma-suite",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "runwayml/skills",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Jeffallan/claude-skills",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "tuo-lei/vibe-replay",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "hilyfux/knowledge-graph",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "jdsoliveiraa/stream-deck-skill-cc",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "KhazP/vibe-coding-prompt-template",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "adcontextprotocol/adcp-client",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "vendurehq/vendure",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "NakaokaRei/swift-mcp-gui",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "liustack/modlens",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "tbhbooks/tbh-skill",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "OthmanAdi/planning-with-files",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Books-Vocab/Books-Vocab",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "anthony-chaudhary/dos-kernel",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "abderrahimghazali/drupal-boost",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "pinecone-io/pinecone-claude-code-plugin",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "mvanhorn/last30days-skill",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "receptron/mulmocast-claude-plugin",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "barnburner121/claude-plugin-marketplace",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "rohitg00/pro-workflow",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "coleam00/Archon",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "iskysun96/whats-new",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "dork-labs/dorkos",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "prowler-cloud/prowler",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "j4rk0r/claude-skills",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "edulazaro/laraclaude",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "LeeYudok/agents-scaffold",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "nrwl/nx",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "jackasser/drillspark-workflow-toolkit",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "tarekst/jar-explorer",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "imfelixkim/job_assistant",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "yohey-w/multi-agent-shogun",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "zytedata/claude-skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Wolfgangrush/indian-consumer-drafting",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Wolfgangrush/supreme-court-drafting-litigation",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "chiKeka/csitrep-generator",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "TaffarelJr/.template-dotnet",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "tavily-ai/skills",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "mgallet92i/waterfall",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "iurykrieger/claude-bedrock",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "smorky850612/Aurakit",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "ScrapeCreators/social-media-research-skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "supernovae-st/nika",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "mavka-ai/unit-tests-skills",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "kobiton/automate",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "slusset/intention-driven-design",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Anakin-Inc/anakin-claude-plugin",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "DailyBotHQ/dailybot-claude-plugin",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "JunghyunRyu/claude-forge",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Wolfgangrush/indian-property-drafting-litigation",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Equilateral-AI/equilateral-agents-open-core",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "agentset-ai/agentset",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "meetstream-ai/claude-plugin",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Hedde/trigger_tree",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "deepread-tech/skills",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Prog-Jacob/habit",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "denoland/deno",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "feiskyer/claude-code-settings",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "browserbase/skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "majesticlabs-dev/majestic-marketplace",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "kagan-sh/kagan",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "scaccogatto/okf-skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "evanharmon1/harmon-init",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Mohammed-Abdelhady/hyperflow",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "jettyio/jettyio-skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "mediar-ai/screenpipe",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "devhimanshulohani/claude-agent-manager",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "dougwithseismic/workflow-toolkit",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "sujithkrishnan-dev/prodmaster-ai",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "stackql/stackql-skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "bluzername/claude-code-power-stack",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "maxirodr/bug-fixing-autoreport",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "juanmicrosoft/calor",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "VeryGoodOpenSource/very_good_ai_flutter_plugin",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "khendzel/skills-janitor",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "meta-quest/agentic-tools",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "hiro8ma/agentic-coding",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Mark7766/ai-coding-ok",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "microsoft/playwright-cli",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "yshaish1/stitch-to-nextjs",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Wolfgangrush/indian-banking-drafting-litigation",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "crissmoldovan/agent-skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Wolfgangrush/indian-mact-drafting",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "bitjaru/styleseed",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "burnsbert/claude-arcanum",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "gagip/gagip-dev",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "inflightsoftware/inflight-plugin",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "szarkans/multi",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Viniciuscarvalho/Claude-pack",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "rysk-tanaka/skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "emergent-wisdom/sema",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "AccelByte/ai-plugins",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "contentstack/contentstack-agent-skills",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "kennethleungty/claude-music",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "nesquikm/mcp-rubber-duck",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "testdouble/han",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "guimatheus92/mcp-video-analyzer",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Wolfgangrush/indian-ip-drafting",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "disler/claude-code-hooks-multi-agent-observability",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "blackwell-systems/agent-lsp",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "kissgyorgy/coding-agents",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "sergeyizmailov/knowledge-delta-skills",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "apollographql/skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "The-Vibe-Company/companion",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "bradautomates/claude-video",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Wolfgangrush/indian-tax-drafting",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Dataslayer-AI/Marketing-skills",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "OriNachum/onboarding-claude-code",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "pragmatest-dev/lvkit",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "luongnv89/asm",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "u-ichi/compact-plus",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "zhupanov/larch",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "getsentry/sentry",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "ozgurcd/gograph",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "joshua-burnell-1/prompt-squeeze",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "enpitech/ai-tools",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "zhaoxuya520/reverse-skill",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "usmanmughaltaleemabad/One-Shot-Plugin",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "wanshuiyin/Anti-Autoresearch",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "eugenelim/agent-ready-repo",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "BrainBlend-AI/atomic-agents",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "danieljohnmorris/ilo-lang",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "haninaguib-devtools/t-workflow",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "oxgeneral/ORCH",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "slopus/happy",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "mathpluscode/bibtidy",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "yannabadie/Meta-Harness-YGN",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "jmrplens/gitlab-mcp-server",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "DataEval/dingo",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "shivyadavus/hipaalint",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "XBuilderLAB/cheat-on-content",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Alexander-Tyagunov/magician",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "SURFLIN2030/swing-skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "HatmanStack/RAGStack-Lambda",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "PAIR-Systems-Inc/goodmem-claude-code-plugin",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Norman-bury/research-writing-skill",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Ricky-Stevens/context-guardian",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "jeromwolf/templateclaw",
+  "forms": [
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "williamzujkowski/nexus-agents",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "jonny-1812/corebee-mcp-skills",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "getsentry/skills",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "patchorbit/domscribe",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "takumi0706/google-calendar-mcp",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "ido4-dev/ido4specs",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "ido4-dev/ido4shape",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "tugberkgoc/open-tax",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "rameerez/claude-code-startup-skills",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "Dokploy/dokploy",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "amd/skills",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "ruvnet/claude-flow",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "anthony-chaudhary/fak",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "Donchitos/Claude-Code-Game-Studios",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "modu-ai/moai-adk",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "catlog22/Claude-Code-Workflow",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "s977043/PlanGate",
+  "forms": [
+   "string"
+  ]
+ },
+ {
+  "full_name": "HiH-DimaN/idea-to-deploy",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "opencue/cuecards",
+  "forms": [
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "indranilbanerjee/digital-marketing-pro",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "avelikiy/great_cto",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "imtiazrayhan/agentscamp-library",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "jiten-singh-shahi/salesforce-claude-code",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "AsiaOstrich/universal-dev-standards",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "wanshuiyin/Auto-claude-code-research-in-sleep",
+  "forms": [
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string",
+   "string"
+  ]
+ },
+ {
+  "full_name": "guanyang/antigravity-skills",
+  "forms": [
+   "string"
+  ]
+ }
+]

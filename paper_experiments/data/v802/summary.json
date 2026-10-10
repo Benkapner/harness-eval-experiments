@@ -1,0 +1,866 @@
+{
+ "adjudication_hist": {
+  "model": [
+   "claude-fable-5-1"
+  ],
+  "pairs": 159,
+  "verdicts": {
+   "defect": 54,
+   "not_defect": 105
+  }
+ },
+ "audit_new": {
+  "P1": {
+   "agreement_pct": 99.7,
+   "confirmed": 6976,
+   "determinate": 6994,
+   "findings": 7176,
+   "refuted": 18,
+   "rule": "frontmatter/format-valid",
+   "subclasses": {
+    "allowed_tools_type": 1262,
+    "compatibility_type": 83,
+    "field_present": 6,
+    "frontmatter_valid": 2,
+    "metadata_type": 1982,
+    "missing_name": 732,
+    "name_dir_mismatch": 1682,
+    "name_format": 908,
+    "name_format_ok": 2,
+    "name_matches": 8,
+    "name_type": 2,
+    "no_frontmatter": 325,
+    "skill_not_found": 182
+   },
+   "unverifiable": 182
+  },
+  "P2": {
+   "agreement_pct": 100.0,
+   "confirmed": 69,
+   "determinate": 69,
+   "findings": 69,
+   "refuted": 0,
+   "rule": "frontmatter/description-required",
+   "subclasses": {
+    "missing": 69
+   },
+   "unverifiable": 0
+  },
+  "Q1": {
+   "agreement_pct": 99.4,
+   "confirmed": 157,
+   "determinate": 158,
+   "findings": 158,
+   "refuted": 1,
+   "rule": "agent/description-required",
+   "subclasses": {
+    "missing": 60,
+    "no_frontmatter": 97,
+    "non_agent_file": 1
+   },
+   "unverifiable": 0
+  },
+  "S1": {
+   "agreement_pct": 100.0,
+   "confirmed": 1038,
+   "determinate": 1038,
+   "findings": 1038,
+   "refuted": 0,
+   "rule": "mcp/unpinned-package",
+   "subclasses": {
+    "bunx": 1,
+    "docker": 18,
+    "fixture_path": 18,
+    "npx": 359,
+    "own_package": 551,
+    "template_path": 26,
+    "uvx": 65
+   },
+   "unverifiable": 0
+  },
+  "S2": {
+   "agreement_pct": 100.0,
+   "confirmed": 232,
+   "determinate": 232,
+   "findings": 232,
+   "refuted": 0,
+   "rule": "cross/overpermissive-grants",
+   "subclasses": {
+    "arbitrary_exec": 132,
+    "bare_tool": 80,
+    "bash_star": 10,
+    "stripped_wrapper": 10
+   },
+   "unverifiable": 0
+  },
+  "S3": {
+   "agreement_pct": 100.0,
+   "confirmed": 4602,
+   "determinate": 4602,
+   "findings": 4602,
+   "refuted": 0,
+   "rule": "content/allowed-tools-auto-approve",
+   "subclasses": {
+    "bash_exec_cmd": 143,
+    "bash_scoped": 744,
+    "bash_unrestricted": 2004,
+    "write_tool": 1711
+   },
+   "unverifiable": 0
+  }
+ },
+ "audit_new_findings": 13275,
+ "audit_new_repos": 1138,
+ "classes": {
+  "P1": {
+   "new": {
+    "field-type": 327,
+    "missing-field": 86,
+    "name-format": 105,
+    "name-mismatch": 208,
+    "no-frontmatter": 80
+   },
+   "old": {
+    "missing-field": 83,
+    "no-frontmatter": 77
+   }
+  },
+  "P3": {
+   "new": {
+    "field-type": 327,
+    "missing-field": 86,
+    "name-format": 105,
+    "name-mismatch": 208,
+    "no-frontmatter": 80
+   },
+   "old": {
+    "missing-field": 83,
+    "no-frontmatter": 77
+   }
+  },
+  "Q1": {
+   "new": {
+    "agent": 20,
+    "doc-like": 1,
+    "root-agents-dir": 3
+   },
+   "old": {
+    "agent": 20,
+    "doc-like": 1,
+    "root-agents-dir": 3
+   }
+  },
+  "S1": {
+   "new": {
+    "fixture": 7,
+    "live": 294,
+    "template": 9
+   },
+   "old": {
+    "fixture": 6,
+    "live": 256,
+    "template": 9
+   }
+  },
+  "S2": {
+   "new": {
+    "arbitrary-exec": 45,
+    "bare-write-tool": 33,
+    "indirect": 11,
+    "network": 22,
+    "stripped-wrapper": 8,
+    "unrestricted": 18
+   },
+   "old": {
+    "arbitrary-exec": 45,
+    "bare-write-tool": 33,
+    "indirect": 11,
+    "network": 22,
+    "prefix-excluded": 35,
+    "stripped-wrapper": 8,
+    "unrestricted": 18
+   }
+  },
+  "S3": {
+   "new": {
+    "arbitrary-exec": 54,
+    "scoped": 362,
+    "unrestricted": 289
+   },
+   "old": {
+    "arbitrary-exec": 13,
+    "prefix-excluded": 5,
+    "scoped": 125,
+    "unrestricted": 106
+   }
+  }
+ },
+ "conditional_pinned": {
+  "Q1_of_agents": 2.6,
+  "S1_of_mcp": 27.6,
+  "S2_of_hooks": 11.8,
+  "S3_of_skills": 13.1
+ },
+ "corpus": {
+  "collections": 511,
+  "setups": 2660
+ },
+ "coverage": {
+  "head": {
+   "ok": 3133,
+   "scanned": 3171,
+   "status": {
+    "clone_failed": 33,
+    "lint_failed": 4,
+    "ok": 3133,
+    "timeout": 1
+   },
+   "tool_version": {
+    "8.0.2": 3133
+   }
+  },
+  "pinned": {
+   "ok": 3130,
+   "scanned": 3171,
+   "status": {
+    "clone_failed": 36,
+    "lint_failed": 4,
+    "ok": 3130,
+    "timeout": 1
+   },
+   "tool_version": {
+    "8.0.2": 3130
+   }
+  }
+ },
+ "denominators": {
+  "collections_with_skills": 511,
+  "setups_with_agents": 773,
+  "setups_with_hooks": 533,
+  "setups_with_mcp": 1063,
+  "setups_with_skills": 1988
+ },
+ "drift": {
+  "gone_after_pin": 0,
+  "moved_head": 1694,
+  "of": 3130,
+  "unfetchable_head": 33,
+  "unfetchable_pinned": 36
+ },
+ "human_join": {
+  "P1": {
+   "agree": 77,
+   "agree_pct": 100.0,
+   "human_no_but_included": 0,
+   "human_yes_but_excluded": 0,
+   "new_pairs_without_verdict": 554,
+   "pairs_8_0_2": 631,
+   "with_human_verdict": 77
+  },
+  "P2": {
+   "agree": 4,
+   "agree_pct": 100.0,
+   "human_no_but_included": 0,
+   "human_yes_but_excluded": 0,
+   "new_pairs_without_verdict": 2,
+   "pairs_8_0_2": 6,
+   "with_human_verdict": 4
+  },
+  "Q1": {
+   "agree": 18,
+   "agree_pct": 78.3,
+   "human_no_but_included": 2,
+   "human_yes_but_excluded": 3,
+   "new_pairs_without_verdict": 0,
+   "pairs_8_0_2": 23,
+   "with_human_verdict": 23
+  },
+  "S1": {
+   "agree": 264,
+   "agree_pct": 98.5,
+   "human_no_but_included": 0,
+   "human_yes_but_excluded": 4,
+   "new_pairs_without_verdict": 39,
+   "pairs_8_0_2": 307,
+   "with_human_verdict": 268
+  },
+  "S2": {
+   "agree": 63,
+   "agree_pct": 90.0,
+   "human_no_but_included": 0,
+   "human_yes_but_excluded": 7,
+   "new_pairs_without_verdict": 17,
+   "pairs_8_0_2": 87,
+   "with_human_verdict": 70
+  },
+  "S3": {
+   "agree": 114,
+   "agree_pct": 96.6,
+   "human_no_but_included": 3,
+   "human_yes_but_excluded": 1,
+   "new_pairs_without_verdict": 318,
+   "pairs_8_0_2": 436,
+   "with_human_verdict": 118
+  }
+ },
+ "human_total_verdicts": 752,
+ "instrument": {
+  "P1": {
+   "gained": 3,
+   "gained_raw": 476,
+   "lost": 0,
+   "lost_raw": 0,
+   "n": 3130,
+   "name": "Skill without frontmatter",
+   "new": 80,
+   "new_raw": 631,
+   "old": 77,
+   "old_raw": 155
+  },
+  "P2": {
+   "gained": 2,
+   "gained_raw": 2,
+   "lost": 0,
+   "lost_raw": 0,
+   "n": 3130,
+   "name": "Skill description missing",
+   "new": 6,
+   "new_raw": 6,
+   "old": 4,
+   "old_raw": 4
+  },
+  "Q1": {
+   "gained": 0,
+   "gained_raw": 0,
+   "lost": 0,
+   "lost_raw": 0,
+   "n": 3130,
+   "name": "Agent description missing",
+   "new": 20,
+   "new_raw": 23,
+   "old": 20,
+   "old_raw": 23
+  },
+  "S1": {
+   "gain_reasons": {
+    "container": 2,
+    "discovery": 2,
+    "git": 1,
+    "other": 15,
+    "tag": 18
+   },
+   "gained": 38,
+   "gained_raw": 39,
+   "lost": 0,
+   "lost_raw": 0,
+   "n": 3130,
+   "name": "Unpinned MCP package declaration",
+   "new": 294,
+   "new_raw": 307,
+   "old": 256,
+   "old_raw": 268
+  },
+  "S2": {
+   "gained": 0,
+   "gained_raw": 0,
+   "lost": 0,
+   "lost_raw": 11,
+   "n": 3130,
+   "name": "Broad execution grant (settings)",
+   "new": 63,
+   "new_raw": 87,
+   "old": 63,
+   "old_raw": 98
+  },
+  "S3": {
+   "gain_checked": 202,
+   "gain_forms": {
+    "string": 202
+   },
+   "gained": 208,
+   "gained_raw": 278,
+   "lost": 0,
+   "lost_raw": 0,
+   "n": 3130,
+   "name": "Broad skill tool preapproval",
+   "new": 325,
+   "new_raw": 436,
+   "old": 117,
+   "old_raw": 158
+  }
+ },
+ "ladder_old": {
+  "class": 503,
+  "class_pct": 18.9,
+  "final": 471,
+  "final_pct": 17.7,
+  "nofind": 488,
+  "nofind_pct": 18.3,
+  "raw31": 769,
+  "raw31_pct": 28.9,
+  "raw6": 602,
+  "raw6_pct": 22.6
+ },
+ "ladder_pinned": {
+  "class": 656,
+  "class_pct": 24.7,
+  "final": 639,
+  "final_pct": 24.0,
+  "nofind": 656,
+  "nofind_pct": 24.7,
+  "raw31": 1064,
+  "raw31_pct": 40.0,
+  "raw6": 954,
+  "raw6_pct": 35.9
+ },
+ "ladder_published": {
+  "final": 475,
+  "nofind": 488,
+  "note": "the published pipeline's stages: its raw rows already applied the class split, and its final row applied model-assisted inclusion decisions",
+  "raw31": 678,
+  "raw6": 503
+ },
+ "mcp_declarations": {
+  "all": {
+   "files": 2622,
+   "local": 959,
+   "other": 5,
+   "package": 1496,
+   "package_pinned": 157,
+   "package_tag": 195,
+   "package_unpinned": 1144,
+   "remote": 1502,
+   "total": 3962
+  },
+  "setups": {
+   "files": 2593,
+   "local": 954,
+   "other": 5,
+   "package": 1476,
+   "package_pinned": 157,
+   "package_tag": 190,
+   "package_unpinned": 1129,
+   "remote": 1488,
+   "total": 3923
+  },
+  "setups_pct_package_of_total": 37.6,
+  "setups_pct_package_unpinned_or_tag": 89.4,
+  "setups_with_any_declaration": 1053
+ },
+ "persistence": {
+  "P1": {
+   "flagged_at_pin": 80,
+   "name": "Skill without frontmatter",
+   "new_at_head": 0,
+   "not_scanned": 0,
+   "repo_gone": 0,
+   "repo_unchanged": 50,
+   "resolved_at_head": 5,
+   "resolved_pct_of_rescanned": 6.2,
+   "still_at_head": 75
+  },
+  "P2": {
+   "flagged_at_pin": 6,
+   "name": "Skill description missing",
+   "new_at_head": 0,
+   "not_scanned": 0,
+   "repo_gone": 0,
+   "repo_unchanged": 1,
+   "resolved_at_head": 4,
+   "resolved_pct_of_rescanned": 66.7,
+   "still_at_head": 2
+  },
+  "Q1": {
+   "flagged_at_pin": 20,
+   "name": "Agent description missing",
+   "new_at_head": 0,
+   "not_scanned": 0,
+   "repo_gone": 0,
+   "repo_unchanged": 10,
+   "resolved_at_head": 1,
+   "resolved_pct_of_rescanned": 5.0,
+   "still_at_head": 19
+  },
+  "S1": {
+   "flagged_at_pin": 294,
+   "name": "Unpinned MCP package declaration",
+   "new_at_head": 2,
+   "not_scanned": 0,
+   "repo_gone": 0,
+   "repo_unchanged": 130,
+   "resolved_at_head": 17,
+   "resolved_pct_of_rescanned": 5.8,
+   "still_at_head": 277
+  },
+  "S2": {
+   "flagged_at_pin": 63,
+   "name": "Broad execution grant (settings)",
+   "new_at_head": 0,
+   "not_scanned": 0,
+   "repo_gone": 0,
+   "repo_unchanged": 25,
+   "resolved_at_head": 1,
+   "resolved_pct_of_rescanned": 1.6,
+   "still_at_head": 62
+  },
+  "S3": {
+   "flagged_at_pin": 325,
+   "name": "Broad skill tool preapproval",
+   "new_at_head": 3,
+   "not_scanned": 0,
+   "repo_gone": 0,
+   "repo_unchanged": 143,
+   "resolved_at_head": 12,
+   "resolved_pct_of_rescanned": 3.7,
+   "still_at_head": 313
+  }
+ },
+ "rule_meta": {
+  "agent/description-required": {
+   "effect": "block",
+   "scope": "FILE",
+   "severity": "error",
+   "tier": "gating"
+  },
+  "content/allowed-tools-auto-approve": {
+   "effect": "policy",
+   "scope": "FILE",
+   "severity": "warning",
+   "tier": "provisional"
+  },
+  "cross/overpermissive-grants": {
+   "effect": "policy",
+   "scope": "FILE",
+   "severity": "warning",
+   "tier": "gating"
+  },
+  "frontmatter/description-required": {
+   "effect": "block",
+   "scope": "FILE",
+   "severity": "warning",
+   "tier": "gating"
+  },
+  "frontmatter/format-valid": {
+   "effect": "block",
+   "scope": "FILE",
+   "severity": "warning",
+   "tier": "gating"
+  },
+  "mcp/unpinned-package": {
+   "effect": "policy",
+   "scope": "FILE",
+   "severity": "warning",
+   "tier": "gating"
+  }
+ },
+ "stratum_changed_under_802": {
+  "changed": 21,
+  "of": 3130
+ },
+ "table1_head": {
+  "P1": {
+   "collections": 17,
+   "collections_pct": 3.3,
+   "family": "P",
+   "name": "Skill without frontmatter",
+   "rule": "frontmatter/format-valid",
+   "setups": 58,
+   "setups_pct": 2.2,
+   "setups_raw": 493
+  },
+  "P2": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "family": "P",
+   "name": "Skill description missing",
+   "rule": "frontmatter/description-required",
+   "setups": 2,
+   "setups_pct": 0.1,
+   "setups_raw": 2
+  },
+  "P3": {
+   "collections": 127,
+   "collections_pct": 24.9,
+   "family": "P",
+   "name": "Skill frontmatter field type or format deviation (8.0 sub-checks)",
+   "rule": "frontmatter/format-valid",
+   "setups": 450,
+   "setups_pct": 16.9,
+   "setups_raw": 493
+  },
+  "Q1": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "family": "Q",
+   "name": "Agent description missing",
+   "rule": "agent/description-required",
+   "setups": 19,
+   "setups_pct": 0.7,
+   "setups_raw": 22
+  },
+  "S1": {
+   "collections": 2,
+   "collections_pct": 0.4,
+   "family": "S",
+   "name": "Unpinned MCP package declaration",
+   "rule": "mcp/unpinned-package",
+   "setups": 277,
+   "setups_pct": 10.4,
+   "setups_raw": 291
+  },
+  "S2": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "family": "S",
+   "name": "Broad execution grant (settings)",
+   "rule": "cross/overpermissive-grants",
+   "setups": 62,
+   "setups_pct": 2.3,
+   "setups_raw": 84
+  },
+  "S3": {
+   "collections": 62,
+   "collections_pct": 12.1,
+   "family": "S",
+   "name": "Broad skill tool preapproval",
+   "rule": "content/allowed-tools-auto-approve",
+   "setups": 255,
+   "setups_pct": 9.6,
+   "setups_raw": 351
+  },
+  "any_P": {
+   "collections": 17,
+   "collections_pct": 3.3,
+   "setups": 60,
+   "setups_pct": 2.3
+  },
+  "any_Q": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "setups": 19,
+   "setups_pct": 0.7
+  },
+  "any_S": {
+   "collections": 64,
+   "collections_pct": 12.5,
+   "setups": 552,
+   "setups_pct": 20.8
+  },
+  "any_six": {
+   "collections": 79,
+   "collections_pct": 15.5,
+   "setups": 612,
+   "setups_pct": 23.0
+  },
+  "any_six_plus_P3": {
+   "collections": 174,
+   "collections_pct": 34.1,
+   "setups": 860,
+   "setups_pct": 32.3
+  }
+ },
+ "table1_old": {
+  "P1": {
+   "collections": 18,
+   "collections_pct": 3.5,
+   "family": "P",
+   "name": "Skill without frontmatter",
+   "rule": "frontmatter/format-valid",
+   "setups": 60,
+   "setups_pct": 2.3,
+   "setups_raw": 128
+  },
+  "P2": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "family": "P",
+   "name": "Skill description missing",
+   "rule": "frontmatter/description-required",
+   "setups": 4,
+   "setups_pct": 0.2,
+   "setups_raw": 4
+  },
+  "P3": {
+   "collections": 11,
+   "collections_pct": 2.2,
+   "family": "P",
+   "name": "Skill frontmatter field type or format deviation (8.0 sub-checks)",
+   "rule": "frontmatter/format-valid",
+   "setups": 73,
+   "setups_pct": 2.7,
+   "setups_raw": 128
+  },
+  "Q1": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "family": "Q",
+   "name": "Agent description missing",
+   "rule": "agent/description-required",
+   "setups": 20,
+   "setups_pct": 0.8,
+   "setups_raw": 23
+  },
+  "S1": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "family": "S",
+   "name": "Unpinned MCP package declaration",
+   "rule": "mcp/unpinned-package",
+   "setups": 259,
+   "setups_pct": 9.7,
+   "setups_raw": 272
+  },
+  "S2": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "family": "S",
+   "name": "Broad execution grant (settings)",
+   "rule": "cross/overpermissive-grants",
+   "setups": 65,
+   "setups_pct": 2.4,
+   "setups_raw": 101
+  },
+  "S3": {
+   "collections": 19,
+   "collections_pct": 3.7,
+   "family": "S",
+   "name": "Broad skill tool preapproval",
+   "rule": "content/allowed-tools-auto-approve",
+   "setups": 101,
+   "setups_pct": 3.8,
+   "setups_raw": 138
+  },
+  "any_P": {
+   "collections": 18,
+   "collections_pct": 3.5,
+   "setups": 63,
+   "setups_pct": 2.4
+  },
+  "any_Q": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "setups": 20,
+   "setups_pct": 0.8
+  },
+  "any_S": {
+   "collections": 19,
+   "collections_pct": 3.7,
+   "setups": 407,
+   "setups_pct": 15.3
+  },
+  "any_six": {
+   "collections": 35,
+   "collections_pct": 6.8,
+   "setups": 471,
+   "setups_pct": 17.7
+  },
+  "any_six_plus_P3": {
+   "collections": 45,
+   "collections_pct": 8.8,
+   "setups": 527,
+   "setups_pct": 19.8
+  }
+ },
+ "table1_pinned": {
+  "P1": {
+   "collections": 18,
+   "collections_pct": 3.5,
+   "family": "P",
+   "name": "Skill without frontmatter",
+   "rule": "frontmatter/format-valid",
+   "setups": 62,
+   "setups_pct": 2.3,
+   "setups_raw": 493
+  },
+  "P2": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "family": "P",
+   "name": "Skill description missing",
+   "rule": "frontmatter/description-required",
+   "setups": 6,
+   "setups_pct": 0.2,
+   "setups_raw": 6
+  },
+  "P3": {
+   "collections": 127,
+   "collections_pct": 24.9,
+   "family": "P",
+   "name": "Skill frontmatter field type or format deviation (8.0 sub-checks)",
+   "rule": "frontmatter/format-valid",
+   "setups": 450,
+   "setups_pct": 16.9,
+   "setups_raw": 493
+  },
+  "Q1": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "family": "Q",
+   "name": "Agent description missing",
+   "rule": "agent/description-required",
+   "setups": 20,
+   "setups_pct": 0.8,
+   "setups_raw": 23
+  },
+  "S1": {
+   "collections": 1,
+   "collections_pct": 0.2,
+   "family": "S",
+   "name": "Unpinned MCP package declaration",
+   "rule": "mcp/unpinned-package",
+   "setups": 293,
+   "setups_pct": 11.0,
+   "setups_raw": 306
+  },
+  "S2": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "family": "S",
+   "name": "Broad execution grant (settings)",
+   "rule": "cross/overpermissive-grants",
+   "setups": 63,
+   "setups_pct": 2.4,
+   "setups_raw": 87
+  },
+  "S3": {
+   "collections": 64,
+   "collections_pct": 12.5,
+   "family": "S",
+   "name": "Broad skill tool preapproval",
+   "rule": "content/allowed-tools-auto-approve",
+   "setups": 261,
+   "setups_pct": 9.8,
+   "setups_raw": 355
+  },
+  "any_P": {
+   "collections": 18,
+   "collections_pct": 3.5,
+   "setups": 67,
+   "setups_pct": 2.5
+  },
+  "any_Q": {
+   "collections": 0,
+   "collections_pct": 0.0,
+   "setups": 20,
+   "setups_pct": 0.8
+  },
+  "any_S": {
+   "collections": 65,
+   "collections_pct": 12.7,
+   "setups": 574,
+   "setups_pct": 21.6
+  },
+  "any_six": {
+   "collections": 81,
+   "collections_pct": 15.9,
+   "setups": 639,
+   "setups_pct": 24.0
+  },
+  "any_six_plus_P3": {
+   "collections": 175,
+   "collections_pct": 34.2,
+   "setups": 880,
+   "setups_pct": 33.1
+  }
+ }
+}

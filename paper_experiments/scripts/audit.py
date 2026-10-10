@@ -733,7 +733,7 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
             tools = [m.group(1)]
             klass = None
         elif isinstance(data_tools, str) and data_tools.strip():
-            tools = _split_tool_entries(data_tools.replace(",", " "))
+            tools = _split_tool_entries(data_tools)      # comma-joined; commas inside parentheses stay
             klass = "high" if "unrestricted shell" in msg else "medium"
         else:
             m = re.search(r"without user confirmation: (.*?)(?:\. This is not a sandbox.*)?$", msg, re.S)

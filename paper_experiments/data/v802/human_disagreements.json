@@ -1,0 +1,276 @@
+{
+ "S1": [
+  {
+   "repo": "huangjia2019/claude-code-engineering",
+   "rule": "mcp/unpinned-package",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "template": 7
+   },
+   "files": [
+    "07-MCP/projects/01-basic-config/.mcp.json",
+    "10-Plugins/projects/03-team-toolkit/.mcp.json"
+   ]
+  },
+  {
+   "repo": "nota-america/forgecat-agent-profiles",
+   "rule": "mcp/unpinned-package",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "template": 1
+   },
+   "files": [
+    "profiles/microsoft/azure-skills/microsoft-azure_skills/for-claude/.mcp.json"
+   ]
+  },
+  {
+   "repo": "qualixar/skillfortify",
+   "rule": "mcp/unpinned-package",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "fixture": 6
+   },
+   "files": [
+    "benchmarks/skills/mcp/malicious/mcp_mal_A11_001/.mcp.json",
+    "benchmarks/skills/mcp/malicious/mcp_mal_A11_002/.mcp.json",
+    "benchmarks/skills/mcp/malicious/mcp_mal_A12_001/.mcp.json",
+    "benchmarks/skills/mcp/malicious/mcp_mal_A12_002/.mcp.json",
+    "benchmarks/skills/mcp/malicious/mcp_mal_A12_003/.mcp.json"
+   ]
+  },
+  {
+   "repo": "SethGammon/Citadel",
+   "rule": "mcp/unpinned-package",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "template": 2
+   },
+   "files": [
+    ".planning/_templates/.mcp.json"
+   ]
+  }
+ ],
+ "S2": [
+  {
+   "repo": "daveangulo/twining-mcp",
+   "rule": "cross/overpermissive-grants",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "bare-write-tool": 2
+   },
+   "files": [
+    ".claude/settings.json"
+   ]
+  },
+  {
+   "repo": "disler/claude-code-hooks-mastery",
+   "rule": "cross/overpermissive-grants",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "bare-write-tool": 2
+   },
+   "files": [
+    ".claude/settings.json"
+   ]
+  },
+  {
+   "repo": "hyperformant/vibecarbon",
+   "rule": "cross/overpermissive-grants",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "stripped-wrapper": 1
+   },
+   "files": [
+    ".claude/settings.json"
+   ]
+  },
+  {
+   "repo": "josephschmitt/monocle",
+   "rule": "cross/overpermissive-grants",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "stripped-wrapper": 1
+   },
+   "files": [
+    ".claude/settings.json"
+   ]
+  },
+  {
+   "repo": "leee880619-commits/ClaudeCode-Harness-Setup-Assistant",
+   "rule": "cross/overpermissive-grants",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "bare-write-tool": 3
+   },
+   "files": [
+    ".claude/settings.json"
+   ]
+  },
+  {
+   "repo": "marciopuga/cog",
+   "rule": "cross/overpermissive-grants",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "bare-write-tool": 2
+   },
+   "files": [
+    ".claude/settings.json"
+   ]
+  },
+  {
+   "repo": "wesammustafa/Claude-Code-Everything-You-Need-to-Know",
+   "rule": "cross/overpermissive-grants",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "bare-write-tool": 2
+   },
+   "files": [
+    ".claude/settings.json"
+   ]
+  }
+ ],
+ "S3": [
+  {
+   "repo": "alib8b8/llm-box",
+   "rule": "content/allowed-tools-auto-approve",
+   "human_defect": false,
+   "included": true,
+   "classes": {
+    "unrestricted": 4,
+    "scoped": 4
+   },
+   "files": [
+    ".claude/skills/aflare/SKILL.md",
+    ".claude/skills/setup/SKILL.md",
+    "skills/aflare/SKILL.md",
+    "skills/setup/SKILL.md"
+   ]
+  },
+  {
+   "repo": "mskadu/opencode-agent-skills",
+   "rule": "content/allowed-tools-auto-approve",
+   "human_defect": false,
+   "included": true,
+   "classes": {
+    "unrestricted": 1,
+    "scoped": 1
+   },
+   "files": [
+    "skills/ollama-sync/SKILL.md"
+   ]
+  },
+  {
+   "repo": "shihabshahrier/skill-builder",
+   "rule": "content/allowed-tools-auto-approve",
+   "human_defect": false,
+   "included": true,
+   "classes": {
+    "unrestricted": 1,
+    "scoped": 1
+   },
+   "files": [
+    "skills/skill-builder/SKILL.md"
+   ]
+  },
+  {
+   "repo": "WRG-11/wrg-sigma-rules",
+   "rule": "content/allowed-tools-auto-approve",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "scoped": 3
+   },
+   "files": [
+    "skills/sigma-rule-reviewer/SKILL.md",
+    "skills/sigma-rule-writer/SKILL.md",
+    "skills/threat-coverage-gap-analyzer/SKILL.md"
+   ]
+  }
+ ],
+ "Q1": [
+  {
+   "repo": "aneja5/forge-skills",
+   "rule": "agent/description-required",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "root-agents-dir": 13
+   },
+   "files": [
+    "agents/architect.md",
+    "agents/brand-strategist.md",
+    "agents/code-reviewer.md",
+    "agents/competitive-analyst.md",
+    "agents/compliance-officer.md"
+   ]
+  },
+  {
+   "repo": "different-ai/openwork",
+   "rule": "agent/description-required",
+   "human_defect": false,
+   "included": true,
+   "classes": {
+    "doc-like": 1,
+    "agent": 2
+   },
+   "files": [
+    ".opencode/agents/changelog.md",
+    ".opencode/agents/duplicate-pr.md",
+    ".opencode/agents/triage.md"
+   ]
+  },
+  {
+   "repo": "inalps/ddw",
+   "rule": "agent/description-required",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "root-agents-dir": 5
+   },
+   "files": [
+    "agents/architect.md",
+    "agents/developer.md",
+    "agents/qa.md",
+    "agents/security.md",
+    "agents/shaper.md"
+   ]
+  },
+  {
+   "repo": "microsoft/apm",
+   "rule": "agent/description-required",
+   "human_defect": false,
+   "included": true,
+   "classes": {
+    "agent": 1
+   },
+   "files": [
+    ".github/agents/algorithmic-patterns.agent.md"
+   ]
+  },
+  {
+   "repo": "mosonlab/agentos",
+   "rule": "agent/description-required",
+   "human_defect": true,
+   "included": false,
+   "classes": {
+    "root-agents-dir": 1
+   },
+   "files": [
+    "agents/foundational.md"
+   ]
+  }
+ ],
+ "P1": [],
+ "P2": []
+}
