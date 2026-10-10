@@ -218,11 +218,12 @@ def frontmatter_class(f: dict) -> str:
 def agent_class(f: dict) -> str:
     """Q1: a root-level agents/ directory also holds documentation; a file
     without frontmatter there is not a subagent definition (published policy)."""
-    fl = (f.get("file") or "").replace("\\", "/")
-    name = fl.rsplit("/", 1)[-1].lower()
-    if name in ("readme.md", "index.md", "changelog.md", "contributing.md") or name.isupper():
+    fl = "/" + (f.get("file") or "").replace("\\", "/").lstrip("/")
+    name = fl.rsplit("/", 1)[-1]
+    stem = name.rsplit(".", 1)[0]
+    if name.lower() in ("readme.md", "index.md", "changelog.md", "contributing.md") or (stem.isupper() and len(stem) > 2):
         return "doc-like"
-    if "/.claude/agents/" not in fl and "/.github/agents/" not in fl and "/agents/" in fl:
+    if fl.startswith("/agents/"):
         return "root-agents-dir"
     return "agent"
 
@@ -391,7 +392,35 @@ def main() -> None:
         p_raw = {n for n in both if has(pinned.get(n), cid, raw=True)}
         inst[cid] = {"name": name, "n": len(both), "old": len(o), "new": len(p), "lost": len(o - p), "gained": len(p - o),
                      "old_raw": len(o_raw), "new_raw": len(p_raw), "lost_raw": len(o_raw - p_raw), "gained_raw": len(p_raw - o_raw)}
-    # reasons for S3 gain: string-form allowed-tools (7.15 parsed lists only)
+    # Why S1 gained repositories: a floating tag the new rule counts, an MCP
+    # configuration file 7.15 did not discover (no mcp_config in its inventory),
+    # a container image reference, a git reference, or another spec form.
+    reasons: Counter = Counter()
+    for n in both:
+        if has(old.get(n), "S1") or not has(pinned.get(n), "S1"):
+            continue
+        specs = [(f.get("data") or {}).get("spec") or "" for f in pinned[n]["findings"] if f.get("rule") == "mcp/unpinned-package"]
+        if any(re.search(r"@(latest|next|canary|beta|alpha)$", sp) for sp in specs):
+            reasons["tag"] += 1
+        elif not (old[n]["inventory"].get("component_types") or {}).get("mcp_config"):
+            reasons["discovery"] += 1
+        elif any(re.match(r"^(ghcr\.io|mcr\.microsoft\.com|docker\.io|[\w.-]+\.[a-z]+)/", sp) for sp in specs):
+            reasons["container"] += 1
+        elif any(sp.startswith(("github:", "git+", "https://")) for sp in specs):
+            reasons["git"] += 1
+        else:
+            reasons["other"] += 1
+    inst["S1"]["gain_reasons"] = dict(reasons)
+    # Why S3 gained repositories: the clone-based form check (scans/check_s3_form.py)
+    forms_file = OUT / "s3_gain_forms.json"
+    if forms_file.exists():
+        res = json.loads(forms_file.read_text())
+        fc: Counter = Counter()
+        for r in res:
+            fs = set(r["forms"])
+            fc["string" if fs == {"string"} else "list" if fs == {"list"} else "mixed" if {"string", "list"} <= fs else "unverified"] += 1
+        inst["S3"]["gain_forms"] = dict(fc)
+        inst["S3"]["gain_checked"] = len(res)
     S["instrument"] = inst
     # grant class breakdown, 7.15 vs 8.0.2, over repositories
     def class_counts(scan: dict, cid: str) -> dict:
@@ -554,6 +583,11 @@ def write_tex(S: dict) -> None:
     for cid, v in S["instrument"].items():
         for k in ("old", "new", "lost", "gained"):
             n.append(_m(f"Inst{cid}{k.capitalize()}", v[k]))
+    for k in ("tag", "discovery", "container", "git", "other"):
+        n.append(_m(f"InstSOneGain{k.capitalize()}", S["instrument"]["S1"].get("gain_reasons", {}).get(k, 0)))
+    for k in ("string", "list", "mixed", "unverified"):
+        n.append(_m(f"InstSThreeGain{k.capitalize()}", S["instrument"]["S3"].get("gain_forms", {}).get(k, 0)))
+    n.append(_m("InstSThreeGainChecked", S["instrument"]["S3"].get("gain_checked", 0)))
     for cid, v in S["persistence"].items():
         for k in ("flagged_at_pin", "still_at_head", "resolved_at_head", "repo_gone", "new_at_head", "resolved_pct_of_rescanned"):
             n.append(_m(f"Pers{cid}" + _camel(k), v[k]))
