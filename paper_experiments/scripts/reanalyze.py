@@ -284,8 +284,10 @@ def main() -> None:
     names = [r["full_name"] for r in corp]
     strata = {r["full_name"]: r["stratum"] for r in corp}
     old = {r["full_name"]: r for r in corp}
-    pinned = load(PINNED) if PINNED.exists() else {}
-    head = load(HEAD) if HEAD.exists() else {}
+    def exists(path: Path) -> bool:
+        return path.exists() or path.with_suffix(".jsonl.gz").exists()
+    pinned = load(PINNED) if exists(PINNED) else {}
+    head = load(HEAD) if exists(HEAD) else {}
     rules = {r["id"]: r for r in json.loads(RULES.read_text())} if RULES.exists() else {}
 
     S = {"corpus": {"setups": sum(1 for n in names if strata[n] == "SETUP"),
@@ -306,9 +308,11 @@ def main() -> None:
     S["coverage"]["head"]["ok"] = len(ok_h)
     # commit drift between the pin and HEAD at scan time
     moved = sum(1 for n in ok_p if pinned[n].get("head_now") and pinned[n]["head_now"] != pinned[n]["commit"])
+    gone_after_pin = sum(1 for n in ok_p if (head.get(n) or {}).get("status") == "clone_failed")
     S["drift"] = {"moved_head": moved, "of": len(ok_p),
                   "unfetchable_pinned": S["coverage"]["pinned"]["status"].get("clone_failed", 0),
-                  "unfetchable_head": S["coverage"]["head"]["status"].get("clone_failed", 0)}
+                  "unfetchable_head": S["coverage"]["head"]["status"].get("clone_failed", 0),
+                  "gone_after_pin": gone_after_pin}
 
     # ---- component denominators (from the published inventory, fixed) ----
     def with_type(n: str, t: str) -> bool:
@@ -490,6 +494,7 @@ def main() -> None:
         for r in csv.DictReader(HUMAN.open()):
             hv[(r["repo"], r["rule"])] = r["human_reviewer_verdict"].strip().lower().startswith("yes")
         join = {}
+        disagreements = {}
         for cid, rule, fam, name in CATEGORIES:
             pairs = [(n, rule) for n in both if has(pinned.get(n), cid, raw=True)]
             incl = {(n, rule) for n in both if has(pinned.get(n), cid)}
@@ -497,11 +502,19 @@ def main() -> None:
             agree = sum(1 for p in with_h if hv[p] == (p in incl))
             h_yes_excl = sum(1 for p in with_h if hv[p] and p not in incl)
             h_no_incl = sum(1 for p in with_h if not hv[p] and p in incl)
+            dis = []
+            for pr in with_h:
+                if hv[pr] != (pr in incl):
+                    hits = dict(category_hits(pinned.get(pr[0]), cid))
+                    dis.append({"repo": pr[0], "rule": rule, "human_defect": hv[pr], "included": pr in incl, "classes": hits,
+                                "files": sorted({f.get("file") for f in pinned[pr[0]]["findings"] if f.get("rule") == rule})[:5]})
+            disagreements[cid] = dis
             join[cid] = {"pairs_8_0_2": len(pairs), "with_human_verdict": len(with_h), "agree": agree,
                          "agree_pct": pct(agree, len(with_h)), "human_yes_but_excluded": h_yes_excl,
                          "human_no_but_included": h_no_incl, "new_pairs_without_verdict": len(pairs) - len(with_h)}
         S["human_join"] = join
         S["human_total_verdicts"] = len(hv)
+        (OUT / "human_disagreements.json").write_text(json.dumps(disagreements, indent=1))
 
     # ---- historical model adjudication, for the comparison table ---------
     if ADJ.exists():
@@ -561,6 +574,8 @@ def write_tex(S: dict) -> None:
     n.append(_m("NPinnedOk", f"{cov['pinned']['ok']:,}")); n.append(_m("NHeadOk", f"{cov['head']['ok']:,}"))
     n.append(_m("NPinnedUnfetchable", S["drift"]["unfetchable_pinned"])); n.append(_m("NHeadUnfetchable", S["drift"]["unfetchable_head"]))
     n.append(_m("NMovedHead", f"{S['drift']['moved_head']:,}")); n.append(_m("PctMovedHead", pct(S["drift"]["moved_head"], S["drift"]["of"])))
+    n.append(_m("NGoneAfterPin", S["drift"]["gone_after_pin"]))
+    n.append(_m("NPinnedLintFailed", S["coverage"]["pinned"]["status"].get("lint_failed", 0) + S["coverage"]["pinned"]["status"].get("timeout", 0)))
     for cid in ("S1", "S2", "S3", "Q1", "P1", "P2", "P3"):
         t = S["table1_pinned"][cid]
         n.append(_m(f"{cid}Setups", t["setups"])); n.append(_m(f"{cid}SetupsPct", t["setups_pct"]))
@@ -599,7 +614,8 @@ def write_tex(S: dict) -> None:
     n.append(_m("DeclSetupsWithAny", md["setups_with_any_declaration"]))
     if "audit_new" in S:
         for cid, v in S["audit_new"].items():
-            n.append(_m(f"Audit{cid}Findings", v["findings"])); n.append(_m(f"Audit{cid}Agree", v["agreement_pct"])); n.append(_m(f"Audit{cid}Refuted", v["refuted"]))
+            n.append(_m(f"Audit{cid}Findings", f"{v['findings']:,}")); n.append(_m(f"Audit{cid}Agree", v["agreement_pct"])); n.append(_m(f"Audit{cid}Refuted", v["refuted"]))
+            n.append(_m(f"Audit{cid}Confirmed", f"{v['confirmed']:,}")); n.append(_m(f"Audit{cid}Unverifiable", v["unverifiable"]))
         n.append(_m("AuditRepos", f"{S['audit_new_repos']:,}")); n.append(_m("AuditFindings", f"{S['audit_new_findings']:,}"))
     if "human_join" in S:
         for cid, v in S["human_join"].items():
@@ -665,11 +681,11 @@ def write_tex(S: dict) -> None:
 
     # Table 6: audit + human join
     if "audit_new" in S:
-        L = ["\\begin{tabular}{@{}llrrrrr@{}}", "\\toprule", "ID & Finding & Findings & Re-derived & Refuted & Human-rated pairs & Agree \\\\", "\\midrule"]
+        L = ["\\begin{tabular}{@{}lrrrrrr@{}}", "\\toprule", "ID & Findings & Re-derived & Refuted & Unverif. & Rated pairs & Agree \\\\", "\\midrule"]
         for cid, rule, fam, name in CATEGORIES:
             a = S["audit_new"][cid]
             h = S.get("human_join", {}).get(cid, {})
-            L.append(f"{cid} & {name} & {a['findings']} & {a['confirmed']} & {a['refuted']} & {h.get('with_human_verdict', '--')}/{h.get('pairs_8_0_2', '--')} & {h.get('agree_pct', '--')}\\% \\\\")
+            L.append(f"{cid} & {a['findings']:,} & {a['confirmed']:,} & {a['refuted']} & {a['unverifiable']} & {h.get('with_human_verdict', '--')}/{h.get('pairs_8_0_2', '--')} & {h.get('agree_pct', '--')}\\% \\\\")
         L += ["\\bottomrule", "\\end{tabular}"]
         (TEX / "tab_validation.tex").write_text("\n".join(L) + "\n")
 

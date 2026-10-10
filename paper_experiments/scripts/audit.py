@@ -282,19 +282,51 @@ def _hook_entries(data: object) -> list[dict]:
 
 
 def _mcp_configs(root: Path) -> list[Path]:
-    names = (".mcp.json", "mcp.json", "mcp_config.json", "settings.json", "opencode.json", "opencode.jsonc")
-    return [p for p in sorted(root.rglob("*")) if p.name in names and p.is_file()
-            and ".git" not in p.parts and "node_modules" not in p.parts]
+    names = (".mcp.json", "mcp.json", "mcp_config.json", "settings.json", "opencode.json", "opencode.jsonc", "claude_desktop_config.json")
+    out = [p for p in sorted(root.rglob("*")) if p.name in names and p.is_file()
+           and ".git" not in p.parts and "node_modules" not in p.parts]
+    codex = root / ".codex" / "config.toml"          # Codex CLI: [mcp_servers.<name>] tables
+    if codex.is_file():
+        out.append(codex)
+    return out
 
 
 def _servers(p: Path) -> dict:
-    data, _ = _load_json(p)
-    if not isinstance(data, dict):
-        return {}
-    for key in ("mcpServers", "servers", "mcp"):
-        if isinstance(data.get(key), dict):
-            return data[key]
-    return {}
+    """Every server declaration in one config file, normalized to
+    {name: {"command": str, "args": [str], ...}}. Reads JSON/JSONC maps under
+    mcpServers / servers / mcp (OpenCode writes command as one argv array),
+    plugin-style flat maps, and Codex's TOML [mcp_servers.<name>] tables.
+    Returns None when the file holds no server map the audit can read."""
+    if p.suffix == ".toml":
+        try:
+            import tomllib
+            data = tomllib.loads(p.read_text(errors="replace"))
+        except Exception:  # noqa: BLE001
+            return None
+        servers = data.get("mcp_servers") if isinstance(data, dict) else None
+    else:
+        data, _ = _load_json(p)
+        if not isinstance(data, dict):
+            return None
+        servers = None
+        for key in ("mcpServers", "servers", "mcp", "mcp_servers"):
+            if isinstance(data.get(key), dict):
+                servers = data[key]
+                break
+        if servers is None and data and all(isinstance(v, dict) and ("command" in v or "url" in v) for v in data.values()):
+            servers = data                                 # plugin-style flat map
+    if not isinstance(servers, dict):
+        return None
+    out = {}
+    for name, sd in servers.items():
+        if not isinstance(sd, dict):
+            continue
+        sd = dict(sd)
+        cmd = sd.get("command")
+        if isinstance(cmd, list) and cmd:                  # OpenCode: command = ["npx", "-y", "pkg"]
+            sd["command"], sd["args"] = str(cmd[0]), [str(a) for a in cmd[1:]] + [str(a) for a in sd.get("args") or []]
+        out[name] = sd
+    return out
 
 
 def _agents(root: Path) -> dict[str, Path]:
@@ -627,7 +659,7 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
                 continue   # another file of the same name may be the one flagged
             mm = re.search(r"Server '([^']+)' has no 'command'", msg)
             if mm:
-                sd = _servers(p).get(mm.group(1))
+                sd = (_servers(p) or {}).get(mm.group(1))
                 if not isinstance(sd, dict):
                     continue
                 if sd.get("command") or sd.get("url"):
@@ -639,7 +671,7 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
                 return "confirmed", "no_transport"
             mm = re.search(r"Server '([^']+)': '(args|env)' must be", msg)
             if mm:
-                sd = _servers(p).get(mm.group(1))
+                sd = (_servers(p) or {}).get(mm.group(1))
                 if not isinstance(sd, dict):
                     continue
                 v = sd.get(mm.group(2))
@@ -658,7 +690,7 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
         name = m.group(1)
         tool = re.search(r"auto-approves '([^']+)'", msg)
         for p in _mcp_configs(root):
-            sd = _servers(p).get(name)
+            sd = (_servers(p) or {}).get(name)
             if not isinstance(sd, dict) or "autoApprove" not in sd:
                 continue
             aa = sd["autoApprove"]
@@ -672,7 +704,7 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
             return "unverifiable", ""
         name, key = m.groups()
         for p in _mcp_configs(root):
-            sd = _servers(p).get(name)
+            sd = (_servers(p) or {}).get(name)
             if not isinstance(sd, dict):
                 continue
             for section in ("env", "headers"):
@@ -696,9 +728,13 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
         # 7.15: "allowed-tools includes '<tool>', which ..." (one finding per tool)
         # 8.0+: "allowed-tools auto-approves <class> without user confirmation: <t1>, <t2>. ..." (one per class per file)
         m = re.search(r"allowed-tools includes '([^']+)'", msg)
+        data_tools = (f.get("data") or {}).get("tools") if isinstance(f.get("data"), dict) else None
         if m:
             tools = [m.group(1)]
             klass = None
+        elif isinstance(data_tools, str) and data_tools.strip():
+            tools = _split_tool_entries(data_tools.replace(",", " "))
+            klass = "high" if "unrestricted shell" in msg else "medium"
         else:
             m = re.search(r"without user confirmation: (.*?)(?:\. This is not a sandbox.*)?$", msg, re.S)
             if not m:
@@ -923,8 +959,16 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
                     return "confirmed", "supporting_file"
         return "refuted", ""
     if rule == "mcp/unpinned-package":
-        for c in _mcp_configs(root):
+        named = root / (f.get("file") or "") if f.get("file") else None
+        configs = _mcp_configs(root)
+        if named is not None and named.is_file() and named not in configs:
+            configs.append(named)
+        parsed_any = False
+        for c in configs:
             servers = _servers(c)
+            if servers is None:
+                continue
+            parsed_any = True
             for name, sd in servers.items():
                 if not isinstance(sd, dict):
                     continue
@@ -958,7 +1002,11 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
                     imgs = [a for a in args if a and not a.startswith("-") and a not in ("run", "exec")]
                     if imgs and "@" not in imgs[-1] and (":" not in imgs[-1] or imgs[-1].endswith(":latest")):
                         return "confirmed", "docker"
-        return "refuted", ""
+        if named is not None and named.is_file() and _servers(named) is None:
+            return "unverifiable", "config_not_parsed"     # the audit cannot read this file's format
+        if not parsed_any:
+            return "unverifiable", "no_config_parsed"
+        return "refuted", "spec_not_unpinned"
     if rule == "agent/description-required":
         _comp = str(f.get("component") or f.get("file") or "").lower()
         if re.search(r"(?:^|/)(?:readme|agents|claude|index|changelog|contributing|overview|[\w-]*-conventions)\.md$", _comp):

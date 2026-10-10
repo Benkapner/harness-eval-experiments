@@ -7,3 +7,6 @@ data/frame_pages.jsonl
 # TeX sources and LaTeX output are not part of this repository
 paper/
 paper_experiments/paper/
+
+# plain second-iteration scan outputs: the .gz copies are committed
+paper_experiments/data/results_v802_*.jsonl
