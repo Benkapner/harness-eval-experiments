@@ -54,6 +54,42 @@ specification, or an inconsistency between two assistants' declarations.
 Per-rule agreement, pair counts, and adjudication outcomes are in `data/summary.json`
 and `data/audit_summary.json`.
 
+## Second iteration: harness-eval 8.0.2
+
+The first iteration's own validation (mechanical re-derivation, model-assisted
+adjudication, one author's review) consumed the scanner's output and could not
+see two instrument defects: wildcard `find`/`watch` grants counted as arbitrary
+execution although the client documents that a prefix rule does not auto-approve
+them, and a `allowed-tools` parser that read only YAML lists and skipped the
+specification's space-delimited string form. The second iteration fixes the
+scanner (8.0.2), rescans the **same repositories at the same pinned commits**
+(instrument change only), scans them again at the current default branch
+(ecosystem change only), replaces model adjudication with a mechanical,
+re-derivable inclusion policy (`scripts/reanalyze.py`), and joins the recorded
+human verdicts to the new pairs.
+
+| Path | Contents |
+|---|---|
+| `data/results_v802_pinned.jsonl` | 8.0.2 scan at the pinned commits; each record carries `head_now` and an `mcp_declarations` inventory (every server declaration by transport and pin state). |
+| `data/results_v802_head.jsonl` | 8.0.2 scan at the default branch on the scan date. |
+| `data/audit_findings_v802.jsonl`, `data/audit_summary_v802.json` | Mechanical re-derivation of the six headline rules on the pinned 8.0.2 scan; the audit encodes the documented `find`/`watch` exception. |
+| `data/rules_v802.json` | The 8.0.2 rule catalog with effect, tier and scope. |
+| `data/v802/summary.json`, `data/v802/tex/` | Every number of the second-iteration paper, the LaTeX tables and macros. |
+| `figures/results_v802.{png,pdf}` | The second-iteration results figure. |
+
+```bash
+pip install harness-eval==8.0.2
+make scan-pinned scan-head     # about five hours on four cores; resumable
+make scan-retry                # re-scan the repositories that timed out, slowly
+make audit-v802 reanalyze      # re-derivation of the six rules, then every table and macro
+make paper-v802                # needs paper/main.tex (TeX sources are not in this tree)
+```
+
+The unit of analysis and the strata are fixed from the 7.15.0 scan, so every
+table counts the same 2,660 setups and 511 collections. The published
+7.15.0 pipeline (`scripts/analyze.py`, `scripts/adjudicate.py`) is unchanged and
+still reproduces the first iteration's numbers.
+
 ## Layout
 
 | Path | Contents |

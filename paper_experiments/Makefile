@@ -6,6 +6,27 @@ all: classify audit evidence adjudicate reach analyze verdicts pack
 scan:             ## scan the corpus (data/corpus_repos.txt) with the installed harness-eval; resumable
 	$(PY) scripts/scan.py --only data/corpus_repos.txt --workers 8
 
+# ---- second iteration (harness-eval 8.0.2): instrument change and persistence ----
+scan-pinned:      ## rescan the published corpus at its pinned commits with the installed harness-eval (instrument comparison)
+	$(PY) scripts/scan.py --pinned data/results.jsonl.gz --results data/results_v802_pinned.jsonl --workers 8 --all
+
+scan-head:        ## scan the published corpus at the current default branch (ecosystem change)
+	$(PY) scripts/scan.py --only data/corpus_repos.txt --results data/results_v802_head.jsonl --workers 8 --all
+
+scan-retry:       ## re-scan the repositories that timed out in either rescan, slowly
+	$(PY) scripts/scan.py --pinned data/results.jsonl.gz --results data/results_v802_pinned.jsonl --workers 2 --all --lint-timeout 900 --retry-timeouts
+	$(PY) scripts/scan.py --only data/corpus_repos.txt --results data/results_v802_head.jsonl --workers 2 --all --lint-timeout 900 --retry-timeouts
+
+audit-v802:       ## re-derive every finding of the six headline rules on the pinned 8.0.2 scan
+	$(PY) scripts/audit.py --results data/results_v802_pinned.jsonl --tag v802 --per-rule 0 --workers 8 \
+	  --exhaustive mcp/unpinned-package,cross/overpermissive-grants,content/allowed-tools-auto-approve,agent/description-required,frontmatter/format-valid,frontmatter/description-required
+
+reanalyze:        ## data/v802/summary.json, the paper tables and macros, figures/results_v802.*
+	$(PY) scripts/reanalyze.py
+
+paper-v802:       ## compile the second-iteration paper (paper/main.tex; TeX sources are gitignored)
+	cd paper && latexmk -pdf -interaction=nonstopmode -quiet main.tex
+
 classify:         ## classify every rule by analysis scope (rerun after any tool change)
 	$(PY) scripts/classify_rules.py
 

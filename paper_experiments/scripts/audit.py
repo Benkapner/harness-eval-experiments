@@ -18,6 +18,10 @@ The reference-resolution rule is sub-classified by consequence: dead
 path), or runtime-output (the surrounding text tells the agent to create it).
 
 usage: audit.py [--per-rule N] [--seed S] [--exhaustive rule1,rule2,...|all] [--workers K]
+                [--results FILE] [--tag TAG]
+  --results FILE audits the findings of that scan file instead of data/results.jsonl.
+  --tag TAG writes data/audit_findings_TAG.jsonl and data/audit_summary_TAG.json,
+    so an audit of a rescan never overwrites the published 7.15.0 audit.
   --exhaustive audits every finding of the named rules (no sampling), so that
   prevalence for those rules counts only re-derived findings. "all" audits
   every candidate rule exhaustively except the ones in SAMPLED.
@@ -111,15 +115,26 @@ DANGEROUS_GRANT = [
     (re.compile(r"terraform\s+destroy\b", re.I), "infra_destroy"), (re.compile(r"kubectl\s+delete\b", re.I), "infra_destroy"),
 ]
 
-EXEC_CMDS = {"sh", "bash", "zsh", "dash", "fish", "env", "eval", "exec", "xargs", "nohup", "timeout", "watch",
+# find and watch are deliberately absent: Claude Code documents that a prefix
+# rule does not auto-approve find -exec/-delete or exec wrappers (watch, setsid,
+# ionice, flock). The 7.15 study carried them in both the scanner and this
+# list, the shared error the paper reports; the audit now encodes the
+# documented exception so that a scanner regression on it is refuted here.
+PREFIX_RULE_EXCLUDED = {"find", "watch", "setsid", "ionice", "flock"}
+EXEC_CMDS = {"sh", "bash", "zsh", "dash", "fish", "env", "eval", "exec", "xargs", "nohup", "timeout",
              "sudo", "doas", "python", "python3", "perl", "ruby", "node", "bun", "deno", "php", "lua", "awk",
-             "gawk", "mawk", "nawk", "sed", "find", "vim", "vi", "nvim", "less", "man", "npx", "bunx", "uvx",
+             "gawk", "mawk", "nawk", "sed", "vim", "vi", "nvim", "less", "man", "npx", "bunx", "uvx",
              "pipx", "docker", "podman", "make", "ssh", "curl", "wget"}
 # Commands whose wildcard grant is an unrestricted shell (the security class);
 # curl, wget, make, docker, ssh and editors are scoped grants reported apart.
-SHELL_EXEC_CMDS = {"sh", "bash", "zsh", "dash", "fish", "env", "eval", "exec", "xargs", "nohup", "timeout", "watch",
+SHELL_EXEC_CMDS = {"sh", "bash", "zsh", "dash", "fish", "env", "eval", "exec", "xargs", "nohup", "timeout",
                    "sudo", "doas", "python", "python3", "perl", "ruby", "node", "bun", "deno", "php", "lua", "awk",
-                   "gawk", "mawk", "nawk", "sed", "find", "vim", "vi", "nvim", "less", "man", "npx", "bunx", "uvx", "pipx"}
+                   "gawk", "mawk", "nawk", "sed", "vim", "vi", "nvim", "less", "man", "npx", "bunx", "uvx", "pipx"}
+# Wrappers Claude Code strips before matching (timeout, nohup, bare xargs, env
+# assignments): the effect of a prefix rule on them is undocumented. They stay
+# in the exec set (the program does run its argument) and are sub-classed so the
+# analysis can report them apart.
+STRIPPED_WRAPPERS = {"timeout", "nohup", "xargs", "env", "time", "nice", "stdbuf"}
 MACHINE_PATH_RE = re.compile(r"(/Users/[A-Za-z0-9._-]+/|/home/[A-Za-z0-9._-]+/|[A-Za-z]:\\Users\\)")
 FM_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.S)
 
@@ -292,6 +307,26 @@ def _agents(root: Path) -> dict[str, Path]:
     return out
 
 
+def _split_tool_entries(text: str) -> list[str]:
+    """Split an allowed-tools string on whitespace or commas outside parentheses:
+    'Bash(git commit:*) Read, Write' -> ['Bash(git commit:*)', 'Read', 'Write']."""
+    out, buf, depth = [], [], 0
+    for ch in text:
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth = max(0, depth - 1)
+        if depth == 0 and (ch.isspace() or ch == ","):
+            if buf:
+                out.append("".join(buf))
+                buf = []
+            continue
+        buf.append(ch)
+    if buf:
+        out.append("".join(buf))
+    return out
+
+
 def _frontmatter(p: Path):
     """(frontmatter dict | None, body). None when there is no block or it does not parse."""
     text = p.read_text(errors="replace")
@@ -377,8 +412,11 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
         if entry in ("Bash", "Edit", "Write", "WebFetch"):
             return "confirmed", "bare_tool"
         mm = re.match(r"^Bash\(\s*(?:[\w./-]*/)?([\w.+-]+)", entry)
-        if mm and mm.group(1).lower() in EXEC_CMDS and entry.rstrip(")").endswith("*"):
-            return "confirmed", "arbitrary_exec"
+        cmd0 = mm.group(1).lower() if mm else ""
+        if cmd0 in PREFIX_RULE_EXCLUDED:
+            return "refuted", "prefix_rule_excluded"   # documented: the grant widens nothing
+        if mm and cmd0 in EXEC_CMDS and entry.rstrip(")").endswith("*"):
+            return "confirmed", "stripped_wrapper" if cmd0 in STRIPPED_WRAPPERS else "arbitrary_exec"
         return "refuted", "not_exec"
     if rule == "hooks/permission-contradiction":
         m = re.search(r"entry '([^']+)' is covered by permissions.deny entry '([^']+)'", msg)
@@ -655,10 +693,18 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
                     return "refuted", "short_value"
         return "refuted", "key_absent"
     if rule == "content/allowed-tools-auto-approve":
+        # 7.15: "allowed-tools includes '<tool>', which ..." (one finding per tool)
+        # 8.0+: "allowed-tools auto-approves <class> without user confirmation: <t1>, <t2>. ..." (one per class per file)
         m = re.search(r"allowed-tools includes '([^']+)'", msg)
-        if not m:
-            return "unverifiable", ""
-        tool = m.group(1)
+        if m:
+            tools = [m.group(1)]
+            klass = None
+        else:
+            m = re.search(r"without user confirmation: (.*?)(?:\. This is not a sandbox.*)?$", msg, re.S)
+            if not m:
+                return "unverifiable", ""
+            tools = _split_tool_entries(m.group(1).strip().rstrip("."))
+            klass = "high" if "unrestricted shell" in msg else "medium"
         comp = f.get("component", "")
         cands = _skills_all(root).get(comp, [])
         if not cands:
@@ -668,20 +714,36 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
             fm, _ = _frontmatter(cand)
             a = (fm or {}).get("allowed-tools")
             if isinstance(a, str):
-                a = [x.strip() for x in a.split(",")]
+                a = _split_tool_entries(a)           # spec form: space-delimited; commas occur in the wild
             if isinstance(a, list):
-                allowed += a
-        if tool not in allowed:
+                allowed += [str(x).strip() for x in a]
+        missing = [t for t in tools if t not in allowed]
+        if missing:
             return "refuted", "entry_absent"
-        t = tool.strip()
-        if t.lower() in ("bash", "bash(*)", "bash(:*)"):
-            return "confirmed", "bash_unrestricted"
-        mm = re.match(r"^Bash\(\s*(?:[\w./-]*/)?([\w.+-]+)(?:\s+(-c|-e|-r|--eval|-exec|run))?(?::\s*\*|\s+\*|\*)\s*\)$", t, re.I)
-        if mm and mm.group(1).lower() in SHELL_EXEC_CMDS:
-            return "confirmed", "bash_exec_cmd"
-        if t.lower().startswith("bash("):
-            return "confirmed", "bash_scoped"
-        return "confirmed", "write_tool"
+        subs = []
+        for t in tools:
+            tl = t.lower()
+            if tl in ("bash", "bash(*)", "bash(:*)"):
+                subs.append("bash_unrestricted")
+                continue
+            mm = re.match(r"^Bash\(\s*(?:[\w./-]*/)?([\w.+-]+)(?:\s+(-c|-e|-r|--eval|-exec|run))?(?::\s*\*|\s+\*|\*)\s*\)$", t, re.I)
+            c0 = mm.group(1).lower() if mm else ""
+            if c0 in PREFIX_RULE_EXCLUDED:
+                subs.append("prefix_rule_excluded")
+            elif mm and c0 in SHELL_EXEC_CMDS:
+                subs.append("stripped_wrapper" if c0 in STRIPPED_WRAPPERS else "bash_exec_cmd")
+            elif tl.startswith("bash("):
+                subs.append("bash_scoped")
+            else:
+                subs.append("write_tool")
+        if klass == "high":
+            # The scanner's claim is "unrestricted shell": at least one listed grant must be one.
+            if any(x in ("bash_unrestricted", "bash_exec_cmd", "stripped_wrapper") for x in subs):
+                return "confirmed", "bash_unrestricted" if "bash_unrestricted" in subs else ("bash_exec_cmd" if "bash_exec_cmd" in subs else "stripped_wrapper")
+            return "refuted", "prefix_rule_excluded" if "prefix_rule_excluded" in subs else "not_exec"
+        if klass == "medium":
+            return "confirmed", "bash_scoped" if "bash_scoped" in subs else "write_tool"
+        return "confirmed", subs[0]
     if rule == "frontmatter/description-required":
         comp = f.get("component", "")
         cands = _skills_all(root).get(comp, [])
@@ -817,8 +879,26 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
                 return "confirmed", "invalid_yaml"
             if not isinstance(fm, dict):
                 return "confirmed", "invalid_yaml"
-            if "name" not in fm and "'name'" in msg:
-                return "confirmed", "missing_name"
+            if "is missing from frontmatter" in msg:
+                fld = re.search(r"Field '([^']+)' is missing", msg).group(1)
+                return ("confirmed", f"missing_{fld}") if fld not in fm else ("refuted", "field_present")
+            if "does not match directory" in msg:
+                return ("confirmed", "name_dir_mismatch") if str(fm.get("name", "")).strip() != p.parent.name else ("refuted", "name_matches")
+            if "must be 1-64 lowercase" in msg:
+                ok_name = isinstance(fm.get("name"), str) and re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", fm["name"]) and len(fm["name"]) <= 64
+                return ("refuted", "name_format_ok") if ok_name else ("confirmed", "name_format")
+            if "'allowed-tools' must be a space-delimited string" in msg:
+                return ("confirmed", "allowed_tools_type") if not isinstance(fm.get("allowed-tools"), str) else ("refuted", "allowed_tools_is_string")
+            if "'metadata' must be a mapping" in msg:
+                md = fm.get("metadata")
+                ok_md = isinstance(md, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in md.items())
+                return ("refuted", "metadata_ok") if ok_md else ("confirmed", "metadata_type")
+            if "'compatibility' must be a string" in msg:
+                cp = fm.get("compatibility")
+                return ("refuted", "compatibility_ok") if isinstance(cp, str) and len(cp) <= 500 else ("confirmed", "compatibility_type")
+            if "must be a string" in msg:
+                fld = re.search(r"Field '([^']+)' must be a string", msg).group(1)
+                return ("refuted", "field_is_string") if isinstance(fm.get(fld), str) else ("confirmed", f"{fld}_type")
         return "refuted", "frontmatter_valid"
     if rule == "content/hardcoded-machine-path":
         comp = f.get("component", "")
@@ -855,7 +935,7 @@ def check(rule: str, rec: dict, f: dict, root: Path) -> tuple[str, str]:
                 args = parts[parts.index(runner) + 1:] if runner else parts[1:]
                 if cmd in ("npx", "bunx", "uvx", "pipx") and name in msg:
                     pkgs = [a for a in args if not a.startswith("-") and a not in ("run", "/c", "-c")]
-                    if pkgs and ("@" not in pkgs[0].lstrip("@") or pkgs[0].endswith("@latest")):
+                    if pkgs and ("@" not in pkgs[0].lstrip("@") or pkgs[0].lstrip("@").rsplit("@", 1)[-1] in ("latest", "next", "canary", "beta", "alpha")):
                         rel = "/" + str(c.relative_to(root)).lower() + "/"
                         if re.search(r"/(?:tests?|testdata|fixtures?|__fixtures__|__snapshots__|benchmarks?|evaluation|corpus|vulnerable-configs)/", rel):
                             return "confirmed", "fixture_path"
@@ -1190,8 +1270,10 @@ def main() -> None:
         arg = sys.argv[sys.argv.index("--exhaustive") + 1]
         exhaustive = set(CANDIDATES) - SAMPLED if arg == "all" else set(arg.split(","))
     workers = int(sys.argv[sys.argv.index("--workers") + 1]) if "--workers" in sys.argv else 4
+    tag = sys.argv[sys.argv.index("--tag") + 1] if "--tag" in sys.argv else ""
+    suffix = f"_{tag}" if tag else ""
     from analyze import read_results  # noqa: E402
-    recs = read_results()
+    recs = read_results(Path(sys.argv[sys.argv.index("--results") + 1])) if "--results" in sys.argv else read_results()
     ok = [r for r in recs if r.get("status") == "ok" and r.get("commit")]
     rng = random.Random(seed)
     by_rule: dict[str, list[tuple[dict, dict]]] = defaultdict(list)
@@ -1246,7 +1328,7 @@ def main() -> None:
         return rows
 
     from concurrent.futures import ThreadPoolExecutor
-    out = (DATA / "audit_findings.jsonl").open("w")
+    out = (DATA / f"audit_findings{suffix}.jsonl").open("w")
     with ThreadPoolExecutor(max_workers=workers) as ex:
         for i, rows in enumerate(ex.map(audit_repo, sorted(needed.items())), 1):
             for row in rows:
@@ -1263,7 +1345,7 @@ def main() -> None:
     out.close()
     for s in summary.values():
         s["breakdown"] = dict(s["breakdown"])
-    (DATA / "audit_summary.json").write_text(json.dumps(summary, indent=1))
+    (DATA / f"audit_summary{suffix}.json").write_text(json.dumps(summary, indent=1))
     for rule, s in summary.items():
         n = s["audited"]
         print(f"{rule:36} audited={n:4} confirmed={s['confirmed']:4} ({100*s['confirmed']/n if n else 0:5.1f}%) {s['breakdown']}", file=sys.stderr)

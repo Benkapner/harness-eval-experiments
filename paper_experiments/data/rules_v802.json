@@ -1,0 +1,1081 @@
+[
+  {
+    "id": "agent/constraint-body-match",
+    "severity": "warning",
+    "target": "agent",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Body constraints should be backed by disallowedTools entries"
+  },
+  {
+    "id": "agent/description-required",
+    "severity": "error",
+    "target": "agent",
+    "category": "frontmatter",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Agent must have a description in frontmatter"
+  },
+  {
+    "id": "agent/disallowed-tools-parseable",
+    "severity": "warning",
+    "target": "agent",
+    "category": "frontmatter",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Each disallowedTools entry must follow ToolName or ToolName(pattern) format"
+  },
+  {
+    "id": "agent/excessive-permissions",
+    "severity": "warning",
+    "target": "agent",
+    "category": "security",
+    "tier": "provisional",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Agent declares no tool constraints, granting unrestricted access",
+    "frameworks": {
+      "owasp_agentic": "ASI02"
+    }
+  },
+  {
+    "id": "agent/referenced-skills-exist",
+    "severity": "error",
+    "target": "agent",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "PAIRWISE",
+    "fixable": false,
+    "description": "Every skill referenced in agent frontmatter must have a matching SKILL.md"
+  },
+  {
+    "id": "agent/tools-disallowed-overlap",
+    "severity": "error",
+    "target": "agent",
+    "category": "frontmatter",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag a tool listed in both tools and disallowedTools of the same agent"
+  },
+  {
+    "id": "claude-md/include-exists",
+    "severity": "error",
+    "target": "claude_md",
+    "category": "structural",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "Flag @path imports in a context file whose target does not exist"
+  },
+  {
+    "id": "claude-md/skill-duplication",
+    "severity": "warning",
+    "target": "claude_md",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "PAIRWISE",
+    "fixable": false,
+    "description": "CLAUDE.md should not duplicate content that's already in skills"
+  },
+  {
+    "id": "command/allowed-tools-coverage",
+    "severity": "warning",
+    "target": "command",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Check that command allowed-tools covers the tools the command uses"
+  },
+  {
+    "id": "command/description-quality",
+    "severity": "warning",
+    "target": "command",
+    "category": "frontmatter",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Command descriptions should say what the command does in more than two words"
+  },
+  {
+    "id": "command/description-required",
+    "severity": "error",
+    "target": "command",
+    "category": "frontmatter",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Commands must have a description in frontmatter for the UI menu"
+  },
+  {
+    "id": "command/duplicate-detection",
+    "severity": "warning",
+    "target": "command",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "PAIRWISE",
+    "fixable": false,
+    "description": "Detect near-duplicate commands"
+  },
+  {
+    "id": "command/references-nonexistent-skill",
+    "severity": "warning",
+    "target": "command",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "PAIRWISE",
+    "fixable": false,
+    "description": "Detect commands that reference skills which do not exist"
+  },
+  {
+    "id": "command/script-exists",
+    "severity": "warning",
+    "target": "command",
+    "category": "content",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "Script files referenced in commands should exist"
+  },
+  {
+    "id": "command/shadows-builtin",
+    "severity": "warning",
+    "target": "command",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Command name should not shadow a Claude Code built-in slash command"
+  },
+  {
+    "id": "command/skill-overlap",
+    "severity": "warning",
+    "target": "command",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "PAIRWISE",
+    "fixable": false,
+    "description": "Detect commands that duplicate content already in a skill"
+  },
+  {
+    "id": "config/dangerous-autonomy",
+    "severity": "warning",
+    "target": "config",
+    "category": "security",
+    "tier": "provisional",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect explicit project settings that remove approval and containment together"
+  },
+  {
+    "id": "config/valid-structure",
+    "severity": "error",
+    "target": "config",
+    "category": "structural",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Validate current Codex, Gemini CLI, OpenCode, and Copilot settings shapes"
+  },
+  {
+    "id": "content/activation-valid",
+    "severity": "error",
+    "target": "claude_md",
+    "category": "structural",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Validate activation metadata required by path-scoped instruction files"
+  },
+  {
+    "id": "content/allowed-tools-auto-approve",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "provisional",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag allowed-tools entries that auto-approve dangerous tools. allowed-tools removes the human confirmation prompt; it widens the blast radius, not narrows it."
+  },
+  {
+    "id": "content/broken-references",
+    "severity": "error",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "File references in skill content must point to existing files"
+  },
+  {
+    "id": "content/circular-references",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "SETUP",
+    "fixable": false,
+    "description": "Detect circular reference chains between skills and commands"
+  },
+  {
+    "id": "content/description-length",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag skill descriptions that are too long. Descriptions load into the system prompt every session, invoked or not."
+  },
+  {
+    "id": "content/duplicate-detection",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "PAIRWISE",
+    "fixable": false,
+    "description": "Detect near-duplicate skills"
+  },
+  {
+    "id": "content/hardcoded-machine-path",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag machine-specific absolute paths that break portability"
+  },
+  {
+    "id": "content/token-budget",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Skill should be within adaptive token budget and under 500 lines"
+  },
+  {
+    "id": "content/total-description-budget",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "SETUP",
+    "fixable": false,
+    "description": "Total always-loaded description tokens across all skills should not exceed budget. Every description loads every session."
+  },
+  {
+    "id": "cross/config-component-conflict",
+    "severity": "warning",
+    "target": "config",
+    "category": "cross_component",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "SETUP",
+    "fixable": false,
+    "description": "Detect configured components made unreachable by settings in the same setup"
+  },
+  {
+    "id": "cross/config-instruction-conflict",
+    "severity": "warning",
+    "target": "skill",
+    "category": "cross_component",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "PAIRWISE",
+    "fixable": false,
+    "description": "Flag when settings.json permissions.deny blocks tools that instructions direct to use"
+  },
+  {
+    "id": "cross/duplicate-skill-id",
+    "severity": "warning",
+    "target": "skill",
+    "category": "cross_component",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "SETUP",
+    "fixable": false,
+    "description": "Detect ambiguous duplicate skill IDs across supported discovery roots"
+  },
+  {
+    "id": "cross/overpermissive-grants",
+    "severity": "warning",
+    "target": "hooks",
+    "category": "cross_component",
+    "tier": "gating",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag permissions.allow entries that grant unrestricted shell access, bare high-risk tools, or wildcard grants on commands that execute arbitrary code"
+  },
+  {
+    "id": "frontmatter/allowed-tools-case",
+    "severity": "error",
+    "target": "skill,command,agent",
+    "category": "frontmatter",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag a tool entry that matches a built-in tool name only case-insensitively; tool names are case-sensitive, so the entry has no effect"
+  },
+  {
+    "id": "frontmatter/description-quality",
+    "severity": "warning",
+    "target": "skill",
+    "category": "frontmatter",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Description must fit the Agent Skills 1,024-character limit"
+  },
+  {
+    "id": "frontmatter/description-required",
+    "severity": "warning",
+    "target": "skill",
+    "category": "frontmatter",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "The 'description' field is required in frontmatter"
+  },
+  {
+    "id": "frontmatter/format-valid",
+    "severity": "warning",
+    "target": "skill",
+    "category": "frontmatter",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Frontmatter must be valid YAML with the fields the Agent Skills spec requires"
+  },
+  {
+    "id": "frontmatter/near-miss-key",
+    "severity": "error",
+    "target": "skill,command,agent",
+    "category": "frontmatter",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag a frontmatter key that differs from a key the client reads only by case or separator; the client ignores it silently"
+  },
+  {
+    "id": "harness/host-file-dest-collision",
+    "severity": "error",
+    "target": "harness",
+    "category": "structural",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Two non-optional host files must not map to the same sandbox destination"
+  },
+  {
+    "id": "harness/image-unpinned",
+    "severity": "warning",
+    "target": "harness",
+    "category": "structural",
+    "tier": "provisional",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Report a harness whose sandbox image has no tag or the latest tag and no digest; the agent then runs in whatever image is current at dispatch time"
+  },
+  {
+    "id": "harness/output-contract-instructed",
+    "severity": "error",
+    "target": "harness",
+    "category": "content",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "PAIRWISE",
+    "fixable": false,
+    "description": "A harness that declares an output contract (schema or output file) must have instructions that mention it; otherwise the validator looks for a file the agent was never told to write"
+  },
+  {
+    "id": "harness/output-schema-valid",
+    "severity": "error",
+    "target": "harness",
+    "category": "structural",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "A declared output schema must parse as a JSON object, and an object that forbids additional properties must not require a key it does not define"
+  },
+  {
+    "id": "harness/referenced-file-exists",
+    "severity": "error",
+    "target": "harness",
+    "category": "structural",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "Every path a harness references (agent prompt, policy, scripts, skills, plugins, host files, output schema, base) must exist in the tree"
+  },
+  {
+    "id": "hooks/api-key-helper",
+    "severity": "error",
+    "target": "hooks",
+    "category": "security",
+    "tier": "provisional",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag project-scoped settings defining apiKeyHelper. A repo-controlled helper can intercept or exfiltrate API keys."
+  },
+  {
+    "id": "hooks/base-url-override",
+    "severity": "error",
+    "target": "hooks",
+    "category": "security",
+    "tier": "provisional",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag project-scoped settings that override LLM provider base URLs. CVE-2026-21852: malicious ANTHROPIC_BASE_URL redirected API traffic and exfiltrated the API key."
+  },
+  {
+    "id": "hooks/command-script-exists",
+    "severity": "error",
+    "target": "hooks",
+    "category": "structural",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "Flag a hook command that references a relative or project-dir script path that does not exist"
+  },
+  {
+    "id": "hooks/dangerous-command",
+    "severity": "error",
+    "target": "hooks",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag hooks containing dangerous shell commands"
+  },
+  {
+    "id": "hooks/env-credential-override",
+    "severity": "warning",
+    "target": "hooks",
+    "category": "security",
+    "tier": "provisional",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag project-scoped settings that set credential-shaped environment variables. A malicious repo can inject attacker-controlled values for keys, tokens, or passwords."
+  },
+  {
+    "id": "hooks/env-leakage",
+    "severity": "warning",
+    "target": "hooks",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag hooks that may leak environment variables"
+  },
+  {
+    "id": "hooks/event-name-near-miss",
+    "severity": "error",
+    "target": "hooks",
+    "category": "structural",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag a hooks event key that differs from a Claude Code event name only by case or separator; the hooks under it never run"
+  },
+  {
+    "id": "hooks/json-duplicate-keys",
+    "severity": "error",
+    "target": "hooks",
+    "category": "structural",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag duplicate object keys in settings.json; the parser silently keeps only the last"
+  },
+  {
+    "id": "hooks/local-settings-committed",
+    "severity": "warning",
+    "target": "hooks",
+    "category": "structural",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "Flag a .claude/settings.local.json present in the repository tree; it is a per-machine file that should not be shared"
+  },
+  {
+    "id": "hooks/matcher-matches-no-tool",
+    "severity": "warning",
+    "target": "hooks",
+    "category": "structural",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag hook matchers that match no known tool name"
+  },
+  {
+    "id": "hooks/network-access",
+    "severity": "warning",
+    "target": "hooks",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag hooks that make network calls"
+  },
+  {
+    "id": "hooks/permission-contradiction",
+    "severity": "warning",
+    "target": "hooks",
+    "category": "cross_component",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag permissions.allow entries that a permissions.deny entry also matches, because deny takes precedence and the allow is dead configuration"
+  },
+  {
+    "id": "hooks/permission-prompt-disabled",
+    "severity": "error",
+    "target": "hooks",
+    "category": "security",
+    "tier": "gating",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag committed settings that disable the permission prompt (permissions.defaultMode) or auto-approve every project MCP server (enableAllProjectMcpServers)"
+  },
+  {
+    "id": "hooks/pre-trust-permissions",
+    "severity": "warning",
+    "target": "hooks",
+    "category": "security",
+    "tier": "provisional",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag project-scoped settings that define permissions.allow or lifecycle hooks (SessionStart, Stop, etc.) that auto-execute without user interaction (CVE-2025-59536, GHSA-ph6w-f82w-28w6)."
+  },
+  {
+    "id": "hooks/script-boundary",
+    "severity": "error",
+    "target": "hooks",
+    "category": "security",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Hook scripts must resolve within the project directory"
+  },
+  {
+    "id": "hooks/silent-failure-masking",
+    "severity": "warning",
+    "target": "hooks",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag hooks that silently suppress errors, especially when combined with security-relevant operations"
+  },
+  {
+    "id": "hooks/valid-structure",
+    "severity": "warning",
+    "target": "hooks",
+    "category": "structural",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag hook definitions that have no command, which the runtime ignores"
+  },
+  {
+    "id": "mcp/args-reference-missing-file",
+    "severity": "error",
+    "target": "mcp_config",
+    "category": "structural",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "Flag an MCP server argument that is a repository-relative script path that does not exist"
+  },
+  {
+    "id": "mcp/auto-approve-risk",
+    "severity": "warning",
+    "target": "mcp_config",
+    "category": "security",
+    "tier": "provisional",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag MCP servers with autoApprove lists containing write or execute tools"
+  },
+  {
+    "id": "mcp/cross-assistant-divergence",
+    "severity": "info",
+    "target": "mcp_config",
+    "category": "cross_component",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "PAIRWISE",
+    "fixable": false,
+    "description": "Flag an MCP server that is declared with a different command, args, or URL in two assistants' configuration files"
+  },
+  {
+    "id": "mcp/endpoint-integrity",
+    "severity": "error",
+    "target": "mcp_config",
+    "category": "security",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "Flag MCP servers whose local command path is missing, whose URL is plain HTTP to a remote host, or whose URL embeds credentials"
+  },
+  {
+    "id": "mcp/json-duplicate-keys",
+    "severity": "error",
+    "target": "mcp_config",
+    "category": "structural",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag duplicate object keys in an MCP configuration; the parser silently keeps only the last"
+  },
+  {
+    "id": "mcp/no-plaintext-secrets",
+    "severity": "error",
+    "target": "mcp_config",
+    "category": "security",
+    "tier": "provisional",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag literal secret values committed in MCP configuration files"
+  },
+  {
+    "id": "mcp/unpinned-package",
+    "severity": "warning",
+    "target": "mcp_config",
+    "category": "security",
+    "tier": "gating",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag MCP servers that run unpinned third-party packages"
+  },
+  {
+    "id": "mcp/valid-config",
+    "severity": "warning",
+    "target": "mcp_config",
+    "category": "structural",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Validate MCP configuration file structure"
+  },
+  {
+    "id": "quality/imprecise-instruction",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Instructions should use direct, unambiguous language"
+  },
+  {
+    "id": "quality/redundant-guidance",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect instructions that are redundant with model defaults or project tooling"
+  },
+  {
+    "id": "quality/scope-grab-description",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag descriptions that hijack tool routing by claiming universal applicability or demanding preference over other skills."
+  },
+  {
+    "id": "quality/stale-references",
+    "severity": "info",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect deprecated models, sunset APIs, and outdated tool references"
+  },
+  {
+    "id": "quality/unfinished-content",
+    "severity": "warning",
+    "target": "skill",
+    "category": "content",
+    "tier": "advisory",
+    "effect": "advice",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect placeholders, deferred content, and empty sections"
+  },
+  {
+    "id": "security/ast-behavioral",
+    "severity": "error",
+    "target": "skill",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect dangerous function calls in Python scripts via AST analysis",
+    "frameworks": {
+      "owasp_agentic": "AG04",
+      "mitre_atlas": "AML.T0054"
+    }
+  },
+  {
+    "id": "security/bash-taint-flow",
+    "severity": "error",
+    "target": "skill",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect data flows from untrusted sources to dangerous sinks in bash scripts",
+    "frameworks": {
+      "owasp_llm": "LLM06",
+      "owasp_agentic": "AG04"
+    }
+  },
+  {
+    "id": "security/coercive-override",
+    "severity": "error",
+    "target": "skill",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect patterns forcing the agent to comply unconditionally",
+    "frameworks": {
+      "owasp_llm": "LLM01",
+      "owasp_agentic": "AG01"
+    }
+  },
+  {
+    "id": "security/credential-file-present",
+    "severity": "error",
+    "target": "skill",
+    "category": "security",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "Flag a file inside a skill directory whose name matches a secret-file pattern"
+  },
+  {
+    "id": "security/cross-component-flow",
+    "severity": "warning",
+    "target": "skill",
+    "category": "cross_component",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "SETUP",
+    "fixable": false,
+    "description": "Detect security issues that span component boundaries",
+    "frameworks": {
+      "owasp_llm": "LLM06",
+      "owasp_agentic": "AG04",
+      "mitre_atlas": "AML.T0054"
+    }
+  },
+  {
+    "id": "security/cve-lookup",
+    "severity": "warning",
+    "target": "skill",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Check skill dependencies for known CVEs via OSV.dev",
+    "frameworks": {
+      "owasp_llm": "LLM05"
+    }
+  },
+  {
+    "id": "security/dangerous-permission-grant",
+    "severity": "error",
+    "target": "hooks",
+    "category": "security",
+    "tier": "provisional",
+    "effect": "policy",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Flag permissions.allow entries that grant access to destructive, privilege-escalating, or persistence-creating command patterns."
+  },
+  {
+    "id": "security/data-exfiltration",
+    "severity": "error",
+    "target": "skill,command,agent",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Instruction content should not contain data exfiltration patterns",
+    "frameworks": {
+      "owasp_llm": "LLM06",
+      "owasp_agentic": "AG04"
+    }
+  },
+  {
+    "id": "security/mcp-tool-poisoning",
+    "severity": "error",
+    "target": "skill",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect hidden instructions, Unicode deception, and suspicious embedded content",
+    "frameworks": {
+      "owasp_llm": "LLM05",
+      "owasp_agentic": "AG03"
+    }
+  },
+  {
+    "id": "security/memory-write-unscoped",
+    "severity": "warning",
+    "target": "skill,command,agent",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Instructions persist data across sessions without scoping constraints",
+    "frameworks": {
+      "owasp_agentic": "ASI06"
+    }
+  },
+  {
+    "id": "security/no-credential-access",
+    "severity": "error",
+    "target": "skill,command,agent",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Instruction content should not reference sensitive file paths or environment variables",
+    "frameworks": {
+      "owasp_llm": "LLM06",
+      "owasp_agentic": "AG05"
+    }
+  },
+  {
+    "id": "security/no-prompt-injection",
+    "severity": "error",
+    "target": "skill,command,agent",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Instruction content should not contain prompt injection patterns",
+    "frameworks": {
+      "owasp_llm": "LLM01",
+      "mitre_atlas": "AML.T0051"
+    }
+  },
+  {
+    "id": "security/obfuscation",
+    "severity": "error",
+    "target": "skill,command,agent",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Instruction content should not contain code obfuscation patterns",
+    "frameworks": {
+      "owasp_llm": "LLM02",
+      "mitre_atlas": "AML.T0054"
+    }
+  },
+  {
+    "id": "security/prompt-exfiltration",
+    "severity": "error",
+    "target": "skill",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect instructions that leak system prompts or configuration to outputs",
+    "frameworks": {
+      "owasp_llm": "LLM07"
+    }
+  },
+  {
+    "id": "security/reverse-shell",
+    "severity": "error",
+    "target": "skill,command,agent",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Instruction content should not contain reverse shell patterns",
+    "frameworks": {
+      "owasp_agentic": "AG04",
+      "mitre_atlas": "AML.T0054"
+    }
+  },
+  {
+    "id": "security/stealth-persistence",
+    "severity": "error",
+    "target": "skill",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect instructions writing to config directories or persistent state",
+    "frameworks": {
+      "owasp_agentic": "AG04",
+      "mitre_atlas": "AML.T0054"
+    }
+  },
+  {
+    "id": "security/taint-flow",
+    "severity": "error",
+    "target": "skill",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Detect data flows from sensitive sources to dangerous sinks in Python scripts",
+    "frameworks": {
+      "owasp_llm": "LLM06",
+      "owasp_agentic": "AG04"
+    }
+  },
+  {
+    "id": "security/unbounded-delegation",
+    "severity": "warning",
+    "target": "skill,command,agent",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Instructions spawn subagents or delegate without recursion bounds",
+    "frameworks": {
+      "owasp_agentic": "ASI08"
+    }
+  },
+  {
+    "id": "security/yara-signatures",
+    "severity": "error",
+    "target": "skill",
+    "category": "security",
+    "tier": "advisory",
+    "effect": "signal",
+    "scope": "FILE",
+    "fixable": false,
+    "description": "Scan skill files for malware, webshell, cryptominer, and hack tool signatures using YARA",
+    "frameworks": {
+      "mitre_atlas": "AML.T0054"
+    }
+  },
+  {
+    "id": "structural/skill-md-exists",
+    "severity": "error",
+    "target": "skill",
+    "category": "structural",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "SKILL.md file must exist in the skill directory"
+  },
+  {
+    "id": "structural/symlink-escape",
+    "severity": "error",
+    "target": "skill",
+    "category": "security",
+    "tier": "gating",
+    "effect": "block",
+    "scope": "FILE_FS",
+    "fixable": false,
+    "description": "Flag a symlink inside a skill directory whose target lies outside the repository"
+  }
+]
